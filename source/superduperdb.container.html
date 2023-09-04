@@ -237,10 +237,7 @@
 <li class="toctree-l4"><a class="reference internal" href="superduperdb.ext.sklearn.html">superduperdb.ext.sklearn package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="superduperdb.ext.torch.html">superduperdb.ext.torch package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="superduperdb.ext.transformers.html">superduperdb.ext.transformers package</a></li>
-<li class="toctree-l4 has-children"><a class="reference internal" href="superduperdb.ext.vector.html">superduperdb.ext.vector package</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle navigation of superduperdb.ext.vector package</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l5"><a class="reference internal" href="superduperdb.ext.vector.vectors.html">superduperdb.ext.vector.vectors package</a></li>
-</ul>
-</li>
+<li class="toctree-l4"><a class="reference internal" href="superduperdb.ext.vector.html">superduperdb.ext.vector package</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="superduperdb.misc.html">superduperdb.misc package</a></li>
@@ -296,6 +293,22 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">superduperdb.container.artifact.</span></span><span class="sig-name descname"><span class="pre">Artifact</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">artifact</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">info</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">object_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">serializer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'dill'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sha1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hash</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/container/artifact.html#Artifact"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.container.artifact.Artifact" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>An artifact from a computation that can be serialized or deserialized</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>artifact</strong> – the computed artifact, which may be of any type</p></li>
+<li><p><strong>file_id</strong> – a key used to identify the file in the <code class="docutils literal notranslate"><span class="pre">ArtifactStore</span></code></p></li>
+<li><p><strong>info</strong> – the <code class="docutils literal notranslate"><span class="pre">info</span></code> dictionary is passed into
+<code class="docutils literal notranslate"><span class="pre">ArtifactStore.create_artifact()</span></code></p></li>
+<li><p><strong>object_id</strong> – the Python <code class="docutils literal notranslate"><span class="pre">id()</span></code> of the artifact</p></li>
+<li><p><strong>save_method</strong> – the name of the finalization method on the artifact
+to call before saving</p></li>
+<li><p><strong>serializer</strong> – the name of the serializer</p></li>
+<li><p><strong>sha1</strong> – the sha1 hash of the artifact</p></li>
+<li><p><strong>hash</strong> – in case the object isn’t hashable (deduplication not possible)</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="superduperdb.container.artifact.Artifact.artifact">
 <span class="sig-name descname"><span class="pre">artifact</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Any</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#superduperdb.container.artifact.Artifact.artifact" title="Permalink to this definition">#</a></dt>
@@ -492,11 +505,6 @@ that <cite>file_id</cite>.</p>
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">superduperdb.container.component.</span></span><span class="sig-name descname"><span class="pre">Component</span></span><a class="reference internal" href="../_modules/superduperdb/container/component.html#Component"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.container.component.Component" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#superduperdb.container.serializable.Serializable" title="superduperdb.container.serializable.Serializable"><code class="xref py py-class docutils literal notranslate"><span class="pre">Serializable</span></code></a></p>
 <p>Base component which model, listeners, learning tasks etc. inherit from.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>identifier</strong> – Unique ID</p>
-</dd>
-</dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="superduperdb.container.component.Component.child_components">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">child_components</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#superduperdb.container.component.Component.child_components" title="Permalink to this definition">#</a></dt>
@@ -523,7 +531,7 @@ that <cite>file_id</cite>.</p>
 <dd><p>Called the first time this component is created</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>db</strong> – the db that created the component</p>
+<dd class="field-odd"><p><strong>db</strong> – the db that creates the component</p>
 </dd>
 </dl>
 </dd></dl>
@@ -573,8 +581,22 @@ that <cite>file_id</cite>.</p>
 <span id="superduperdb-container-dataset-module"></span><h2>superduperdb.container.dataset module<a class="headerlink" href="#module-superduperdb.container.dataset" title="Permalink to this heading">#</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="superduperdb.container.dataset.Dataset">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">superduperdb.container.dataset.</span></span><span class="sig-name descname"><span class="pre">Dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">identifier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="s"><span class="pre">'str'</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">select</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="s"><span class="pre">'t.Optional[Find]'</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="s"><span class="pre">'t.Optional[int]'</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_seed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="s"><span class="pre">'t.Optional[int]'</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">creation_date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="s"><span class="pre">'t.Optional[str]'</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">raw_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="s"><span class="pre">'t.Optional[t.Union[Artifact,</span> <span class="pre">t.Any]]'</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">version</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="s"><span class="pre">'t.Optional[int]'</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/container/dataset.html#Dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.container.dataset.Dataset" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">superduperdb.container.dataset.</span></span><span class="sig-name descname"><span class="pre">Dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">identifier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">select</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="superduperdb.db.mongodb.html#superduperdb.db.mongodb.query.Find" title="superduperdb.db.mongodb.query.Find"><span class="pre">Find</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_seed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">creation_date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">raw_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#superduperdb.container.artifact.Artifact" title="superduperdb.container.artifact.Artifact"><span class="pre">Artifact</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">version</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/container/dataset.html#Dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.container.dataset.Dataset" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#superduperdb.container.component.Component" title="superduperdb.container.component.Component"><code class="xref py py-class docutils literal notranslate"><span class="pre">Component</span></code></a></p>
+<p>A dataset is an immutable collection of documents that can be used for training</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>identifier</strong> – A unique identifier for the dataset</p></li>
+<li><p><strong>select</strong> – A query to select the documents for the dataset</p></li>
+<li><p><strong>sample_size</strong> – The number of documents to sample from the query</p></li>
+<li><p><strong>random_seed</strong> – The random seed to use for sampling</p></li>
+<li><p><strong>creation_date</strong> – The date the dataset was created</p></li>
+<li><p><strong>raw_data</strong> – The raw data for the dataset</p></li>
+<li><p><strong>version</strong> – The version of the dataset</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="superduperdb.container.dataset.Dataset.creation_date">
 <span class="sig-name descname"><span class="pre">creation_date</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#superduperdb.container.dataset.Dataset.creation_date" title="Permalink to this definition">#</a></dt>
@@ -591,7 +613,7 @@ that <cite>file_id</cite>.</p>
 <dd><p>Called the first time this component is created</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>db</strong> – the db that created the component</p>
+<dd class="field-odd"><p><strong>db</strong> – the db that creates the component</p>
 </dd>
 </dl>
 </dd></dl>
@@ -654,6 +676,11 @@ that <cite>file_id</cite>.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A wrapper around an instance of dict or a Encodable which may be used to dump
 that resource to a mix of JSONable and <cite>bytes</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>content</strong> – The content to wrap</p>
+</dd>
+</dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="superduperdb.container.document.Document.content">
 <span class="sig-name descname"><span class="pre">content</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#superduperdb.container.encoder.Encodable" title="superduperdb.container.encoder.Encodable"><span class="pre">Encodable</span></a></em><a class="headerlink" href="#superduperdb.container.document.Document.content" title="Permalink to this definition">#</a></dt>
@@ -749,8 +776,9 @@ to <code class="docutils literal notranslate"><span class="pre">Encoder</span></
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>x</strong> – Wrapped content</p></li>
 <li><p><strong>encoder</strong> – Instance of <code class="docutils literal notranslate"><span class="pre">Encoder</span></code> controlling encoding</p></li>
+<li><p><strong>x</strong> – Wrapped content</p></li>
+<li><p><strong>uri</strong> – URI of the content, if any</p></li>
 </ul>
 </dd>
 </dl>
@@ -849,6 +877,18 @@ this <code class="docutils literal notranslate"><span class="pre">Encoder</span>
 <dt class="sig sig-object py" id="superduperdb.container.job.ComponentJob">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">superduperdb.container.job.</span></span><span class="sig-name descname"><span class="pre">ComponentJob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">component_identifier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/container/job.html#ComponentJob"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.container.job.ComponentJob" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#superduperdb.container.job.Job" title="superduperdb.container.job.Job"><code class="xref py py-class docutils literal notranslate"><span class="pre">Job</span></code></a></p>
+<p>Job for running a class method of a component.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>component_identifier</strong> – unique identifier of the component</p></li>
+<li><p><strong>type_id</strong> – type of the component</p></li>
+<li><p><strong>method_name</strong> – name of the method to be called</p></li>
+<li><p><strong>args</strong> – positional arguments to be passed to the method</p></li>
+<li><p><strong>kwargs</strong> – keyword arguments to be passed to the method</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="superduperdb.container.job.ComponentJob.component">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">component</span></span><a class="headerlink" href="#superduperdb.container.job.ComponentJob.component" title="Permalink to this definition">#</a></dt>
@@ -862,7 +902,16 @@ this <code class="docutils literal notranslate"><span class="pre">Encoder</span>
 <dl class="py method">
 <dt class="sig sig-object py" id="superduperdb.container.job.ComponentJob.run_on_dask">
 <span class="sig-name descname"><span class="pre">run_on_dask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dependencies</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/container/job.html#ComponentJob.run_on_dask"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.container.job.ComponentJob.run_on_dask" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
+<dd><p>Run the job on a dask cluster.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>client</strong> – dask client</p></li>
+<li><p><strong>dependencies</strong> – list of dependencies</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 
@@ -870,6 +919,17 @@ this <code class="docutils literal notranslate"><span class="pre">Encoder</span>
 <dt class="sig sig-object py" id="superduperdb.container.job.FunctionJob">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">superduperdb.container.job.</span></span><span class="sig-name descname"><span class="pre">FunctionJob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callable</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/container/job.html#FunctionJob"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.container.job.FunctionJob" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#superduperdb.container.job.Job" title="superduperdb.container.job.Job"><code class="xref py py-class docutils literal notranslate"><span class="pre">Job</span></code></a></p>
+<p>Job for running a function.
+on a dask cluster.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>callable</strong> – function to be called</p></li>
+<li><p><strong>args</strong> – positional arguments to be passed to the function</p></li>
+<li><p><strong>kwargs</strong> – keyword arguments to be passed to the function</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="superduperdb.container.job.FunctionJob.dict">
 <span class="sig-name descname"><span class="pre">dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/container/job.html#FunctionJob.dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.container.job.FunctionJob.dict" title="Permalink to this definition">#</a></dt>
@@ -878,7 +938,16 @@ this <code class="docutils literal notranslate"><span class="pre">Encoder</span>
 <dl class="py method">
 <dt class="sig sig-object py" id="superduperdb.container.job.FunctionJob.run_on_dask">
 <span class="sig-name descname"><span class="pre">run_on_dask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dependencies</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/container/job.html#FunctionJob.run_on_dask"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.container.job.FunctionJob.run_on_dask" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
+<dd><p>Run the job on a dask cluster.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>client</strong> – dask client</p></li>
+<li><p><strong>dependencies</strong> – list of dependencies</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 
@@ -886,6 +955,39 @@ this <code class="docutils literal notranslate"><span class="pre">Encoder</span>
 <dt class="sig sig-object py" id="superduperdb.container.job.Job">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">superduperdb.container.job.</span></span><span class="sig-name descname"><span class="pre">Job</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/container/job.html#Job"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.container.job.Job" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Base class for jobs. Jobs are used to run functions or methods on.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>args</strong> – positional arguments to be passed to the function or method</p></li>
+<li><p><strong>kwargs</strong> – keyword arguments to be passed to the function or method</p></li>
+<li><p><strong>identifier</strong> – unique identifier</p></li>
+<li><p><strong>callable</strong> – function or method to be called</p></li>
+<li><p><strong>db</strong> – DB instance to be used</p></li>
+<li><p><strong>future</strong> – future object returned by dask</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="superduperdb.container.job.Job.__call__">
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">db</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distributed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dependencies</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/container/job.html#Job.__call__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.container.job.Job.__call__" title="Permalink to this definition">#</a></dt>
+<dd><p>Run the job.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>db</strong> – DB instance to be used</p></li>
+<li><p><strong>distributed</strong> – whether to run the job on a dask cluster</p></li>
+<li><p><strong>dependencies</strong> – list of dependencies</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="superduperdb.container.job.Job.callable">
+<span class="sig-name descname"><span class="pre">callable</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Callable</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#superduperdb.container.job.Job.callable" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="superduperdb.container.job.Job.dict">
 <span class="sig-name descname"><span class="pre">dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/container/job.html#Job.dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.container.job.Job.dict" title="Permalink to this definition">#</a></dt>
@@ -894,17 +996,28 @@ this <code class="docutils literal notranslate"><span class="pre">Encoder</span>
 <dl class="py method">
 <dt class="sig sig-object py" id="superduperdb.container.job.Job.run_locally">
 <span class="sig-name descname"><span class="pre">run_locally</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">db</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/container/job.html#Job.run_locally"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.container.job.Job.run_locally" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
+<dd><p>Run the job locally.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="superduperdb.container.job.Job.run_on_dask">
 <span class="sig-name descname"><span class="pre">run_on_dask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dependencies</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/container/job.html#Job.run_on_dask"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.container.job.Job.run_on_dask" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
+<dd><p>Run the job on a dask cluster.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>client</strong> – dask client</p></li>
+<li><p><strong>dependencies</strong> – list of dependencies</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="superduperdb.container.job.Job.watch">
 <span class="sig-name descname"><span class="pre">watch</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/container/job.html#Job.watch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.container.job.Job.watch" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
+<dd><p>Watch the stdout of the job.</p>
+</dd></dl>
 
 </dd></dl>
 
@@ -918,7 +1031,7 @@ this <code class="docutils literal notranslate"><span class="pre">Encoder</span>
 <span id="superduperdb-container-listener-module"></span><h2>superduperdb.container.listener module<a class="headerlink" href="#module-superduperdb.container.listener" title="Permalink to this heading">#</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="superduperdb.container.listener.Listener">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">superduperdb.container.listener.</span></span><span class="sig-name descname"><span class="pre">Listener</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key:</span> <span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model:</span> <span class="pre">str</span> <span class="pre">|</span> <span class="pre">~superduperdb.container.model.Model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">active:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">features:</span> <span class="pre">~typing.Dict</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">identifier:</span> <span class="pre">str</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predict_kwargs:</span> <span class="pre">~typing.Dict</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">select:</span> <span class="pre">~superduperdb.db.base.query.Select</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">version:</span> <span class="pre">int</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/container/listener.html#Listener"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.container.listener.Listener" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">superduperdb.container.listener.</span></span><span class="sig-name descname"><span class="pre">Listener</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key:</span> <span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model:</span> <span class="pre">str</span> <span class="pre">|</span> <span class="pre">~superduperdb.container.model.Model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">select:</span> <span class="pre">~superduperdb.db.base.query.Select</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">active:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">features:</span> <span class="pre">~typing.Dict</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">identifier:</span> <span class="pre">str</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predict_kwargs:</span> <span class="pre">~typing.Dict</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">version:</span> <span class="pre">int</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/container/listener.html#Listener"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.container.listener.Listener" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#superduperdb.container.component.Component" title="superduperdb.container.component.Component"><code class="xref py py-class docutils literal notranslate"><span class="pre">Component</span></code></a></p>
 <p>Listener object which is used to process a column/ key of a collection or table,
 and store the outputs.</p>
@@ -927,11 +1040,11 @@ and store the outputs.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>key</strong> – Key to be bound to model</p></li>
 <li><p><strong>model</strong> – Model for processing data</p></li>
+<li><p><strong>select</strong> – Object for selecting which data is processed</p></li>
 <li><p><strong>active</strong> – Toggle to <code class="docutils literal notranslate"><span class="pre">False</span></code> to deactivate change data triggering</p></li>
 <li><p><strong>features</strong> – Dictionary of mappings from keys to model</p></li>
 <li><p><strong>identifier</strong> – A string used to identify the model.</p></li>
 <li><p><strong>predict_kwargs</strong> – Keyword arguments to self.model.predict</p></li>
-<li><p><strong>select</strong> – Object for selecting which data is processed</p></li>
 <li><p><strong>version</strong> – Version number of the model(?)</p></li>
 </ul>
 </dd>
@@ -950,10 +1063,10 @@ and store the outputs.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="superduperdb.container.listener.Listener.cleanup">
 <span class="sig-name descname"><span class="pre">cleanup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">database</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="superduperdb.db.base.html#superduperdb.db.base.db.DB" title="superduperdb.db.base.db.DB"><span class="pre">DB</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/superduperdb/container/listener.html#Listener.cleanup"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.container.listener.Listener.cleanup" title="Permalink to this definition">#</a></dt>
-<dd><p>Clean up when the listener is done</p>
+<dd><p>Clean up when the listener is deleted</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>database</strong> – The db to process</p>
+<dd class="field-odd"><p><strong>database</strong> – The DB instance to process</p>
 </dd>
 </dl>
 </dd></dl>
@@ -994,7 +1107,7 @@ and store the outputs.</p>
 <dd><p>Called the first time this component is created</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>db</strong> – the db that created the component</p>
+<dd class="field-odd"><p><strong>db</strong> – the db that creates the component</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1007,14 +1120,14 @@ and store the outputs.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="superduperdb.container.listener.Listener.schedule_jobs">
 <span class="sig-name descname"><span class="pre">schedule_jobs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">database</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="superduperdb.db.base.html#superduperdb.db.base.db.DB" title="superduperdb.db.base.db.DB"><span class="pre">DB</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">dependencies</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#superduperdb.container.job.Job" title="superduperdb.container.job.Job"><span class="pre">Job</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distributed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/superduperdb/container/listener.html#Listener.schedule_jobs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.container.listener.Listener.schedule_jobs" title="Permalink to this definition">#</a></dt>
-<dd><p>Run the job for this listener</p>
+<dd><p>Schedule jobs for the listener</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>database</strong> – The db to process</p></li>
-<li><p><strong>dependencies</strong> – A sequence of dependencies,</p></li>
-<li><p><strong>distributed</strong> – Is the computation distributed</p></li>
-<li><p><strong>verbose</strong> – If true, print more information</p></li>
+<li><p><strong>database</strong> – The DB instance to process</p></li>
+<li><p><strong>dependencies</strong> – A list of dependencies</p></li>
+<li><p><strong>distributed</strong> – Whether to run the job on a distributed system</p></li>
+<li><p><strong>verbose</strong> – Whether to print verbose output</p></li>
 </ul>
 </dd>
 </dl>
@@ -1022,7 +1135,7 @@ and store the outputs.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="superduperdb.container.listener.Listener.select">
-<span class="sig-name descname"><span class="pre">select</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="superduperdb.db.base.html#superduperdb.db.base.query.Select" title="superduperdb.db.base.query.Select"><span class="pre">Select</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#superduperdb.container.listener.Listener.select" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">select</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="superduperdb.db.base.html#superduperdb.db.base.query.Select" title="superduperdb.db.base.query.Select"><span class="pre">Select</span></a></em><a class="headerlink" href="#superduperdb.container.listener.Listener.select" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -1047,6 +1160,15 @@ and store the outputs.</p>
 <dd><p>Bases: <a class="reference internal" href="#superduperdb.container.component.Component" title="superduperdb.container.component.Component"><code class="xref py py-class docutils literal notranslate"><span class="pre">Component</span></code></a></p>
 <p>Metric base object with which to evaluate performance on a data-set.
 These objects are <code class="docutils literal notranslate"><span class="pre">callable</span></code> and are applied row-wise to the data, and averaged.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>identifier</strong> – unique identifier</p></li>
+<li><p><strong>object</strong> – callable or <code class="docutils literal notranslate"><span class="pre">Artifact</span></code> to be applied to the data</p></li>
+<li><p><strong>version</strong> – version of the <code class="docutils literal notranslate"><span class="pre">Metric</span></code></p></li>
+</ul>
+</dd>
+</dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="superduperdb.container.metric.Metric.artifacts">
 <span class="sig-name descname"><span class="pre">artifacts</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['object']</span></em><a class="headerlink" href="#superduperdb.container.metric.Metric.artifacts" title="Permalink to this definition">#</a></dt>
@@ -1086,10 +1208,16 @@ These objects are <code class="docutils literal notranslate"><span class="pre">c
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
+<li><p><strong>identifier</strong> – Unique identifier of model</p></li>
 <li><p><strong>object</strong> – Model object, e.g. sklearn model, etc..</p></li>
 <li><p><strong>encoder</strong> – Encoder instance (optional)</p></li>
-<li><p><strong>type_id</strong> – <p>…</p>
-</p></li>
+<li><p><strong>preprocess</strong> – Preprocess function (optional)</p></li>
+<li><p><strong>postprocess</strong> – Postprocess function (optional)</p></li>
+<li><p><strong>collate_fn</strong> – Collate function (optional)</p></li>
+<li><p><strong>metrics</strong> – Metrics to use (optional)</p></li>
+<li><p><strong>predict_method</strong> – The method to use for prediction (optional)</p></li>
+<li><p><strong>batch_predict</strong> – Whether to batch predict (optional)</p></li>
+<li><p><strong>takes_context</strong> – Whether the model takes context into account (optional)</p></li>
 </ul>
 </dd>
 </dl>
@@ -1135,7 +1263,7 @@ These objects are <code class="docutils literal notranslate"><span class="pre">c
 
 <dl class="py method">
 <dt class="sig sig-object py" id="superduperdb.container.model.Model.fit">
-<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">t.Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">t.Any</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">db</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">t.Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="superduperdb.db.base.html#superduperdb.db.base.db.DB" title="superduperdb.db.base.db.DB"><span class="pre">DB</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">select</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">t.Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="superduperdb.db.base.html#superduperdb.db.base.query.Select" title="superduperdb.db.base.query.Select"><span class="pre">Select</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distributed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">t.Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dependencies</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">t.Sequence</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#superduperdb.container.job.Job" title="superduperdb.container.job.Job"><span class="pre">Job</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">configuration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">t.Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#superduperdb.container.model._TrainingConfiguration" title="superduperdb.container.model._TrainingConfiguration"><span class="pre">_TrainingConfiguration</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validation_sets</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">t.Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">t.Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">t.Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#superduperdb.container.dataset.Dataset" title="superduperdb.container.dataset.Dataset"><span class="pre">Dataset</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metrics</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">t.Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">t.Sequence</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#superduperdb.container.metric.Metric" title="superduperdb.container.metric.Metric"><span class="pre">Metric</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_prefetch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">t.Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="superduperdb.ext.transformers.html#superduperdb.ext.transformers.model.Pipeline" title="superduperdb.ext.transformers.model.Pipeline"><span class="pre">Pipeline</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/superduperdb/container/model.html#Model.fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.container.model.Model.fit" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">t.Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">t.Any</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">configuration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">t.Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#superduperdb.container.model._TrainingConfiguration" title="superduperdb.container.model._TrainingConfiguration"><span class="pre">_TrainingConfiguration</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_prefetch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">db</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">t.Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="superduperdb.db.base.html#superduperdb.db.base.db.DB" title="superduperdb.db.base.db.DB"><span class="pre">DB</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dependencies</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">t.Sequence</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#superduperdb.container.job.Job" title="superduperdb.container.job.Job"><span class="pre">Job</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distributed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">t.Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metrics</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">t.Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">t.Sequence</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#superduperdb.container.metric.Metric" title="superduperdb.container.metric.Metric"><span class="pre">Metric</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">select</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">t.Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="superduperdb.db.base.html#superduperdb.db.base.query.Select" title="superduperdb.db.base.query.Select"><span class="pre">Select</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validation_sets</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">t.Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">t.Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">t.Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#superduperdb.container.dataset.Dataset" title="superduperdb.container.dataset.Dataset"><span class="pre">Dataset</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">t.Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Pipeline</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/superduperdb/container/model.html#Model.fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.container.model.Model.fit" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -1200,7 +1328,7 @@ These objects are <code class="docutils literal notranslate"><span class="pre">c
 
 <dl class="py property">
 <dt class="sig sig-object py" id="superduperdb.container.model.Model.training_keys">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">training_keys</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#superduperdb.container.model.Model.training_keys" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">training_keys</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span></em><a class="headerlink" href="#superduperdb.container.model.Model.training_keys" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -1216,7 +1344,7 @@ These objects are <code class="docutils literal notranslate"><span class="pre">c
 
 <dl class="py method">
 <dt class="sig sig-object py" id="superduperdb.container.model.Model.validate">
-<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">db</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validation_set</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#superduperdb.container.dataset.Dataset" title="superduperdb.container.dataset.Dataset"><span class="pre">Dataset</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">metrics</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#superduperdb.container.metric.Metric" title="superduperdb.container.metric.Metric"><span class="pre">Metric</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/container/model.html#Model.validate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.container.model.Model.validate" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">db</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validation_set</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#superduperdb.container.dataset.Dataset" title="superduperdb.container.dataset.Dataset"><span class="pre">Dataset</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">metrics</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#superduperdb.container.metric.Metric" title="superduperdb.container.metric.Metric"><span class="pre">Metric</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/container/model.html#Model.validate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.container.model.Model.validate" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -1230,6 +1358,25 @@ These objects are <code class="docutils literal notranslate"><span class="pre">c
 <dt class="sig sig-object py" id="superduperdb.container.model.PredictMixin">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">superduperdb.container.model.</span></span><span class="sig-name descname"><span class="pre">PredictMixin</span></span><a class="reference internal" href="../_modules/superduperdb/container/model.html#PredictMixin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.container.model.PredictMixin" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Mixin class for components which can predict.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>identifier</strong> – Unique identifier of model</p></li>
+<li><p><strong>encoder</strong> – Encoder instance (optional)</p></li>
+<li><p><strong>preprocess</strong> – Preprocess function (optional)</p></li>
+<li><p><strong>postprocess</strong> – Postprocess function (optional)</p></li>
+<li><p><strong>collate_fn</strong> – Collate function (optional)</p></li>
+<li><p><strong>batch_predict</strong> – Whether to batch predict (optional)</p></li>
+<li><p><strong>takes_context</strong> – Whether the model takes context into account (optional)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="superduperdb.container.model.PredictMixin.apredict">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">apredict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">one</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/container/model.html#PredictMixin.apredict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.container.model.PredictMixin.apredict" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
 <dl class="py attribute">
 <dt class="sig sig-object py" id="superduperdb.container.model.PredictMixin.batch_predict">
 <span class="sig-name descname"><span class="pre">batch_predict</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#superduperdb.container.model.PredictMixin.batch_predict" title="Permalink to this definition">#</a></dt>
@@ -1262,7 +1409,7 @@ These objects are <code class="docutils literal notranslate"><span class="pre">c
 
 <dl class="py method">
 <dt class="sig sig-object py" id="superduperdb.container.model.PredictMixin.predict">
-<span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">t.Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">db</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">t.Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="superduperdb.db.base.html#superduperdb.db.base.db.DB" title="superduperdb.db.base.db.DB"><span class="pre">DB</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">select</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">t.Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="superduperdb.db.base.html#superduperdb.db.base.query.Select" title="superduperdb.db.base.query.Select"><span class="pre">Select</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distributed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">t.Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ids</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">t.Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">t.Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_chunk_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">t.Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dependencies</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">t.Sequence</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#superduperdb.container.job.Job" title="superduperdb.container.job.Job"><span class="pre">Job</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">listen</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">one</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">t.Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">t.Dict</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_memory</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">t.Any</span></span></span><a class="reference internal" href="../_modules/superduperdb/container/model.html#PredictMixin.predict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.container.model.PredictMixin.predict" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">t.Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">db</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">t.Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="superduperdb.db.base.html#superduperdb.db.base.db.DB" title="superduperdb.db.base.db.DB"><span class="pre">DB</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">select</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">t.Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="superduperdb.db.base.html#superduperdb.db.base.query.Select" title="superduperdb.db.base.query.Select"><span class="pre">Select</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distributed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">t.Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ids</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">t.Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">t.List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_chunk_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">t.Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dependencies</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">t.Sequence</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#superduperdb.container.job.Job" title="superduperdb.container.job.Job"><span class="pre">Job</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">listen</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">one</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">t.Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">t.Dict</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_memory</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">t.Any</span></span></span><a class="reference internal" href="../_modules/superduperdb/container/model.html#PredictMixin.predict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.container.model.PredictMixin.predict" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -1282,11 +1429,6 @@ These objects are <code class="docutils literal notranslate"><span class="pre">c
 
 </dd></dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="superduperdb.container.model.TrainingConfiguration">
-<span class="sig-prename descclassname"><span class="pre">superduperdb.container.model.</span></span><span class="sig-name descname"><span class="pre">TrainingConfiguration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">identifier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/container/model.html#TrainingConfiguration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.container.model.TrainingConfiguration" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-
 <dl class="py class">
 <dt class="sig sig-object py" id="superduperdb.container.model._TrainingConfiguration">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">superduperdb.container.model.</span></span><span class="sig-name descname"><span class="pre">_TrainingConfiguration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">identifier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">version</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/container/model.html#_TrainingConfiguration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.container.model._TrainingConfiguration" title="Permalink to this definition">#</a></dt>
@@ -1298,8 +1440,9 @@ and returns a class which may be invoked to apply training.</p>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>identifier</strong> – Unique identifier of configuration</p></li>
-<li><p><strong>**parameters</strong> – <p>Key-values pairs, the variables which configure training.</p>
+<li><p><strong>**kwargs</strong> – <p>Key-values pairs, the variables which configure training.</p>
 </p></li>
+<li><p><strong>version</strong> – Version number of the configuration</p></li>
 </ul>
 </dd>
 </dl>
@@ -1338,6 +1481,8 @@ and returns a class which may be invoked to apply training.</p>
 <dt class="sig sig-object py" id="superduperdb.container.serializable.Serializable">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">superduperdb.container.serializable.</span></span><span class="sig-name descname"><span class="pre">Serializable</span></span><a class="reference internal" href="../_modules/superduperdb/container/serializable.html#Serializable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.container.serializable.Serializable" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Base class for serializable objects. This class is used to serialize and
+deserialize objects to and from JSON + Artifact instances.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="superduperdb.container.serializable.Serializable.deserialize">
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">deserialize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">db</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="headerlink" href="#superduperdb.container.serializable.Serializable.deserialize" title="Permalink to this definition">#</a></dt>
@@ -1364,6 +1509,14 @@ and returns a class which may be invoked to apply training.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Keep a graph of jobs that need to be performed and their dependencies,
 and perform them when called.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>database</strong> – <code class="docutils literal notranslate"><span class="pre">DB</span></code> instance to use</p></li>
+<li><p><strong>G</strong> – <code class="docutils literal notranslate"><span class="pre">networkx.DiGraph</span></code> to use as the graph</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="superduperdb.container.task_workflow.TaskWorkflow.G">
 <span class="sig-name descname"><span class="pre">G</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">DiGraph</span></em><a class="headerlink" href="#superduperdb.container.task_workflow.TaskWorkflow.G" title="Permalink to this definition">#</a></dt>
@@ -1518,16 +1671,44 @@ doesn’t change on mutables.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="superduperdb.container.tasks.method_job">
 <span class="sig-prename descclassname"><span class="pre">superduperdb.container.tasks.</span></span><span class="sig-name descname"><span class="pre">method_job</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cfg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">identifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kwargs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">job_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dependencies</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/container/tasks.html#method_job"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.container.tasks.method_job" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
+<dd><p>Run a method on a component in the database.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cfg</strong> – <code class="docutils literal notranslate"><span class="pre">CFG</span></code> instance</p></li>
+<li><p><strong>type_id</strong> – type of component</p></li>
+<li><p><strong>identifier</strong> – identifier of component</p></li>
+<li><p><strong>method_name</strong> – name of method to run</p></li>
+<li><p><strong>args</strong> – positional arguments to pass to the method</p></li>
+<li><p><strong>kwargs</strong> – keyword arguments to pass to the method</p></li>
+<li><p><strong>job_id</strong> – unique identifier for this job</p></li>
+<li><p><strong>dependencies</strong> – other jobs that this job depends on</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 </section>
 <section id="module-superduperdb.container.vector_index">
 <span id="superduperdb-container-vector-index-module"></span><h2>superduperdb.container.vector_index module<a class="headerlink" href="#module-superduperdb.container.vector_index" title="Permalink to this heading">#</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="superduperdb.container.vector_index.VectorIndex">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">superduperdb.container.vector_index.</span></span><span class="sig-name descname"><span class="pre">VectorIndex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">identifier:</span> <span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indexing_listener:</span> <span class="pre">~superduperdb.container.listener.Listener</span> <span class="pre">|</span> <span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compatible_listener:</span> <span class="pre">None</span> <span class="pre">|</span> <span class="pre">~superduperdb.container.listener.Listener</span> <span class="pre">|</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">measure:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'cosine'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">version:</span> <span class="pre">int</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric_values:</span> <span class="pre">~typing.Dict</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/container/vector_index.html#VectorIndex"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.container.vector_index.VectorIndex" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">superduperdb.container.vector_index.</span></span><span class="sig-name descname"><span class="pre">VectorIndex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">identifier:</span> <span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indexing_listener:</span> <span class="pre">~superduperdb.container.listener.Listener</span> <span class="pre">|</span> <span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compatible_listener:</span> <span class="pre">None</span> <span class="pre">|</span> <span class="pre">~superduperdb.container.listener.Listener</span> <span class="pre">|</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">measure:</span> <span class="pre">~superduperdb.vector_search.base.VectorIndexMeasureType</span> <span class="pre">=</span> <span class="pre">VectorIndexMeasureType.cosine</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">version:</span> <span class="pre">int</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric_values:</span> <span class="pre">~typing.Dict</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/container/vector_index.html#VectorIndex"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.container.vector_index.VectorIndex" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#superduperdb.container.component.Component" title="superduperdb.container.component.Component"><code class="xref py py-class docutils literal notranslate"><span class="pre">Component</span></code></a></p>
-<p>A component representing a VectorIndex</p>
+<p>A component carrying the information to apply a vector index to a <code class="docutils literal notranslate"><span class="pre">DB</span></code> instance</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>identifier</strong> – unique string identifier of index</p></li>
+<li><p><strong>indexing_listener</strong> – listener which is applied to created vectors</p></li>
+<li><p><strong>compatible_listener</strong> – listener which is applied to vectors to be compared</p></li>
+<li><p><strong>measure</strong> – measure to use for comparison</p></li>
+<li><p><strong>version</strong> – version of this index</p></li>
+<li><p><strong>metric_values</strong> – metric values for this index</p></li>
+<li><p><strong>type_id</strong> – type of this component</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="superduperdb.container.vector_index.VectorIndex.child_components">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">child_components</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#superduperdb.container.vector_index.VectorIndex.child_components" title="Permalink to this definition">#</a></dt>
@@ -1536,8 +1717,12 @@ doesn’t change on mutables.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="superduperdb.container.vector_index.VectorIndex.compatible_listener">
 <span class="sig-name descname"><span class="pre">compatible_listener</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">None</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#superduperdb.container.listener.Listener" title="superduperdb.container.listener.Listener"><span class="pre">Listener</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#superduperdb.container.vector_index.VectorIndex.compatible_listener" title="Permalink to this definition">#</a></dt>
-<dd><p>List of additional listeners which can “talk” to the index (e.g. multi-modal)</p>
-</dd></dl>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="superduperdb.container.vector_index.VectorIndex.dimensions">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dimensions</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#superduperdb.container.vector_index.VectorIndex.dimensions" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="superduperdb.container.vector_index.VectorIndex.get_nearest">
@@ -1558,33 +1743,34 @@ two parallel lists of result IDs and scores</p>
 </dl>
 </dd></dl>
 
+<dl class="py method">
+<dt class="sig sig-object py" id="superduperdb.container.vector_index.VectorIndex.get_vector">
+<span class="sig-name descname"><span class="pre">get_vector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">like</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#superduperdb.container.document.Document" title="superduperdb.container.document.Document"><span class="pre">Document</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">models</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keys</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">db</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outputs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">featurize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/container/vector_index.html#VectorIndex.get_vector"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.container.vector_index.VectorIndex.get_vector" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
 <dl class="py attribute">
 <dt class="sig sig-object py" id="superduperdb.container.vector_index.VectorIndex.identifier">
 <span class="sig-name descname"><span class="pre">identifier</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#superduperdb.container.vector_index.VectorIndex.identifier" title="Permalink to this definition">#</a></dt>
-<dd><p>Unique string identifier of index</p>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="superduperdb.container.vector_index.VectorIndex.indexing_listener">
 <span class="sig-name descname"><span class="pre">indexing_listener</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#superduperdb.container.listener.Listener" title="superduperdb.container.listener.Listener"><span class="pre">Listener</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#superduperdb.container.vector_index.VectorIndex.indexing_listener" title="Permalink to this definition">#</a></dt>
-<dd><p>Listener which is applied to created vectors</p>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="superduperdb.container.vector_index.VectorIndex.measure">
-<span class="sig-name descname"><span class="pre">measure</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'cosine'</span></em><a class="headerlink" href="#superduperdb.container.vector_index.VectorIndex.measure" title="Permalink to this definition">#</a></dt>
-<dd><p>Measure which is used to compare vectors in index</p>
-</dd></dl>
+<span class="sig-name descname"><span class="pre">measure</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="superduperdb.vector_search.html#superduperdb.vector_search.base.VectorIndexMeasureType" title="superduperdb.vector_search.base.VectorIndexMeasureType"><span class="pre">VectorIndexMeasureType</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'cosine'</span></em><a class="headerlink" href="#superduperdb.container.vector_index.VectorIndex.measure" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="superduperdb.container.vector_index.VectorIndex.metric_values">
 <span class="sig-name descname"><span class="pre">metric_values</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#superduperdb.container.vector_index.VectorIndex.metric_values" title="Permalink to this definition">#</a></dt>
-<dd><p>Metric values used for training</p>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="superduperdb.container.vector_index.VectorIndex.models_keys">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">models_keys</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#superduperdb.container.vector_index.VectorIndex.models_keys" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">models_keys</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#superduperdb.container.vector_index.VectorIndex.models_keys" title="Permalink to this definition">#</a></dt>
 <dd><p>Return a list of model and keys for each listener</p>
 </dd></dl>
 
@@ -1594,7 +1780,7 @@ two parallel lists of result IDs and scores</p>
 <dd><p>Called the first time this component is created</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>db</strong> – the db that created the component</p>
+<dd class="field-odd"><p><strong>db</strong> – the db that creates the component</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1619,8 +1805,7 @@ two parallel lists of result IDs and scores</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="superduperdb.container.vector_index.VectorIndex.version">
 <span class="sig-name descname"><span class="pre">version</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#superduperdb.container.vector_index.VectorIndex.version" title="Permalink to this definition">#</a></dt>
-<dd><p>A version number for the index (unused)</p>
-</dd></dl>
+<dd></dd></dl>
 
 </dd></dl>
 
@@ -1819,6 +2004,8 @@ defining AI functionality.</p>
 </ul>
 </li>
 <li><a class="reference internal" href="#superduperdb.container.job.Job"><code class="docutils literal notranslate"><span class="pre">Job</span></code></a><ul>
+<li><a class="reference internal" href="#superduperdb.container.job.Job.__call__"><code class="docutils literal notranslate"><span class="pre">Job.__call__()</span></code></a></li>
+<li><a class="reference internal" href="#superduperdb.container.job.Job.callable"><code class="docutils literal notranslate"><span class="pre">Job.callable</span></code></a></li>
 <li><a class="reference internal" href="#superduperdb.container.job.Job.dict"><code class="docutils literal notranslate"><span class="pre">Job.dict()</span></code></a></li>
 <li><a class="reference internal" href="#superduperdb.container.job.Job.run_locally"><code class="docutils literal notranslate"><span class="pre">Job.run_locally()</span></code></a></li>
 <li><a class="reference internal" href="#superduperdb.container.job.Job.run_on_dask"><code class="docutils literal notranslate"><span class="pre">Job.run_on_dask()</span></code></a></li>
@@ -1891,6 +2078,7 @@ defining AI functionality.</p>
 </ul>
 </li>
 <li><a class="reference internal" href="#superduperdb.container.model.PredictMixin"><code class="docutils literal notranslate"><span class="pre">PredictMixin</span></code></a><ul>
+<li><a class="reference internal" href="#superduperdb.container.model.PredictMixin.apredict"><code class="docutils literal notranslate"><span class="pre">PredictMixin.apredict()</span></code></a></li>
 <li><a class="reference internal" href="#superduperdb.container.model.PredictMixin.batch_predict"><code class="docutils literal notranslate"><span class="pre">PredictMixin.batch_predict</span></code></a></li>
 <li><a class="reference internal" href="#superduperdb.container.model.PredictMixin.collate_fn"><code class="docutils literal notranslate"><span class="pre">PredictMixin.collate_fn</span></code></a></li>
 <li><a class="reference internal" href="#superduperdb.container.model.PredictMixin.create_predict_job"><code class="docutils literal notranslate"><span class="pre">PredictMixin.create_predict_job()</span></code></a></li>
@@ -1903,7 +2091,6 @@ defining AI functionality.</p>
 <li><a class="reference internal" href="#superduperdb.container.model.PredictMixin.to_call"><code class="docutils literal notranslate"><span class="pre">PredictMixin.to_call</span></code></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#superduperdb.container.model.TrainingConfiguration"><code class="docutils literal notranslate"><span class="pre">TrainingConfiguration()</span></code></a></li>
 <li><a class="reference internal" href="#superduperdb.container.model._TrainingConfiguration"><code class="docutils literal notranslate"><span class="pre">_TrainingConfiguration</span></code></a><ul>
 <li><a class="reference internal" href="#superduperdb.container.model._TrainingConfiguration.get"><code class="docutils literal notranslate"><span class="pre">_TrainingConfiguration.get()</span></code></a></li>
 <li><a class="reference internal" href="#superduperdb.container.model._TrainingConfiguration.identifier"><code class="docutils literal notranslate"><span class="pre">_TrainingConfiguration.identifier</span></code></a></li>
@@ -1950,7 +2137,9 @@ defining AI functionality.</p>
 <li><a class="reference internal" href="#superduperdb.container.vector_index.VectorIndex"><code class="docutils literal notranslate"><span class="pre">VectorIndex</span></code></a><ul>
 <li><a class="reference internal" href="#superduperdb.container.vector_index.VectorIndex.child_components"><code class="docutils literal notranslate"><span class="pre">VectorIndex.child_components</span></code></a></li>
 <li><a class="reference internal" href="#superduperdb.container.vector_index.VectorIndex.compatible_listener"><code class="docutils literal notranslate"><span class="pre">VectorIndex.compatible_listener</span></code></a></li>
+<li><a class="reference internal" href="#superduperdb.container.vector_index.VectorIndex.dimensions"><code class="docutils literal notranslate"><span class="pre">VectorIndex.dimensions</span></code></a></li>
 <li><a class="reference internal" href="#superduperdb.container.vector_index.VectorIndex.get_nearest"><code class="docutils literal notranslate"><span class="pre">VectorIndex.get_nearest()</span></code></a></li>
+<li><a class="reference internal" href="#superduperdb.container.vector_index.VectorIndex.get_vector"><code class="docutils literal notranslate"><span class="pre">VectorIndex.get_vector()</span></code></a></li>
 <li><a class="reference internal" href="#superduperdb.container.vector_index.VectorIndex.identifier"><code class="docutils literal notranslate"><span class="pre">VectorIndex.identifier</span></code></a></li>
 <li><a class="reference internal" href="#superduperdb.container.vector_index.VectorIndex.indexing_listener"><code class="docutils literal notranslate"><span class="pre">VectorIndex.indexing_listener</span></code></a></li>
 <li><a class="reference internal" href="#superduperdb.container.vector_index.VectorIndex.measure"><code class="docutils literal notranslate"><span class="pre">VectorIndex.measure</span></code></a></li>

@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../../../genindex.html" /><link rel="search" title="Search" href="../../../../search.html" />
 
     <!-- Generated with Sphinx 7.1.2 and Furo 2023.07.26 -->
-        <title>superduperdb.db.mongodb.cdc - SuperDuperDB documentation</title>
+        <title>superduperdb.db.mongodb.cdc - Python documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo.css?v=135e06be" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
@@ -123,7 +123,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../../../index.html"><div class="brand">SuperDuperDB  documentation</div></a>
+      <a href="../../../../index.html"><div class="brand">Python  documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -145,8 +145,11 @@
       
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../../../../index.html">
   
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="../../../../_static/SuperDuperDB_logo.png" alt="Logo"/>
+  </div>
   
-  <span class="sidebar-brand-text">SuperDuperDB  documentation</span>
+  <span class="sidebar-brand-text">Python  documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../../../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -188,7 +191,7 @@
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../../how_to/index.html">How to …</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of How to …</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../../how_to/playground.html"><strong>Welcome to the SuperDuperDB Playground!</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../how_to/playground.html">Welcome to the SuperDuperDB Playground!</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../how_to/add_images_or_audio.html">Add images, audio or video from URIs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../how_to/create_replicaset.html">How to create a replica set in MongoDB</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../how_to/mongo_cdc.html">Perform change data capture (CDC)</a></li>
@@ -233,10 +236,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../source/superduperdb.ext.sklearn.html">superduperdb.ext.sklearn package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../source/superduperdb.ext.torch.html">superduperdb.ext.torch package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../source/superduperdb.ext.transformers.html">superduperdb.ext.transformers package</a></li>
-<li class="toctree-l4 has-children"><a class="reference internal" href="../../../../source/superduperdb.ext.vector.html">superduperdb.ext.vector package</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle navigation of superduperdb.ext.vector package</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l5"><a class="reference internal" href="../../../../source/superduperdb.ext.vector.vectors.html">superduperdb.ext.vector.vectors package</a></li>
-</ul>
-</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../source/superduperdb.ext.vector.html">superduperdb.ext.vector package</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../source/superduperdb.misc.html">superduperdb.misc package</a></li>
@@ -285,7 +285,6 @@
 <span class="kn">import</span> <span class="nn">json</span>
 <span class="kn">import</span> <span class="nn">queue</span>
 <span class="kn">import</span> <span class="nn">threading</span>
-<span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">import</span> <span class="nn">traceback</span>
 <span class="kn">import</span> <span class="nn">typing</span> <span class="k">as</span> <span class="nn">t</span>
 <span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
@@ -395,11 +394,19 @@
 
 <div class="viewcode-block" id="BaseDatabaseListener.listen"><a class="viewcode-back" href="../../../../source/superduperdb.db.mongodb.html#superduperdb.db.mongodb.cdc.BaseDatabaseListener.listen">[docs]</a>    <span class="nd">@abstractmethod</span>
     <span class="k">def</span> <span class="nf">listen</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+        <span class="k">pass</span></div>
 
 <div class="viewcode-block" id="BaseDatabaseListener.stop"><a class="viewcode-back" href="../../../../source/superduperdb.db.mongodb.html#superduperdb.db.mongodb.cdc.BaseDatabaseListener.stop">[docs]</a>    <span class="nd">@abstractmethod</span>
     <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div></div>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="BaseDatabaseListener.setup_cdc"><a class="viewcode-back" href="../../../../source/superduperdb.db.mongodb.html#superduperdb.db.mongodb.cdc.BaseDatabaseListener.setup_cdc">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">setup_cdc</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;CollectionChangeStream&#39;</span><span class="p">:</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="BaseDatabaseListener.next_cdc"><a class="viewcode-back" href="../../../../source/superduperdb.db.mongodb.html#superduperdb.db.mongodb.cdc.BaseDatabaseListener.next_cdc">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">next_cdc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stream</span><span class="p">:</span> <span class="s1">&#39;CollectionChangeStream&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">pass</span></div></div>
 
 
 <div class="viewcode-block" id="delete_vectors"><a class="viewcode-back" href="../../../../source/superduperdb.db.mongodb.html#superduperdb.db.mongodb.cdc.delete_vectors">[docs]</a><span class="k">def</span> <span class="nf">delete_vectors</span><span class="p">(</span>
@@ -414,6 +421,11 @@
 
 <span class="sd">    This function will be added as node to the taskworkflow after every</span>
 <span class="sd">    `indexing_listener` in the defined listeners in db.</span>
+
+<span class="sd">    :param indexing_listener_identifier: A identifier of indexing listener.</span>
+<span class="sd">    :param cdc_query: A query which will be used by `db._build_task_workflow` method</span>
+<span class="sd">    :param ids: List of ids which were observed as changed documents.</span>
+<span class="sd">    :param db: A ``DB`` instance.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">config</span> <span class="o">=</span> <span class="n">VectorCollectionConfig</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">indexing_listener_identifier</span><span class="p">,</span> <span class="n">dimensions</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
@@ -438,13 +450,18 @@
 
 <span class="sd">    This function will be added as node to the taskworkflow after every</span>
 <span class="sd">    `indexing_listener` in the defined listeners in db.</span>
+
+<span class="sd">    :param indexing_listener_identifier: A identifier of indexing listener.</span>
+<span class="sd">    :param cdc_query: A query which will be used by `db._build_task_workflow` method</span>
+<span class="sd">    :param ids: List of ids which were observed as changed documents.</span>
+<span class="sd">    :param db: A ``DB`` instance.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">query</span> <span class="o">=</span> <span class="n">Serializable</span><span class="o">.</span><span class="n">deserialize</span><span class="p">(</span><span class="n">cdc_query</span><span class="p">)</span>
         <span class="n">select</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">select_using_ids</span><span class="p">(</span><span class="n">ids</span><span class="p">)</span>
         <span class="n">docs</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">select</span><span class="p">)</span>
         <span class="n">docs</span> <span class="o">=</span> <span class="p">[</span><span class="n">doc</span><span class="o">.</span><span class="n">unpack</span><span class="p">()</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">docs</span><span class="p">]</span>
-        <span class="n">model</span><span class="p">,</span> <span class="n">key</span> <span class="o">=</span> <span class="n">indexing_listener_identifier</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+        <span class="n">model</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">key</span> <span class="o">=</span> <span class="n">indexing_listener_identifier</span><span class="o">.</span><span class="n">rpartition</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
         <span class="n">vectors</span> <span class="o">=</span> <span class="p">[</span>
             <span class="p">{</span><span class="s1">&#39;vector&#39;</span><span class="p">:</span> <span class="n">doc</span><span class="p">[</span><span class="s1">&#39;_outputs&#39;</span><span class="p">][</span><span class="n">key</span><span class="p">][</span><span class="n">model</span><span class="p">],</span> <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">doc</span><span class="p">[</span><span class="s1">&#39;_id&#39;</span><span class="p">])}</span>
             <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">docs</span>
@@ -464,12 +481,12 @@
         <span class="k">raise</span></div>
 
 
-<div class="viewcode-block" id="vector_task_factory"><a class="viewcode-back" href="../../../../source/superduperdb.db.mongodb.html#superduperdb.db.mongodb.cdc.vector_task_factory">[docs]</a><span class="k">def</span> <span class="nf">vector_task_factory</span><span class="p">(</span><span class="n">task</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;copy&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">Tuple</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">Callable</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+<span class="k">def</span> <span class="nf">_vector_task_factory</span><span class="p">(</span><span class="n">task</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;copy&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">Tuple</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">Callable</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
     <span class="k">if</span> <span class="n">task</span> <span class="o">==</span> <span class="s1">&#39;copy&#39;</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">copy_vectors</span><span class="p">,</span> <span class="s1">&#39;copy_vectors&#39;</span>
     <span class="k">elif</span> <span class="n">task</span> <span class="o">==</span> <span class="s1">&#39;delete&#39;</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">delete_vectors</span><span class="p">,</span> <span class="s1">&#39;delete_vectors&#39;</span>
-    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Unknown task: </span><span class="si">{</span><span class="n">task</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span></div>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Unknown task: </span><span class="si">{</span><span class="n">task</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 
 
 <div class="viewcode-block" id="CDCHandler"><a class="viewcode-back" href="../../../../source/superduperdb.db.mongodb.html#superduperdb.db.mongodb.cdc.CDCHandler">[docs]</a><span class="k">class</span> <span class="nc">CDCHandler</span><span class="p">(</span><span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">):</span>
@@ -536,14 +553,13 @@
 <span class="sd">        :param ids: A list of ids observed during the change</span>
 <span class="sd">        :param task: A task name to be executed on vector db.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">task_callable</span><span class="p">,</span> <span class="n">task_name</span> <span class="o">=</span> <span class="n">vector_task_factory</span><span class="p">(</span><span class="n">task</span><span class="o">=</span><span class="n">task</span><span class="p">)</span>
+        <span class="n">task_callable</span><span class="p">,</span> <span class="n">task_name</span> <span class="o">=</span> <span class="n">_vector_task_factory</span><span class="p">(</span><span class="n">task</span><span class="o">=</span><span class="n">task</span><span class="p">)</span>
         <span class="n">serialized_cdc_query</span> <span class="o">=</span> <span class="n">cdc_query</span><span class="o">.</span><span class="n">serialize</span><span class="p">()</span> <span class="k">if</span> <span class="n">cdc_query</span> <span class="k">else</span> <span class="kc">None</span>
         <span class="k">for</span> <span class="n">identifier</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s1">&#39;vector_index&#39;</span><span class="p">):</span>
             <span class="n">vector_index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">identifier</span><span class="o">=</span><span class="n">identifier</span><span class="p">,</span> <span class="n">type_id</span><span class="o">=</span><span class="s1">&#39;vector_index&#39;</span><span class="p">)</span>
             <span class="n">vector_index</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">VectorIndex</span><span class="p">,</span> <span class="n">vector_index</span><span class="p">)</span>
-            <span class="n">indexing_listener_identifier</span> <span class="o">=</span> <span class="p">(</span>
-                <span class="n">vector_index</span><span class="o">.</span><span class="n">indexing_listener</span><span class="o">.</span><span class="n">identifier</span>  <span class="c1"># type: ignore[union-attr]</span>
-            <span class="p">)</span>
+            <span class="k">assert</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">vector_index</span><span class="o">.</span><span class="n">indexing_listener</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
+            <span class="n">indexing_listener_identifier</span> <span class="o">=</span> <span class="n">vector_index</span><span class="o">.</span><span class="n">indexing_listener</span><span class="o">.</span><span class="n">identifier</span>
             <span class="n">task_workflow</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span>
                 <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">task_name</span><span class="si">}</span><span class="s1">(</span><span class="si">{</span><span class="n">indexing_listener_identifier</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">,</span>
                 <span class="n">job</span><span class="o">=</span><span class="n">FunctionJob</span><span class="p">(</span>
@@ -553,9 +569,8 @@
                 <span class="p">),</span>
             <span class="p">)</span>
         <span class="k">if</span> <span class="n">task</span> <span class="o">!=</span> <span class="s1">&#39;delete&#39;</span><span class="p">:</span>
-            <span class="n">model</span><span class="p">,</span> <span class="n">key</span> <span class="o">=</span> <span class="n">indexing_listener_identifier</span><span class="o">.</span><span class="n">split</span><span class="p">(</span>  <span class="c1"># type: ignore[union-attr]</span>
-                <span class="s1">&#39;/&#39;</span>
-            <span class="p">)</span>
+            <span class="k">assert</span> <span class="n">indexing_listener_identifier</span>
+            <span class="n">model</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">key</span> <span class="o">=</span> <span class="n">indexing_listener_identifier</span><span class="o">.</span><span class="n">rpartition</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
             <span class="n">task_workflow</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span>
                 <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">model</span><span class="si">}</span><span class="s1">.predict(</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">,</span>
                 <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">task_name</span><span class="si">}</span><span class="s1">(</span><span class="si">{</span><span class="n">indexing_listener_identifier</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">,</span>
@@ -721,21 +736,13 @@
 
     <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="n">cdc_stream</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">listener</span><span class="o">.</span><span class="n">setup_cdc</span><span class="p">()</span>  <span class="c1"># type: ignore[attr-defined]</span>
+            <span class="n">cdc_stream</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">listener</span><span class="o">.</span><span class="n">setup_cdc</span><span class="p">()</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">start_event</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
-            <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s1">&#39;Database listen service started at </span><span class="si">{</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span>
-            <span class="p">)</span>
-        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
-            <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Error while setting up cdc stream :: reason </span><span class="si">{</span><span class="n">exc</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-            <span class="k">return</span>
-        <span class="k">while</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">stop_event</span><span class="o">.</span><span class="n">is_set</span><span class="p">():</span>
-            <span class="k">try</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">listener</span><span class="o">.</span><span class="n">next_cdc</span><span class="p">(</span><span class="n">cdc_stream</span><span class="p">)</span>  <span class="c1"># type: ignore[attr-defined]</span>
-            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
-                <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Error while listening to cdc stream :: reason </span><span class="si">{</span><span class="n">exc</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-                <span class="k">break</span>
-            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+            <span class="k">while</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">stop_event</span><span class="o">.</span><span class="n">is_set</span><span class="p">():</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">listener</span><span class="o">.</span><span class="n">next_cdc</span><span class="p">(</span><span class="n">cdc_stream</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;In _DatabaseListenerThreadScheduler&#39;</span><span class="p">)</span>
+            <span class="n">traceback</span><span class="o">.</span><span class="n">print_exc</span><span class="p">()</span>
 
 
 <div class="viewcode-block" id="MongoDatabaseListener"><a class="viewcode-back" href="../../../../source/superduperdb.db.mongodb.html#superduperdb.db.mongodb.cdc.MongoDatabaseListener">[docs]</a><span class="k">class</span> <span class="nc">MongoDatabaseListener</span><span class="p">(</span><span class="n">BaseDatabaseListener</span><span class="p">,</span> <span class="n">MongoEventMixin</span><span class="p">):</span>
@@ -752,6 +759,8 @@
 
     <span class="n">IDENTITY_SEP</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;/&#39;</span>
     <span class="n">_scheduler</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">]</span>
+
+    <span class="n">_change_pipeline</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">Sequence</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">Dict</span><span class="p">],</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 
 <div class="viewcode-block" id="MongoDatabaseListener.__init__"><a class="viewcode-back" href="../../../../source/superduperdb.db.mongodb.html#superduperdb.db.mongodb.cdc.MongoDatabaseListener.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
@@ -776,9 +785,11 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">tokens</span> <span class="o">=</span> <span class="n">CachedTokens</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_change_counters</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">inserts</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">updates</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">deletes</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">resume_token</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="n">resume_token</span><span class="o">.</span><span class="n">token</span> <span class="k">if</span> <span class="n">resume_token</span> <span class="k">else</span> <span class="kc">None</span>  <span class="c1"># type: ignore[attr-defined]</span>
-        <span class="p">)</span>
+        <span class="k">if</span> <span class="n">resume_token</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># TODO: resume_token is a dict: this can&#39;t work</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">resume_token</span> <span class="o">=</span> <span class="n">resume_token</span><span class="o">.</span><span class="n">token</span>  <span class="c1"># type: ignore[attr-defined]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">resume_token</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_change_pipeline</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_stop_event</span> <span class="o">=</span> <span class="n">stop_event</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_startup_event</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Event</span><span class="p">()</span>
@@ -898,9 +909,7 @@
             <span class="n">stream_iterator</span> <span class="o">=</span> <span class="n">stream</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="p">)</span>
             <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Started listening database with identity </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">identity</span><span class="si">}</span><span class="s1">...&#39;</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
-            <span class="n">logging</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span>  <span class="c1"># type: ignore[attr-defined]</span>
-                <span class="s2">&quot;Error while setting up cdc stream.&quot;</span>
-            <span class="p">)</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Error while setting up cdc stream.&quot;</span><span class="p">)</span>
             <span class="k">raise</span>
         <span class="k">return</span> <span class="n">stream_iterator</span></div>
 
@@ -920,14 +929,10 @@
                     <span class="bp">self</span><span class="o">.</span><span class="n">event_handler</span><span class="p">(</span><span class="n">change</span><span class="p">)</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">dump_token</span><span class="p">(</span><span class="n">change</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
-            <span class="n">logging</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span>  <span class="c1"># type: ignore[attr-defined]</span>
-                <span class="s1">&#39;Change stream is close or empty!, stopping cdc!&#39;</span>
-            <span class="p">)</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;Change stream is close or empty!, stopping cdc!&#39;</span><span class="p">)</span>
             <span class="k">raise</span>
         <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
-            <span class="n">logging</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span>  <span class="c1"># type: ignore[attr-defined]</span>
-                <span class="s1">&#39;Error occured during cdc!, stopping cdc!&#39;</span>
-            <span class="p">)</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;Error occured during cdc!, stopping cdc!&#39;</span><span class="p">)</span>
             <span class="k">raise</span></div>
 
 <div class="viewcode-block" id="MongoDatabaseListener.attach_scheduler"><a class="viewcode-back" href="../../../../source/superduperdb.db.mongodb.html#superduperdb.db.mongodb.cdc.MongoDatabaseListener.attach_scheduler">[docs]</a>    <span class="k">def</span> <span class="nf">attach_scheduler</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scheduler</span><span class="p">:</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -963,7 +968,7 @@
         <span class="k">if</span> <span class="n">change_pipeline</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">change_pipeline</span> <span class="o">=</span> <span class="n">MongoChangePipelines</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;generic&#39;</span><span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">_change_pipeline</span> <span class="o">=</span> <span class="n">change_pipeline</span>  <span class="c1"># type: ignore [assignment]</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_change_pipeline</span> <span class="o">=</span> <span class="n">change_pipeline</span></div>
 
 <div class="viewcode-block" id="MongoDatabaseListener.resume"><a class="viewcode-back" href="../../../../source/superduperdb.db.mongodb.html#superduperdb.db.mongodb.cdc.MongoDatabaseListener.resume">[docs]</a>    <span class="k">def</span> <span class="nf">resume</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">token</span><span class="p">:</span> <span class="n">TokenType</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -973,7 +978,9 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">listen</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="MongoDatabaseListener.listen"><a class="viewcode-back" href="../../../../source/superduperdb.db.mongodb.html#superduperdb.db.mongodb.cdc.MongoDatabaseListener.listen">[docs]</a>    <span class="k">def</span> <span class="nf">listen</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> <span class="n">change_pipeline</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">Sequence</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">Dict</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">change_pipeline</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">Sequence</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">Dict</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">timeout</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Primary fxn to initiate listening of a database on the collection</span>
 <span class="sd">        with defined `change_pipeline` by the user.</span>
@@ -1000,10 +1007,10 @@
             <span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">attach_scheduler</span><span class="p">(</span><span class="n">scheduler</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">set_change_pipeline</span><span class="p">(</span><span class="n">change_pipeline</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_scheduler</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>  <span class="c1"># type: ignore[union-attr]</span>
+            <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">_scheduler</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_scheduler</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 
-            <span class="k">while</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_startup_event</span><span class="o">.</span><span class="n">is_set</span><span class="p">():</span>
-                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_startup_event</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
             <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;Listening service stopped!&#39;</span><span class="p">)</span>
             <span class="n">s</span><span class="o">.</span><span class="n">CFG</span><span class="o">.</span><span class="n">cdc</span> <span class="o">=</span> <span class="kc">False</span>
@@ -1080,7 +1087,6 @@
     <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../../../_static/copybutton.js?v=f281be69"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
     <script src="https://unpkg.com/mermaid@10.2.0/dist/mermaid.min.js"></script>
     <script>mermaid.initialize({startOnLoad:true});</script>
     </body>
