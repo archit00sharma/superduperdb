@@ -1,10 +1,10 @@
 <!doctype html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="en" data-content_root="">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../../../genindex.html" /><link rel="search" title="Search" href="../../../../search.html" />
 
-    <!-- Generated with Sphinx 7.1.2 and Furo 2023.07.26 -->
+    <!-- Generated with Sphinx 7.1.2 and Furo 2023.08.19 -->
         <title>superduperdb.db.mongodb.cdc - Python documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo.css?v=135e06be" />
@@ -226,6 +226,8 @@
 </li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../../../source/superduperdb.db.html">superduperdb.db package</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle navigation of superduperdb.db package</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../source/superduperdb.db.base.html">superduperdb.db.base package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../source/superduperdb.db.filesystem.html">superduperdb.db.filesystem package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../source/superduperdb.db.ibis.html">superduperdb.db.ibis package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../source/superduperdb.db.mongodb.html">superduperdb.db.mongodb package</a></li>
 </ul>
 </li>
@@ -784,12 +786,11 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_identifier</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_build_identifier</span><span class="p">([</span><span class="n">identifier</span><span class="p">,</span> <span class="n">on</span><span class="o">.</span><span class="n">name</span><span class="p">])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">tokens</span> <span class="o">=</span> <span class="n">CachedTokens</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_change_counters</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">inserts</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">updates</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">deletes</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">resume_token</span> <span class="o">=</span> <span class="kc">None</span>
 
         <span class="k">if</span> <span class="n">resume_token</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="c1"># TODO: resume_token is a dict: this can&#39;t work</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">resume_token</span> <span class="o">=</span> <span class="n">resume_token</span><span class="o">.</span><span class="n">token</span>  <span class="c1"># type: ignore[attr-defined]</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">resume_token</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">resume_token</span> <span class="o">=</span> <span class="n">resume_token</span>
+
         <span class="bp">self</span><span class="o">.</span><span class="n">_change_pipeline</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_stop_event</span> <span class="o">=</span> <span class="n">stop_event</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_startup_event</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Event</span><span class="p">()</span>
@@ -974,7 +975,7 @@
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Resume the listener from a given token.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">set_resume_token</span><span class="p">(</span><span class="n">token</span><span class="o">.</span><span class="n">token</span><span class="p">)</span>  <span class="c1"># type: ignore[attr-defined]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_resume_token</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">listen</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="MongoDatabaseListener.listen"><a class="viewcode-back" href="../../../../source/superduperdb.db.mongodb.html#superduperdb.db.mongodb.cdc.MongoDatabaseListener.listen">[docs]</a>    <span class="k">def</span> <span class="nf">listen</span><span class="p">(</span>
@@ -989,7 +990,7 @@
 <span class="sd">        for more fine grained listening.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="n">s</span><span class="o">.</span><span class="n">CFG</span><span class="o">.</span><span class="n">cdc</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">s</span><span class="o">.</span><span class="n">CFG</span><span class="o">.</span><span class="n">cluster</span><span class="o">.</span><span class="n">cdc</span> <span class="o">=</span> <span class="kc">True</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_stop_event</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_scheduler</span><span class="p">:</span>
                 <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_scheduler</span><span class="o">.</span><span class="n">is_alive</span><span class="p">():</span>
@@ -1013,7 +1014,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">_startup_event</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
             <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;Listening service stopped!&#39;</span><span class="p">)</span>
-            <span class="n">s</span><span class="o">.</span><span class="n">CFG</span><span class="o">.</span><span class="n">cdc</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="n">s</span><span class="o">.</span><span class="n">CFG</span><span class="o">.</span><span class="n">cluster</span><span class="o">.</span><span class="n">cdc</span> <span class="o">=</span> <span class="kc">False</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
             <span class="k">raise</span></div>
 
@@ -1034,7 +1035,7 @@
 <span class="sd">        Stop listening cdc changes.</span>
 <span class="sd">        This stops the corresponding services as well.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">s</span><span class="o">.</span><span class="n">CFG</span><span class="o">.</span><span class="n">cdc</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">s</span><span class="o">.</span><span class="n">CFG</span><span class="o">.</span><span class="n">cluster</span><span class="o">.</span><span class="n">cdc</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_stop_event</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_cdc_change_handler</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_scheduler</span><span class="p">:</span>

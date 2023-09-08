@@ -1,11 +1,11 @@
 <!doctype html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="en" data-content_root="">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="superduperdb.ext package" href="superduperdb.ext.html" /><link rel="prev" title="superduperdb.db.base package" href="superduperdb.db.base.html" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="superduperdb.ext package" href="superduperdb.ext.html" /><link rel="prev" title="superduperdb.db.ibis package" href="superduperdb.db.ibis.html" />
 
-    <!-- Generated with Sphinx 7.1.2 and Furo 2023.07.26 -->
+    <!-- Generated with Sphinx 7.1.2 and Furo 2023.08.19 -->
         <title>superduperdb.db.mongodb package - Python documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=135e06be" />
@@ -227,6 +227,8 @@
 </li>
 <li class="toctree-l3 current has-children"><a class="reference internal" href="superduperdb.db.html">superduperdb.db package</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle navigation of superduperdb.db package</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="superduperdb.db.base.html">superduperdb.db.base package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="superduperdb.db.filesystem.html">superduperdb.db.filesystem package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="superduperdb.db.ibis.html">superduperdb.db.ibis package</a></li>
 <li class="toctree-l4 current current-page"><a class="current reference internal" href="#">superduperdb.db.mongodb package</a></li>
 </ul>
 </li>
@@ -985,6 +987,18 @@ a <cite>vector_index</cite> listener.</p>
 </dd>
 </dl>
 <dl class="py method">
+<dt class="sig sig-object py" id="superduperdb.db.mongodb.data_backend.MongoDataBackend.build_artifact_store">
+<span class="sig-name descname"><span class="pre">build_artifact_store</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/db/mongodb/data_backend.html#MongoDataBackend.build_artifact_store"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.db.mongodb.data_backend.MongoDataBackend.build_artifact_store" title="Permalink to this definition">#</a></dt>
+<dd><p>Build a default artifact store based on current connection.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="superduperdb.db.mongodb.data_backend.MongoDataBackend.build_metadata">
+<span class="sig-name descname"><span class="pre">build_metadata</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/db/mongodb/data_backend.html#MongoDataBackend.build_metadata"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.db.mongodb.data_backend.MongoDataBackend.build_metadata" title="Permalink to this definition">#</a></dt>
+<dd><p>Build a default metadata store based on current connection.</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="superduperdb.db.mongodb.data_backend.MongoDataBackend.create_vector_index">
 <span class="sig-name descname"><span class="pre">create_vector_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vector_index</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/db/mongodb/data_backend.html#MongoDataBackend.create_vector_index"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.db.mongodb.data_backend.MongoDataBackend.create_vector_index" title="Permalink to this definition">#</a></dt>
 <dd><p>Create a vector index in the data backend if an Atlas deployment.</p>
@@ -1089,13 +1103,14 @@ a <cite>vector_index</cite> listener.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="superduperdb.db.mongodb.metadata.MongoMetaDataStore.create_job">
 <span class="sig-name descname"><span class="pre">create_job</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">info</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">InsertOneResult</span></span></span><a class="reference internal" href="../_modules/superduperdb/db/mongodb/metadata.html#MongoMetaDataStore.create_job"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.db.mongodb.metadata.MongoMetaDataStore.create_job" title="Permalink to this definition">#</a></dt>
-<dd><p>Create a job in the metadata store.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>info</strong> – dictionary containing information about the job.</p>
-</dd>
-</dl>
+<dd><p>Create a job in the metadata store.
+:param info: dictionary containing information about the job.</p>
 </dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="superduperdb.db.mongodb.metadata.MongoMetaDataStore.create_metadata">
+<span class="sig-name descname"><span class="pre">create_metadata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/db/mongodb/metadata.html#MongoMetaDataStore.create_metadata"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.db.mongodb.metadata.MongoMetaDataStore.create_metadata" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="superduperdb.db.mongodb.metadata.MongoMetaDataStore.create_parent_child">
@@ -1245,6 +1260,11 @@ a <cite>vector_index</cite> listener.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="superduperdb.db.mongodb.metadata.MongoMetaDataStore.show_job">
+<span class="sig-name descname"><span class="pre">show_job</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">job_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/db/mongodb/metadata.html#MongoMetaDataStore.show_job"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.db.mongodb.metadata.MongoMetaDataStore.show_job" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="superduperdb.db.mongodb.metadata.MongoMetaDataStore.show_jobs">
 <span class="sig-name descname"><span class="pre">show_jobs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">status</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/db/mongodb/metadata.html#MongoMetaDataStore.show_jobs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.db.mongodb.metadata.MongoMetaDataStore.show_jobs" title="Permalink to this definition">#</a></dt>
 <dd><p>Show all jobs in the metadata store.</p>
@@ -1260,6 +1280,20 @@ a <cite>vector_index</cite> listener.</p>
 <li><p><strong>job_id</strong> – job identifier</p></li>
 <li><p><strong>key</strong> – key to be updated</p></li>
 <li><p><strong>value</strong> – value to be updated</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="superduperdb.db.mongodb.metadata.MongoMetaDataStore.update_metadata">
+<span class="sig-name descname"><span class="pre">update_metadata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/db/mongodb/metadata.html#MongoMetaDataStore.update_metadata"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.db.mongodb.metadata.MongoMetaDataStore.update_metadata" title="Permalink to this definition">#</a></dt>
+<dd><p>Update metadata in the metadata store.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> – Key of metadata</p></li>
+<li><p><strong>value</strong> – Value of metadata</p></li>
 </ul>
 </dd>
 </dl>
@@ -1606,7 +1640,7 @@ a <cite>vector_index</cite> listener.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="superduperdb.db.mongodb.query.CountDocuments">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">superduperdb.db.mongodb.query.</span></span><span class="sig-name descname"><span class="pre">CountDocuments</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">collection:</span> <span class="pre">~superduperdb.db.mongodb.query.Collection</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">like_parent:</span> <span class="pre">~superduperdb.db.mongodb.query.PreLike</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args:</span> <span class="pre">~typing.Sequence</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kwargs:</span> <span class="pre">~typing.Dict</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type_id:</span> <span class="pre">~typing.Literal['mongodb.CountDocuments']</span> <span class="pre">=</span> <span class="pre">'mongodb.CountDocuments'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/db/mongodb/query.html#CountDocuments"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.db.mongodb.query.CountDocuments" title="Permalink to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#superduperdb.db.mongodb.query.Find" title="superduperdb.db.mongodb.query.Find"><code class="xref py py-class docutils literal notranslate"><span class="pre">Find</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="superduperdb.db.base.html#superduperdb.db.base.query.Select" title="superduperdb.db.base.query.Select"><code class="xref py py-class docutils literal notranslate"><span class="pre">Select</span></code></a></p>
 <p>A query to count documents</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1741,7 +1775,7 @@ a <cite>vector_index</cite> listener.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="superduperdb.db.mongodb.query.Featurize">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">superduperdb.db.mongodb.query.</span></span><span class="sig-name descname"><span class="pre">Featurize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">features</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#superduperdb.db.mongodb.query.Find" title="superduperdb.db.mongodb.query.Find"><span class="pre">Find</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#superduperdb.db.mongodb.query.PostLike" title="superduperdb.db.mongodb.query.PostLike"><span class="pre">PostLike</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">type_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'mongodb.Featurize'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'mongodb.Featurize'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/db/mongodb/query.html#Featurize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.db.mongodb.query.Featurize" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">superduperdb.db.mongodb.query.</span></span><span class="sig-name descname"><span class="pre">Featurize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">features</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#superduperdb.db.mongodb.query.Find" title="superduperdb.db.mongodb.query.Find"><span class="pre">Find</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">type_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'mongodb.Featurize'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'mongodb.Featurize'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/db/mongodb/query.html#Featurize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.db.mongodb.query.Featurize" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="superduperdb.db.base.html#superduperdb.db.base.query.Select" title="superduperdb.db.base.query.Select"><code class="xref py py-class docutils literal notranslate"><span class="pre">Select</span></code></a></p>
 <p>A feature-extraction query</p>
 <dl class="field-list simple">
@@ -1813,7 +1847,7 @@ For example, in MongoDB: “collection.find()”</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="superduperdb.db.mongodb.query.Featurize.parent">
-<span class="sig-name descname"><span class="pre">parent</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#superduperdb.db.mongodb.query.Find" title="superduperdb.db.mongodb.query.Find"><span class="pre">Find</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#superduperdb.db.mongodb.query.PostLike" title="superduperdb.db.mongodb.query.PostLike"><span class="pre">PostLike</span></a></em><a class="headerlink" href="#superduperdb.db.mongodb.query.Featurize.parent" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">parent</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#superduperdb.db.mongodb.query.Find" title="superduperdb.db.mongodb.query.Find"><span class="pre">Find</span></a></em><a class="headerlink" href="#superduperdb.db.mongodb.query.Featurize.parent" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
@@ -2605,7 +2639,7 @@ was inserted</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="superduperdb.db.mongodb.query.UpdateOne">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">superduperdb.db.mongodb.query.</span></span><span class="sig-name descname"><span class="pre">UpdateOne</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">collection:</span> <span class="pre">~superduperdb.db.mongodb.query.Collection</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update:</span> <span class="pre">~superduperdb.container.document.Document</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter:</span> <span class="pre">~typing.Dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">refresh:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args:</span> <span class="pre">~typing.Sequence</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kwargs:</span> <span class="pre">~typing.Dict</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type_id:</span> <span class="pre">~typing.Literal['mongodb.UpdateOne']</span> <span class="pre">=</span> <span class="pre">'mongodb.UpdateOne'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/db/mongodb/query.html#UpdateOne"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.db.mongodb.query.UpdateOne" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">superduperdb.db.mongodb.query.</span></span><span class="sig-name descname"><span class="pre">UpdateOne</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">collection:</span> <span class="pre">~superduperdb.db.mongodb.query.Collection</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update:</span> <span class="pre">~typing.Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter:</span> <span class="pre">~typing.Dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">refresh:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args:</span> <span class="pre">~typing.Sequence</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kwargs:</span> <span class="pre">~typing.Dict</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type_id:</span> <span class="pre">~typing.Literal['mongodb.UpdateOne']</span> <span class="pre">=</span> <span class="pre">'mongodb.UpdateOne'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/db/mongodb/query.html#UpdateOne"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.db.mongodb.query.UpdateOne" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="superduperdb.db.base.html#superduperdb.db.base.query.Update" title="superduperdb.db.base.query.Update"><code class="xref py py-class docutils literal notranslate"><span class="pre">Update</span></code></a></p>
 <p>A query that updates one document</p>
 <dl class="field-list simple">
@@ -2671,7 +2705,7 @@ the update was made.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="superduperdb.db.mongodb.query.UpdateOne.update">
-<span class="sig-name descname"><span class="pre">update</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="superduperdb.container.html#superduperdb.container.document.Document" title="superduperdb.container.document.Document"><span class="pre">Document</span></a></em><a class="headerlink" href="#superduperdb.db.mongodb.query.UpdateOne.update" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">update</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Any</span></em><a class="headerlink" href="#superduperdb.db.mongodb.query.UpdateOne.update" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -2702,14 +2736,14 @@ the update was made.</p>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="superduperdb.db.base.html">
+          <a class="prev-page" href="superduperdb.db.ibis.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">superduperdb.db.base package</div>
+                <div class="title">superduperdb.db.ibis package</div>
                 
               </div>
             </a>
@@ -2852,6 +2886,8 @@ the update was made.</p>
 </li>
 <li><a class="reference internal" href="#module-superduperdb.db.mongodb.data_backend">superduperdb.db.mongodb.data_backend module</a><ul>
 <li><a class="reference internal" href="#superduperdb.db.mongodb.data_backend.MongoDataBackend"><code class="docutils literal notranslate"><span class="pre">MongoDataBackend</span></code></a><ul>
+<li><a class="reference internal" href="#superduperdb.db.mongodb.data_backend.MongoDataBackend.build_artifact_store"><code class="docutils literal notranslate"><span class="pre">MongoDataBackend.build_artifact_store()</span></code></a></li>
+<li><a class="reference internal" href="#superduperdb.db.mongodb.data_backend.MongoDataBackend.build_metadata"><code class="docutils literal notranslate"><span class="pre">MongoDataBackend.build_metadata()</span></code></a></li>
 <li><a class="reference internal" href="#superduperdb.db.mongodb.data_backend.MongoDataBackend.create_vector_index"><code class="docutils literal notranslate"><span class="pre">MongoDataBackend.create_vector_index()</span></code></a></li>
 <li><a class="reference internal" href="#superduperdb.db.mongodb.data_backend.MongoDataBackend.db"><code class="docutils literal notranslate"><span class="pre">MongoDataBackend.db</span></code></a></li>
 <li><a class="reference internal" href="#superduperdb.db.mongodb.data_backend.MongoDataBackend.delete_vector_index"><code class="docutils literal notranslate"><span class="pre">MongoDataBackend.delete_vector_index()</span></code></a></li>
@@ -2870,6 +2906,7 @@ the update was made.</p>
 <li><a class="reference internal" href="#superduperdb.db.mongodb.metadata.MongoMetaDataStore.component_version_has_parents"><code class="docutils literal notranslate"><span class="pre">MongoMetaDataStore.component_version_has_parents()</span></code></a></li>
 <li><a class="reference internal" href="#superduperdb.db.mongodb.metadata.MongoMetaDataStore.create_component"><code class="docutils literal notranslate"><span class="pre">MongoMetaDataStore.create_component()</span></code></a></li>
 <li><a class="reference internal" href="#superduperdb.db.mongodb.metadata.MongoMetaDataStore.create_job"><code class="docutils literal notranslate"><span class="pre">MongoMetaDataStore.create_job()</span></code></a></li>
+<li><a class="reference internal" href="#superduperdb.db.mongodb.metadata.MongoMetaDataStore.create_metadata"><code class="docutils literal notranslate"><span class="pre">MongoMetaDataStore.create_metadata()</span></code></a></li>
 <li><a class="reference internal" href="#superduperdb.db.mongodb.metadata.MongoMetaDataStore.create_parent_child"><code class="docutils literal notranslate"><span class="pre">MongoMetaDataStore.create_parent_child()</span></code></a></li>
 <li><a class="reference internal" href="#superduperdb.db.mongodb.metadata.MongoMetaDataStore.delete_component_version"><code class="docutils literal notranslate"><span class="pre">MongoMetaDataStore.delete_component_version()</span></code></a></li>
 <li><a class="reference internal" href="#superduperdb.db.mongodb.metadata.MongoMetaDataStore.drop"><code class="docutils literal notranslate"><span class="pre">MongoMetaDataStore.drop()</span></code></a></li>
@@ -2883,8 +2920,10 @@ the update was made.</p>
 <li><a class="reference internal" href="#superduperdb.db.mongodb.metadata.MongoMetaDataStore.list_components_in_scope"><code class="docutils literal notranslate"><span class="pre">MongoMetaDataStore.list_components_in_scope()</span></code></a></li>
 <li><a class="reference internal" href="#superduperdb.db.mongodb.metadata.MongoMetaDataStore.show_component_versions"><code class="docutils literal notranslate"><span class="pre">MongoMetaDataStore.show_component_versions()</span></code></a></li>
 <li><a class="reference internal" href="#superduperdb.db.mongodb.metadata.MongoMetaDataStore.show_components"><code class="docutils literal notranslate"><span class="pre">MongoMetaDataStore.show_components()</span></code></a></li>
+<li><a class="reference internal" href="#superduperdb.db.mongodb.metadata.MongoMetaDataStore.show_job"><code class="docutils literal notranslate"><span class="pre">MongoMetaDataStore.show_job()</span></code></a></li>
 <li><a class="reference internal" href="#superduperdb.db.mongodb.metadata.MongoMetaDataStore.show_jobs"><code class="docutils literal notranslate"><span class="pre">MongoMetaDataStore.show_jobs()</span></code></a></li>
 <li><a class="reference internal" href="#superduperdb.db.mongodb.metadata.MongoMetaDataStore.update_job"><code class="docutils literal notranslate"><span class="pre">MongoMetaDataStore.update_job()</span></code></a></li>
+<li><a class="reference internal" href="#superduperdb.db.mongodb.metadata.MongoMetaDataStore.update_metadata"><code class="docutils literal notranslate"><span class="pre">MongoMetaDataStore.update_metadata()</span></code></a></li>
 <li><a class="reference internal" href="#superduperdb.db.mongodb.metadata.MongoMetaDataStore.write_output_to_job"><code class="docutils literal notranslate"><span class="pre">MongoMetaDataStore.write_output_to_job()</span></code></a></li>
 </ul>
 </li>

@@ -1,11 +1,11 @@
 <!doctype html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="en" data-content_root="">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="superduperdb.cli package" href="superduperdb.cli.html" /><link rel="prev" title="superduperdb package" href="superduperdb.html" />
 
-    <!-- Generated with Sphinx 7.1.2 and Furo 2023.07.26 -->
+    <!-- Generated with Sphinx 7.1.2 and Furo 2023.08.19 -->
         <title>superduperdb.base package - Python documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=135e06be" />
@@ -227,6 +227,8 @@
 </li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="superduperdb.db.html">superduperdb.db package</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle navigation of superduperdb.db package</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="superduperdb.db.base.html">superduperdb.db.base package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="superduperdb.db.filesystem.html">superduperdb.db.filesystem package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="superduperdb.db.ibis.html">superduperdb.db.ibis package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="superduperdb.db.mongodb.html">superduperdb.db.mongodb package</a></li>
 </ul>
 </li>
@@ -292,44 +294,8 @@
 which means that this file gets imported before alost anything else, and
 canot contain any other imports from this project.</p>
 <dl class="py class">
-<dt class="sig sig-object py" id="superduperdb.base.config.Api">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">superduperdb.base.config.</span></span><span class="sig-name descname"><span class="pre">Api</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">api_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'...bad.key...'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/base/config.html#Api"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.base.config.Api" title="Permalink to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#superduperdb.base.jsonable.JSONable" title="superduperdb.base.jsonable.JSONable"><code class="xref py py-class docutils literal notranslate"><span class="pre">JSONable</span></code></a></p>
-<p>A base class for API connections</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>api_key</strong> – The API key for the connection</p>
-</dd>
-</dl>
-<p>Create a new model by parsing and validating input data from keyword arguments.</p>
-<p>Raises [<cite>ValidationError</cite>][pydantic_core.ValidationError] if the input data cannot be
-validated to form a valid model.</p>
-<p><cite>__init__</cite> uses <cite>__pydantic_self__</cite> instead of the more common <cite>self</cite> for the first arg to
-allow <cite>self</cite> as a field name.</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="superduperdb.base.config.Api.api_key">
-<span class="sig-name descname"><span class="pre">api_key</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#superduperdb.base.config.Api.api_key" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="superduperdb.base.config.Api.model_config">
-<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'extra':</span> <span class="pre">'forbid',</span> <span class="pre">'ignored_types':</span> <span class="pre">(&lt;class</span> <span class="pre">'functools.cached_property'&gt;,)}</span></em><a class="headerlink" href="#superduperdb.base.config.Api.model_config" title="Permalink to this definition">#</a></dt>
-<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="superduperdb.base.config.Api.model_fields">
-<span class="sig-name descname"><span class="pre">model_fields</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'api_key':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=False,</span> <span class="pre">default='...bad.key...',</span> <span class="pre">repr=False)}</span></em><a class="headerlink" href="#superduperdb.base.config.Api.model_fields" title="Permalink to this definition">#</a></dt>
-<dd><p>Metadata about the fields defined on the model,
-mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</p>
-<p>This replaces <cite>Model.__fields__</cite> from Pydantic V1.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
 <dt class="sig sig-object py" id="superduperdb.base.config.Apis">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">superduperdb.base.config.</span></span><span class="sig-name descname"><span class="pre">Apis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">providers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#superduperdb.base.config.Api" title="superduperdb.base.config.Api"><span class="pre">Api</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">retry</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#superduperdb.base.config.Retry" title="superduperdb.base.config.Retry"><span class="pre">Retry</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/base/config.html#Apis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.base.config.Apis" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">superduperdb.base.config.</span></span><span class="sig-name descname"><span class="pre">Apis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">retry</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#superduperdb.base.config.Retry" title="superduperdb.base.config.Retry"><span class="pre">Retry</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/base/config.html#Apis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.base.config.Apis" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#superduperdb.base.jsonable.JSONable" title="superduperdb.base.jsonable.JSONable"><code class="xref py py-class docutils literal notranslate"><span class="pre">JSONable</span></code></a></p>
 <p>A container for API connections</p>
 <dl class="field-list simple">
@@ -353,16 +319,11 @@ allow <cite>self</cite> as a field name.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="superduperdb.base.config.Apis.model_fields">
-<span class="sig-name descname"><span class="pre">model_fields</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'providers':</span> <span class="pre">FieldInfo(annotation=Dict[str,</span> <span class="pre">Api],</span> <span class="pre">required=False,</span> <span class="pre">default_factory=dict),</span> <span class="pre">'retry':</span> <span class="pre">FieldInfo(annotation=Retry,</span> <span class="pre">required=False,</span> <span class="pre">default_factory=Retry)}</span></em><a class="headerlink" href="#superduperdb.base.config.Apis.model_fields" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">model_fields</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'retry':</span> <span class="pre">FieldInfo(annotation=Retry,</span> <span class="pre">required=False,</span> <span class="pre">default_factory=Retry)}</span></em><a class="headerlink" href="#superduperdb.base.config.Apis.model_fields" title="Permalink to this definition">#</a></dt>
 <dd><p>Metadata about the fields defined on the model,
 mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</p>
 <p>This replaces <cite>Model.__fields__</cite> from Pydantic V1.</p>
 </dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="superduperdb.base.config.Apis.providers">
-<span class="sig-name descname"><span class="pre">providers</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#superduperdb.base.config.Api" title="superduperdb.base.config.Api"><span class="pre">Api</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#superduperdb.base.config.Apis.providers" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="superduperdb.base.config.Apis.retry">
@@ -372,23 +333,96 @@ mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</
 </dd></dl>
 
 <dl class="py class">
+<dt class="sig sig-object py" id="superduperdb.base.config.Cluster">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">superduperdb.base.config.</span></span><span class="sig-name descname"><span class="pre">Cluster</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distributed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deserializers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">serializers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dask_scheduler</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'tcp://localhost:8786'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">local</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cdc</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backfill_batch_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/base/config.html#Cluster"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.base.config.Cluster" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#superduperdb.base.jsonable.JSONable" title="superduperdb.base.jsonable.JSONable"><code class="xref py py-class docutils literal notranslate"><span class="pre">JSONable</span></code></a></p>
+<p>Describes a connection to distributed work via Dask</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>distributed</strong> – Whether to use distributed task
+management via Dask or not</p></li>
+<li><p><strong>deserializers</strong> – A list of deserializers</p></li>
+<li><p><strong>serializers</strong> – A list of serializers</p></li>
+<li><p><strong>dask_scheduler</strong> – The Dask scheduler URI</p></li>
+<li><p><strong>local</strong> – Whether the connection is local</p></li>
+<li><p><strong>cdc</strong> – Whether change data capture should be used</p></li>
+</ul>
+</dd>
+</dl>
+<p>Create a new model by parsing and validating input data from keyword arguments.</p>
+<p>Raises [<cite>ValidationError</cite>][pydantic_core.ValidationError] if the input data cannot be
+validated to form a valid model.</p>
+<p><cite>__init__</cite> uses <cite>__pydantic_self__</cite> instead of the more common <cite>self</cite> for the first arg to
+allow <cite>self</cite> as a field name.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="superduperdb.base.config.Cluster.backfill_batch_size">
+<span class="sig-name descname"><span class="pre">backfill_batch_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#superduperdb.base.config.Cluster.backfill_batch_size" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="superduperdb.base.config.Cluster.cdc">
+<span class="sig-name descname"><span class="pre">cdc</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#superduperdb.base.config.Cluster.cdc" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="superduperdb.base.config.Cluster.dask_scheduler">
+<span class="sig-name descname"><span class="pre">dask_scheduler</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#superduperdb.base.config.Cluster.dask_scheduler" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="superduperdb.base.config.Cluster.deserializers">
+<span class="sig-name descname"><span class="pre">deserializers</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#superduperdb.base.config.Cluster.deserializers" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="superduperdb.base.config.Cluster.distributed">
+<span class="sig-name descname"><span class="pre">distributed</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#superduperdb.base.config.Cluster.distributed" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="superduperdb.base.config.Cluster.local">
+<span class="sig-name descname"><span class="pre">local</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#superduperdb.base.config.Cluster.local" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="superduperdb.base.config.Cluster.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'extra':</span> <span class="pre">'forbid',</span> <span class="pre">'ignored_types':</span> <span class="pre">(&lt;class</span> <span class="pre">'functools.cached_property'&gt;,)}</span></em><a class="headerlink" href="#superduperdb.base.config.Cluster.model_config" title="Permalink to this definition">#</a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="superduperdb.base.config.Cluster.model_fields">
+<span class="sig-name descname"><span class="pre">model_fields</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'backfill_batch_size':</span> <span class="pre">FieldInfo(annotation=int,</span> <span class="pre">required=False,</span> <span class="pre">default=100),</span> <span class="pre">'cdc':</span> <span class="pre">FieldInfo(annotation=bool,</span> <span class="pre">required=False,</span> <span class="pre">default=False),</span> <span class="pre">'dask_scheduler':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=False,</span> <span class="pre">default='tcp://localhost:8786'),</span> <span class="pre">'deserializers':</span> <span class="pre">FieldInfo(annotation=List[str],</span> <span class="pre">required=False,</span> <span class="pre">default_factory=list),</span> <span class="pre">'distributed':</span> <span class="pre">FieldInfo(annotation=bool,</span> <span class="pre">required=False,</span> <span class="pre">default=False),</span> <span class="pre">'local':</span> <span class="pre">FieldInfo(annotation=bool,</span> <span class="pre">required=False,</span> <span class="pre">default=True),</span> <span class="pre">'serializers':</span> <span class="pre">FieldInfo(annotation=List[str],</span> <span class="pre">required=False,</span> <span class="pre">default_factory=list)}</span></em><a class="headerlink" href="#superduperdb.base.config.Cluster.model_fields" title="Permalink to this definition">#</a></dt>
+<dd><p>Metadata about the fields defined on the model,
+mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</p>
+<p>This replaces <cite>Model.__fields__</cite> from Pydantic V1.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="superduperdb.base.config.Cluster.serializers">
+<span class="sig-name descname"><span class="pre">serializers</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#superduperdb.base.config.Cluster.serializers" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
 <dt class="sig sig-object py" id="superduperdb.base.config.Config">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">superduperdb.base.config.</span></span><span class="sig-name descname"><span class="pre">Config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apis</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#superduperdb.base.config.Apis" title="superduperdb.base.config.Apis"><span class="pre">Apis</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cdc</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dask</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#superduperdb.base.config.Dask" title="superduperdb.base.config.Dask"><span class="pre">Dask</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">db_components</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#superduperdb.base.config.DbComponents" title="superduperdb.base.config.DbComponents"><span class="pre">DbComponents</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distributed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logging</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#superduperdb.base.config.Logging" title="superduperdb.base.config.Logging"><span class="pre">Logging</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">server</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#superduperdb.base.config.Server" title="superduperdb.base.config.Server"><span class="pre">Server</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vector_search</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#superduperdb.base.config.VectorSearch" title="superduperdb.base.config.VectorSearch"><span class="pre">VectorSearch</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">downloads</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#superduperdb.base.config.Downloads" title="superduperdb.base.config.Downloads"><span class="pre">Downloads</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/base/config.html#Config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.base.config.Config" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">superduperdb.base.config.</span></span><span class="sig-name descname"><span class="pre">Config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_backend</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'mongodb://localhost:27017'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vector_search</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'inmemory://'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">artifact_store</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata_store</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cluster</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#superduperdb.base.config.Cluster" title="superduperdb.base.config.Cluster"><span class="pre">Cluster</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apis</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#superduperdb.base.config.Apis" title="superduperdb.base.config.Apis"><span class="pre">Apis</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logging</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#superduperdb.base.config.Logging" title="superduperdb.base.config.Logging"><span class="pre">Logging</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">server</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#superduperdb.base.config.Server" title="superduperdb.base.config.Server"><span class="pre">Server</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">downloads</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#superduperdb.base.config.Downloads" title="superduperdb.base.config.Downloads"><span class="pre">Downloads</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/base/config.html#Config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.base.config.Config" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#superduperdb.base.jsonable.JSONable" title="superduperdb.base.jsonable.JSONable"><code class="xref py py-class docutils literal notranslate"><span class="pre">JSONable</span></code></a></p>
 <p>The data class containing all configurable superduperdb values</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
+<li><p><strong>data_backend</strong> – The URI for the data backend</p></li>
+<li><p><strong>vector_search</strong> – The URI for the vector search</p></li>
+<li><p><strong>artifact_store</strong> – The URI for the artifact store</p></li>
+<li><p><strong>metadata_store</strong> – The URI for the metadata store</p></li>
 <li><p><strong>apis</strong> – The <code class="docutils literal notranslate"><span class="pre">Apis</span></code> object</p></li>
-<li><p><strong>cdc</strong> – Whether CDC is being used</p></li>
-<li><p><strong>dask</strong> – The <code class="docutils literal notranslate"><span class="pre">Dask</span></code> object</p></li>
-<li><p><strong>data_layers</strong> – The <code class="docutils literal notranslate"><span class="pre">DBComponents</span></code> object</p></li>
-<li><p><strong>distributed</strong> – Whether distributed is being used</p></li>
+<li><p><strong>cluster</strong> – The <code class="docutils literal notranslate"><span class="pre">Cluster</span></code> object</p></li>
 <li><p><strong>logging</strong> – The <code class="docutils literal notranslate"><span class="pre">Logging</span></code> object</p></li>
 <li><p><strong>server</strong> – The <code class="docutils literal notranslate"><span class="pre">Server</span></code> object</p></li>
-<li><p><strong>vector_search</strong> – The <code class="docutils literal notranslate"><span class="pre">VectorSearch</span></code> object</p></li>
 <li><p><strong>downloads</strong> – The <code class="docutils literal notranslate"><span class="pre">Downloads</span></code> object</p></li>
-<li><p><strong>verbose</strong> – Whether verbose is being used</p></li>
 </ul>
 </dd>
 </dl>
@@ -414,23 +448,18 @@ allow <cite>self</cite> as a field name.</p>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="superduperdb.base.config.Config.cdc">
-<span class="sig-name descname"><span class="pre">cdc</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#superduperdb.base.config.Config.cdc" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="superduperdb.base.config.Config.artifact_store">
+<span class="sig-name descname"><span class="pre">artifact_store</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#superduperdb.base.config.Config.artifact_store" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="superduperdb.base.config.Config.dask">
-<span class="sig-name descname"><span class="pre">dask</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#superduperdb.base.config.Dask" title="superduperdb.base.config.Dask"><span class="pre">Dask</span></a></em><a class="headerlink" href="#superduperdb.base.config.Config.dask" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="superduperdb.base.config.Config.cluster">
+<span class="sig-name descname"><span class="pre">cluster</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#superduperdb.base.config.Cluster" title="superduperdb.base.config.Cluster"><span class="pre">Cluster</span></a></em><a class="headerlink" href="#superduperdb.base.config.Config.cluster" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="superduperdb.base.config.Config.db_components">
-<span class="sig-name descname"><span class="pre">db_components</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#superduperdb.base.config.DbComponents" title="superduperdb.base.config.DbComponents"><span class="pre">DbComponents</span></a></em><a class="headerlink" href="#superduperdb.base.config.Config.db_components" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="superduperdb.base.config.Config.distributed">
-<span class="sig-name descname"><span class="pre">distributed</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#superduperdb.base.config.Config.distributed" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="superduperdb.base.config.Config.data_backend">
+<span class="sig-name descname"><span class="pre">data_backend</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#superduperdb.base.config.Config.data_backend" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -444,6 +473,11 @@ allow <cite>self</cite> as a field name.</p>
 <dd></dd></dl>
 
 <dl class="py attribute">
+<dt class="sig sig-object py" id="superduperdb.base.config.Config.metadata_store">
+<span class="sig-name descname"><span class="pre">metadata_store</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#superduperdb.base.config.Config.metadata_store" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="superduperdb.base.config.Config.model_config">
 <span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'extra':</span> <span class="pre">'forbid',</span> <span class="pre">'ignored_types':</span> <span class="pre">(&lt;class</span> <span class="pre">'functools.cached_property'&gt;,),</span> <span class="pre">'protected_namespaces':</span> <span class="pre">()}</span></em><a class="headerlink" href="#superduperdb.base.config.Config.model_config" title="Permalink to this definition">#</a></dt>
 <dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
@@ -451,7 +485,7 @@ allow <cite>self</cite> as a field name.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="superduperdb.base.config.Config.model_fields">
-<span class="sig-name descname"><span class="pre">model_fields</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'apis':</span> <span class="pre">FieldInfo(annotation=Apis,</span> <span class="pre">required=False,</span> <span class="pre">default_factory=Apis),</span> <span class="pre">'cdc':</span> <span class="pre">FieldInfo(annotation=bool,</span> <span class="pre">required=False,</span> <span class="pre">default=False),</span> <span class="pre">'dask':</span> <span class="pre">FieldInfo(annotation=Dask,</span> <span class="pre">required=False,</span> <span class="pre">default_factory=Dask),</span> <span class="pre">'db_components':</span> <span class="pre">FieldInfo(annotation=DbComponents,</span> <span class="pre">required=False,</span> <span class="pre">default_factory=DbComponents),</span> <span class="pre">'distributed':</span> <span class="pre">FieldInfo(annotation=bool,</span> <span class="pre">required=False,</span> <span class="pre">default=False),</span> <span class="pre">'downloads':</span> <span class="pre">FieldInfo(annotation=Downloads,</span> <span class="pre">required=False,</span> <span class="pre">default_factory=Downloads),</span> <span class="pre">'logging':</span> <span class="pre">FieldInfo(annotation=Logging,</span> <span class="pre">required=False,</span> <span class="pre">default_factory=Logging),</span> <span class="pre">'server':</span> <span class="pre">FieldInfo(annotation=Server,</span> <span class="pre">required=False,</span> <span class="pre">default_factory=Server),</span> <span class="pre">'vector_search':</span> <span class="pre">FieldInfo(annotation=VectorSearch,</span> <span class="pre">required=False,</span> <span class="pre">default_factory=VectorSearch)}</span></em><a class="headerlink" href="#superduperdb.base.config.Config.model_fields" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">model_fields</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'apis':</span> <span class="pre">FieldInfo(annotation=Apis,</span> <span class="pre">required=False,</span> <span class="pre">default_factory=Apis),</span> <span class="pre">'artifact_store':</span> <span class="pre">FieldInfo(annotation=Union[str,</span> <span class="pre">NoneType],</span> <span class="pre">required=False),</span> <span class="pre">'cluster':</span> <span class="pre">FieldInfo(annotation=Cluster,</span> <span class="pre">required=False,</span> <span class="pre">default_factory=Cluster),</span> <span class="pre">'data_backend':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=False,</span> <span class="pre">default='mongodb://localhost:27017'),</span> <span class="pre">'downloads':</span> <span class="pre">FieldInfo(annotation=Downloads,</span> <span class="pre">required=False,</span> <span class="pre">default_factory=Downloads),</span> <span class="pre">'logging':</span> <span class="pre">FieldInfo(annotation=Logging,</span> <span class="pre">required=False,</span> <span class="pre">default_factory=Logging),</span> <span class="pre">'metadata_store':</span> <span class="pre">FieldInfo(annotation=Union[str,</span> <span class="pre">NoneType],</span> <span class="pre">required=False),</span> <span class="pre">'server':</span> <span class="pre">FieldInfo(annotation=Server,</span> <span class="pre">required=False,</span> <span class="pre">default_factory=Server),</span> <span class="pre">'vector_search':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=False,</span> <span class="pre">default='inmemory://')}</span></em><a class="headerlink" href="#superduperdb.base.config.Config.model_fields" title="Permalink to this definition">#</a></dt>
 <dd><p>Metadata about the fields defined on the model,
 mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</p>
 <p>This replaces <cite>Model.__fields__</cite> from Pydantic V1.</p>
@@ -464,170 +498,8 @@ mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="superduperdb.base.config.Config.vector_search">
-<span class="sig-name descname"><span class="pre">vector_search</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#superduperdb.base.config.VectorSearch" title="superduperdb.base.config.VectorSearch"><span class="pre">VectorSearch</span></a></em><a class="headerlink" href="#superduperdb.base.config.Config.vector_search" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">vector_search</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#superduperdb.base.config.Config.vector_search" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="superduperdb.base.config.Dask">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">superduperdb.base.config.</span></span><span class="sig-name descname"><span class="pre">Dask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">8786</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">username</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ip</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'localhost'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deserializers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">serializers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">local</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/base/config.html#Dask"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.base.config.Dask" title="Permalink to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#superduperdb.base.config.IpPort" title="superduperdb.base.config.IpPort"><code class="xref py py-class docutils literal notranslate"><span class="pre">IpPort</span></code></a></p>
-<p>Describes a connection to Dask</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>deserializers</strong> – A list of deserializers</p></li>
-<li><p><strong>port</strong> – The port for the connection</p></li>
-<li><p><strong>serializers</strong> – A list of serializers</p></li>
-<li><p><strong>local</strong> – Whether the connection is local</p></li>
-</ul>
-</dd>
-</dl>
-<p>Create a new model by parsing and validating input data from keyword arguments.</p>
-<p>Raises [<cite>ValidationError</cite>][pydantic_core.ValidationError] if the input data cannot be
-validated to form a valid model.</p>
-<p><cite>__init__</cite> uses <cite>__pydantic_self__</cite> instead of the more common <cite>self</cite> for the first arg to
-allow <cite>self</cite> as a field name.</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="superduperdb.base.config.Dask.deserializers">
-<span class="sig-name descname"><span class="pre">deserializers</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#superduperdb.base.config.Dask.deserializers" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="superduperdb.base.config.Dask.local">
-<span class="sig-name descname"><span class="pre">local</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#superduperdb.base.config.Dask.local" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="superduperdb.base.config.Dask.model_config">
-<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'extra':</span> <span class="pre">'forbid',</span> <span class="pre">'ignored_types':</span> <span class="pre">(&lt;class</span> <span class="pre">'functools.cached_property'&gt;,)}</span></em><a class="headerlink" href="#superduperdb.base.config.Dask.model_config" title="Permalink to this definition">#</a></dt>
-<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="superduperdb.base.config.Dask.model_fields">
-<span class="sig-name descname"><span class="pre">model_fields</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'deserializers':</span> <span class="pre">FieldInfo(annotation=List[str],</span> <span class="pre">required=False,</span> <span class="pre">default_factory=list),</span> <span class="pre">'ip':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=False,</span> <span class="pre">default='localhost'),</span> <span class="pre">'local':</span> <span class="pre">FieldInfo(annotation=bool,</span> <span class="pre">required=False,</span> <span class="pre">default=True),</span> <span class="pre">'password':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=False,</span> <span class="pre">default=''),</span> <span class="pre">'port':</span> <span class="pre">FieldInfo(annotation=int,</span> <span class="pre">required=False,</span> <span class="pre">default=8786),</span> <span class="pre">'serializers':</span> <span class="pre">FieldInfo(annotation=List[str],</span> <span class="pre">required=False,</span> <span class="pre">default_factory=list),</span> <span class="pre">'username':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=False,</span> <span class="pre">default='')}</span></em><a class="headerlink" href="#superduperdb.base.config.Dask.model_fields" title="Permalink to this definition">#</a></dt>
-<dd><p>Metadata about the fields defined on the model,
-mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</p>
-<p>This replaces <cite>Model.__fields__</cite> from Pydantic V1.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="superduperdb.base.config.Dask.port">
-<span class="sig-name descname"><span class="pre">port</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#superduperdb.base.config.Dask.port" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="superduperdb.base.config.Dask.serializers">
-<span class="sig-name descname"><span class="pre">serializers</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#superduperdb.base.config.Dask.serializers" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="superduperdb.base.config.DbComponent">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">superduperdb.base.config.</span></span><span class="sig-name descname"><span class="pre">DbComponent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cls</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'mongodb'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'pymongo'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'test_db'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/base/config.html#DbComponent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.base.config.DbComponent" title="Permalink to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#superduperdb.base.jsonable.JSONable" title="superduperdb.base.jsonable.JSONable"><code class="xref py py-class docutils literal notranslate"><span class="pre">JSONable</span></code></a></p>
-<p>Configure which db or database is being used</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>cls</strong> – The class of the data layer</p></li>
-<li><p><strong>connection</strong> – The connection for the data layer</p></li>
-<li><p><strong>kwargs</strong> – Any additional keyword arguments</p></li>
-<li><p><strong>name</strong> – The name of the data layer</p></li>
-</ul>
-</dd>
-</dl>
-<p>Create a new model by parsing and validating input data from keyword arguments.</p>
-<p>Raises [<cite>ValidationError</cite>][pydantic_core.ValidationError] if the input data cannot be
-validated to form a valid model.</p>
-<p><cite>__init__</cite> uses <cite>__pydantic_self__</cite> instead of the more common <cite>self</cite> for the first arg to
-allow <cite>self</cite> as a field name.</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="superduperdb.base.config.DbComponent.cls">
-<span class="sig-name descname"><span class="pre">cls</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#superduperdb.base.config.DbComponent.cls" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="superduperdb.base.config.DbComponent.connection">
-<span class="sig-name descname"><span class="pre">connection</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#superduperdb.base.config.DbComponent.connection" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="superduperdb.base.config.DbComponent.kwargs">
-<span class="sig-name descname"><span class="pre">kwargs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span></em><a class="headerlink" href="#superduperdb.base.config.DbComponent.kwargs" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="superduperdb.base.config.DbComponent.model_config">
-<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'extra':</span> <span class="pre">'forbid',</span> <span class="pre">'ignored_types':</span> <span class="pre">(&lt;class</span> <span class="pre">'functools.cached_property'&gt;,)}</span></em><a class="headerlink" href="#superduperdb.base.config.DbComponent.model_config" title="Permalink to this definition">#</a></dt>
-<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="superduperdb.base.config.DbComponent.model_fields">
-<span class="sig-name descname"><span class="pre">model_fields</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'cls':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=False,</span> <span class="pre">default='mongodb'),</span> <span class="pre">'connection':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=False,</span> <span class="pre">default='pymongo'),</span> <span class="pre">'kwargs':</span> <span class="pre">FieldInfo(annotation=Dict,</span> <span class="pre">required=False,</span> <span class="pre">default_factory=&lt;lambda&gt;),</span> <span class="pre">'name':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=False,</span> <span class="pre">default='test_db')}</span></em><a class="headerlink" href="#superduperdb.base.config.DbComponent.model_fields" title="Permalink to this definition">#</a></dt>
-<dd><p>Metadata about the fields defined on the model,
-mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</p>
-<p>This replaces <cite>Model.__fields__</cite> from Pydantic V1.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="superduperdb.base.config.DbComponent.name">
-<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#superduperdb.base.config.DbComponent.name" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="superduperdb.base.config.DbComponents">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">superduperdb.base.config.</span></span><span class="sig-name descname"><span class="pre">DbComponents</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">artifact</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#superduperdb.base.config.DbComponent" title="superduperdb.base.config.DbComponent"><span class="pre">DbComponent</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_backend</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#superduperdb.base.config.DbComponent" title="superduperdb.base.config.DbComponent"><span class="pre">DbComponent</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#superduperdb.base.config.DbComponent" title="superduperdb.base.config.DbComponent"><span class="pre">DbComponent</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/base/config.html#DbComponents"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.base.config.DbComponents" title="Permalink to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#superduperdb.base.jsonable.JSONable" title="superduperdb.base.jsonable.JSONable"><code class="xref py py-class docutils literal notranslate"><span class="pre">JSONable</span></code></a></p>
-<p>A container for the components of <code class="docutils literal notranslate"><span class="pre">DB</span></code>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>artifact</strong> – The artifact data layer</p></li>
-<li><p><strong>data_backend</strong> – The data backend data layer</p></li>
-<li><p><strong>metadata</strong> – The metadata data layer</p></li>
-</ul>
-</dd>
-</dl>
-<p>Create a new model by parsing and validating input data from keyword arguments.</p>
-<p>Raises [<cite>ValidationError</cite>][pydantic_core.ValidationError] if the input data cannot be
-validated to form a valid model.</p>
-<p><cite>__init__</cite> uses <cite>__pydantic_self__</cite> instead of the more common <cite>self</cite> for the first arg to
-allow <cite>self</cite> as a field name.</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="superduperdb.base.config.DbComponents.artifact">
-<span class="sig-name descname"><span class="pre">artifact</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#superduperdb.base.config.DbComponent" title="superduperdb.base.config.DbComponent"><span class="pre">DbComponent</span></a></em><a class="headerlink" href="#superduperdb.base.config.DbComponents.artifact" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="superduperdb.base.config.DbComponents.data_backend">
-<span class="sig-name descname"><span class="pre">data_backend</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#superduperdb.base.config.DbComponent" title="superduperdb.base.config.DbComponent"><span class="pre">DbComponent</span></a></em><a class="headerlink" href="#superduperdb.base.config.DbComponents.data_backend" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="superduperdb.base.config.DbComponents.metadata">
-<span class="sig-name descname"><span class="pre">metadata</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#superduperdb.base.config.DbComponent" title="superduperdb.base.config.DbComponent"><span class="pre">DbComponent</span></a></em><a class="headerlink" href="#superduperdb.base.config.DbComponents.metadata" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="superduperdb.base.config.DbComponents.model_config">
-<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'extra':</span> <span class="pre">'forbid',</span> <span class="pre">'ignored_types':</span> <span class="pre">(&lt;class</span> <span class="pre">'functools.cached_property'&gt;,)}</span></em><a class="headerlink" href="#superduperdb.base.config.DbComponents.model_config" title="Permalink to this definition">#</a></dt>
-<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="superduperdb.base.config.DbComponents.model_fields">
-<span class="sig-name descname"><span class="pre">model_fields</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'artifact':</span> <span class="pre">FieldInfo(annotation=DbComponent,</span> <span class="pre">required=False,</span> <span class="pre">default_factory=&lt;lambda&gt;),</span> <span class="pre">'data_backend':</span> <span class="pre">FieldInfo(annotation=DbComponent,</span> <span class="pre">required=False,</span> <span class="pre">default_factory=DbComponent),</span> <span class="pre">'metadata':</span> <span class="pre">FieldInfo(annotation=DbComponent,</span> <span class="pre">required=False,</span> <span class="pre">default_factory=DbComponent)}</span></em><a class="headerlink" href="#superduperdb.base.config.DbComponents.model_fields" title="Permalink to this definition">#</a></dt>
-<dd><p>Metadata about the fields defined on the model,
-mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</p>
-<p>This replaces <cite>Model.__fields__</cite> from Pydantic V1.</p>
-</dd></dl>
 
 </dd></dl>
 
@@ -672,222 +544,6 @@ mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</
 <dl class="py attribute">
 <dt class="sig sig-object py" id="superduperdb.base.config.Downloads.root">
 <span class="sig-name descname"><span class="pre">root</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#superduperdb.base.config.Downloads.root" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="superduperdb.base.config.HasPort">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">superduperdb.base.config.</span></span><span class="sig-name descname"><span class="pre">HasPort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">username</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/base/config.html#HasPort"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.base.config.HasPort" title="Permalink to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#superduperdb.base.jsonable.JSONable" title="superduperdb.base.jsonable.JSONable"><code class="xref py py-class docutils literal notranslate"><span class="pre">JSONable</span></code></a></p>
-<p>A base class for server connections</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>password</strong> – The password for the connection</p></li>
-<li><p><strong>port</strong> – The port for the connection</p></li>
-<li><p><strong>username</strong> – The username for the connection</p></li>
-</ul>
-</dd>
-</dl>
-<p>Create a new model by parsing and validating input data from keyword arguments.</p>
-<p>Raises [<cite>ValidationError</cite>][pydantic_core.ValidationError] if the input data cannot be
-validated to form a valid model.</p>
-<p><cite>__init__</cite> uses <cite>__pydantic_self__</cite> instead of the more common <cite>self</cite> for the first arg to
-allow <cite>self</cite> as a field name.</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="superduperdb.base.config.HasPort.model_config">
-<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'extra':</span> <span class="pre">'forbid',</span> <span class="pre">'ignored_types':</span> <span class="pre">(&lt;class</span> <span class="pre">'functools.cached_property'&gt;,)}</span></em><a class="headerlink" href="#superduperdb.base.config.HasPort.model_config" title="Permalink to this definition">#</a></dt>
-<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="superduperdb.base.config.HasPort.model_fields">
-<span class="sig-name descname"><span class="pre">model_fields</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'password':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=False,</span> <span class="pre">default=''),</span> <span class="pre">'port':</span> <span class="pre">FieldInfo(annotation=int,</span> <span class="pre">required=False,</span> <span class="pre">default=0),</span> <span class="pre">'username':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=False,</span> <span class="pre">default='')}</span></em><a class="headerlink" href="#superduperdb.base.config.HasPort.model_fields" title="Permalink to this definition">#</a></dt>
-<dd><p>Metadata about the fields defined on the model,
-mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</p>
-<p>This replaces <cite>Model.__fields__</cite> from Pydantic V1.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="superduperdb.base.config.HasPort.password">
-<span class="sig-name descname"><span class="pre">password</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#superduperdb.base.config.HasPort.password" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="superduperdb.base.config.HasPort.port">
-<span class="sig-name descname"><span class="pre">port</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#superduperdb.base.config.HasPort.port" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="superduperdb.base.config.HasPort.username">
-<span class="sig-name descname"><span class="pre">username</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#superduperdb.base.config.HasPort.username" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="superduperdb.base.config.HostPort">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">superduperdb.base.config.</span></span><span class="sig-name descname"><span class="pre">HostPort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">username</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">host</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'localhost'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/base/config.html#HostPort"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.base.config.HostPort" title="Permalink to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#superduperdb.base.config.HasPort" title="superduperdb.base.config.HasPort"><code class="xref py py-class docutils literal notranslate"><span class="pre">HasPort</span></code></a></p>
-<p>Configure server connections with a <cite>host</cite> property</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>host</strong> – The host for the connection</p>
-</dd>
-</dl>
-<p>Create a new model by parsing and validating input data from keyword arguments.</p>
-<p>Raises [<cite>ValidationError</cite>][pydantic_core.ValidationError] if the input data cannot be
-validated to form a valid model.</p>
-<p><cite>__init__</cite> uses <cite>__pydantic_self__</cite> instead of the more common <cite>self</cite> for the first arg to
-allow <cite>self</cite> as a field name.</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="superduperdb.base.config.HostPort.host">
-<span class="sig-name descname"><span class="pre">host</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#superduperdb.base.config.HostPort.host" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="superduperdb.base.config.HostPort.model_config">
-<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'extra':</span> <span class="pre">'forbid',</span> <span class="pre">'ignored_types':</span> <span class="pre">(&lt;class</span> <span class="pre">'functools.cached_property'&gt;,)}</span></em><a class="headerlink" href="#superduperdb.base.config.HostPort.model_config" title="Permalink to this definition">#</a></dt>
-<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="superduperdb.base.config.HostPort.model_fields">
-<span class="sig-name descname"><span class="pre">model_fields</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'host':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=False,</span> <span class="pre">default='localhost'),</span> <span class="pre">'password':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=False,</span> <span class="pre">default=''),</span> <span class="pre">'port':</span> <span class="pre">FieldInfo(annotation=int,</span> <span class="pre">required=False,</span> <span class="pre">default=0),</span> <span class="pre">'username':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=False,</span> <span class="pre">default='')}</span></em><a class="headerlink" href="#superduperdb.base.config.HostPort.model_fields" title="Permalink to this definition">#</a></dt>
-<dd><p>Metadata about the fields defined on the model,
-mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</p>
-<p>This replaces <cite>Model.__fields__</cite> from Pydantic V1.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="superduperdb.base.config.InMemory">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">superduperdb.base.config.</span></span><span class="sig-name descname"><span class="pre">InMemory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backfill_batch_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inmemory</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/base/config.html#InMemory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.base.config.InMemory" title="Permalink to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#superduperdb.base.jsonable.JSONable" title="superduperdb.base.jsonable.JSONable"><code class="xref py py-class docutils literal notranslate"><span class="pre">JSONable</span></code></a></p>
-<p>Configure the in-memory vector search connection information</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>backfill_batch_size</strong> – The batch size for backfilling</p></li>
-<li><p><strong>inmemory</strong> – Whether in-memory is being used</p></li>
-</ul>
-</dd>
-</dl>
-<p>Create a new model by parsing and validating input data from keyword arguments.</p>
-<p>Raises [<cite>ValidationError</cite>][pydantic_core.ValidationError] if the input data cannot be
-validated to form a valid model.</p>
-<p><cite>__init__</cite> uses <cite>__pydantic_self__</cite> instead of the more common <cite>self</cite> for the first arg to
-allow <cite>self</cite> as a field name.</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="superduperdb.base.config.InMemory.backfill_batch_size">
-<span class="sig-name descname"><span class="pre">backfill_batch_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#superduperdb.base.config.InMemory.backfill_batch_size" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="superduperdb.base.config.InMemory.inmemory">
-<span class="sig-name descname"><span class="pre">inmemory</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#superduperdb.base.config.InMemory.inmemory" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="superduperdb.base.config.InMemory.model_config">
-<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'extra':</span> <span class="pre">'forbid',</span> <span class="pre">'ignored_types':</span> <span class="pre">(&lt;class</span> <span class="pre">'functools.cached_property'&gt;,)}</span></em><a class="headerlink" href="#superduperdb.base.config.InMemory.model_config" title="Permalink to this definition">#</a></dt>
-<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="superduperdb.base.config.InMemory.model_fields">
-<span class="sig-name descname"><span class="pre">model_fields</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'backfill_batch_size':</span> <span class="pre">FieldInfo(annotation=int,</span> <span class="pre">required=False,</span> <span class="pre">default=100),</span> <span class="pre">'inmemory':</span> <span class="pre">FieldInfo(annotation=bool,</span> <span class="pre">required=False,</span> <span class="pre">default=True)}</span></em><a class="headerlink" href="#superduperdb.base.config.InMemory.model_fields" title="Permalink to this definition">#</a></dt>
-<dd><p>Metadata about the fields defined on the model,
-mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</p>
-<p>This replaces <cite>Model.__fields__</cite> from Pydantic V1.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="superduperdb.base.config.IpPort">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">superduperdb.base.config.</span></span><span class="sig-name descname"><span class="pre">IpPort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">username</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ip</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'localhost'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/base/config.html#IpPort"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.base.config.IpPort" title="Permalink to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#superduperdb.base.config.HasPort" title="superduperdb.base.config.HasPort"><code class="xref py py-class docutils literal notranslate"><span class="pre">HasPort</span></code></a></p>
-<p>Configure server connections with an <cite>ip</cite> property</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>ip</strong> – The ip for the connection</p>
-</dd>
-</dl>
-<p>Create a new model by parsing and validating input data from keyword arguments.</p>
-<p>Raises [<cite>ValidationError</cite>][pydantic_core.ValidationError] if the input data cannot be
-validated to form a valid model.</p>
-<p><cite>__init__</cite> uses <cite>__pydantic_self__</cite> instead of the more common <cite>self</cite> for the first arg to
-allow <cite>self</cite> as a field name.</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="superduperdb.base.config.IpPort.ip">
-<span class="sig-name descname"><span class="pre">ip</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#superduperdb.base.config.IpPort.ip" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="superduperdb.base.config.IpPort.model_config">
-<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'extra':</span> <span class="pre">'forbid',</span> <span class="pre">'ignored_types':</span> <span class="pre">(&lt;class</span> <span class="pre">'functools.cached_property'&gt;,)}</span></em><a class="headerlink" href="#superduperdb.base.config.IpPort.model_config" title="Permalink to this definition">#</a></dt>
-<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="superduperdb.base.config.IpPort.model_fields">
-<span class="sig-name descname"><span class="pre">model_fields</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'ip':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=False,</span> <span class="pre">default='localhost'),</span> <span class="pre">'password':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=False,</span> <span class="pre">default=''),</span> <span class="pre">'port':</span> <span class="pre">FieldInfo(annotation=int,</span> <span class="pre">required=False,</span> <span class="pre">default=0),</span> <span class="pre">'username':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=False,</span> <span class="pre">default='')}</span></em><a class="headerlink" href="#superduperdb.base.config.IpPort.model_fields" title="Permalink to this definition">#</a></dt>
-<dd><p>Metadata about the fields defined on the model,
-mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</p>
-<p>This replaces <cite>Model.__fields__</cite> from Pydantic V1.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="superduperdb.base.config.LanceDB">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">superduperdb.base.config.</span></span><span class="sig-name descname"><span class="pre">LanceDB</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backfill_batch_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lancedb</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'./.lancedb'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/base/config.html#LanceDB"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.base.config.LanceDB" title="Permalink to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#superduperdb.base.jsonable.JSONable" title="superduperdb.base.jsonable.JSONable"><code class="xref py py-class docutils literal notranslate"><span class="pre">JSONable</span></code></a></p>
-<p>Configure the Lance DB vector search connection information</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>backfill_batch_size</strong> – The batch size for backfilling</p></li>
-<li><p><strong>lancedb</strong> – Whether LanceDB is being used</p></li>
-<li><p><strong>uri</strong> – The URI for the connection</p></li>
-</ul>
-</dd>
-</dl>
-<p>Create a new model by parsing and validating input data from keyword arguments.</p>
-<p>Raises [<cite>ValidationError</cite>][pydantic_core.ValidationError] if the input data cannot be
-validated to form a valid model.</p>
-<p><cite>__init__</cite> uses <cite>__pydantic_self__</cite> instead of the more common <cite>self</cite> for the first arg to
-allow <cite>self</cite> as a field name.</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="superduperdb.base.config.LanceDB.backfill_batch_size">
-<span class="sig-name descname"><span class="pre">backfill_batch_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#superduperdb.base.config.LanceDB.backfill_batch_size" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="superduperdb.base.config.LanceDB.lancedb">
-<span class="sig-name descname"><span class="pre">lancedb</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#superduperdb.base.config.LanceDB.lancedb" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="superduperdb.base.config.LanceDB.model_config">
-<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'extra':</span> <span class="pre">'forbid',</span> <span class="pre">'ignored_types':</span> <span class="pre">(&lt;class</span> <span class="pre">'functools.cached_property'&gt;,)}</span></em><a class="headerlink" href="#superduperdb.base.config.LanceDB.model_config" title="Permalink to this definition">#</a></dt>
-<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="superduperdb.base.config.LanceDB.model_fields">
-<span class="sig-name descname"><span class="pre">model_fields</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'backfill_batch_size':</span> <span class="pre">FieldInfo(annotation=int,</span> <span class="pre">required=False,</span> <span class="pre">default=100),</span> <span class="pre">'lancedb':</span> <span class="pre">FieldInfo(annotation=bool,</span> <span class="pre">required=False,</span> <span class="pre">default=True),</span> <span class="pre">'uri':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=False,</span> <span class="pre">default='./.lancedb')}</span></em><a class="headerlink" href="#superduperdb.base.config.LanceDB.model_fields" title="Permalink to this definition">#</a></dt>
-<dd><p>Metadata about the fields defined on the model,
-mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</p>
-<p>This replaces <cite>Model.__fields__</cite> from Pydantic V1.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="superduperdb.base.config.LanceDB.uri">
-<span class="sig-name descname"><span class="pre">uri</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#superduperdb.base.config.LanceDB.uri" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -1002,50 +658,6 @@ mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="superduperdb.base.config.MongoDB">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">superduperdb.base.config.</span></span><span class="sig-name descname"><span class="pre">MongoDB</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">27017</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">username</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">host</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'localhost'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/base/config.html#MongoDB"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.base.config.MongoDB" title="Permalink to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#superduperdb.base.config.HostPort" title="superduperdb.base.config.HostPort"><code class="xref py py-class docutils literal notranslate"><span class="pre">HostPort</span></code></a></p>
-<p>Configure MongoDB’s port and credentials</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>host</strong> – The host for the connection</p></li>
-<li><p><strong>port</strong> – The port for the connection</p></li>
-</ul>
-</dd>
-</dl>
-<p>Create a new model by parsing and validating input data from keyword arguments.</p>
-<p>Raises [<cite>ValidationError</cite>][pydantic_core.ValidationError] if the input data cannot be
-validated to form a valid model.</p>
-<p><cite>__init__</cite> uses <cite>__pydantic_self__</cite> instead of the more common <cite>self</cite> for the first arg to
-allow <cite>self</cite> as a field name.</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="superduperdb.base.config.MongoDB.host">
-<span class="sig-name descname"><span class="pre">host</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#superduperdb.base.config.MongoDB.host" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="superduperdb.base.config.MongoDB.model_config">
-<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'extra':</span> <span class="pre">'forbid',</span> <span class="pre">'ignored_types':</span> <span class="pre">(&lt;class</span> <span class="pre">'functools.cached_property'&gt;,)}</span></em><a class="headerlink" href="#superduperdb.base.config.MongoDB.model_config" title="Permalink to this definition">#</a></dt>
-<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="superduperdb.base.config.MongoDB.model_fields">
-<span class="sig-name descname"><span class="pre">model_fields</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'host':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=False,</span> <span class="pre">default='localhost'),</span> <span class="pre">'password':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=False,</span> <span class="pre">default=''),</span> <span class="pre">'port':</span> <span class="pre">FieldInfo(annotation=int,</span> <span class="pre">required=False,</span> <span class="pre">default=27017),</span> <span class="pre">'username':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=False,</span> <span class="pre">default='')}</span></em><a class="headerlink" href="#superduperdb.base.config.MongoDB.model_fields" title="Permalink to this definition">#</a></dt>
-<dd><p>Metadata about the fields defined on the model,
-mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</p>
-<p>This replaces <cite>Model.__fields__</cite> from Pydantic V1.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="superduperdb.base.config.MongoDB.port">
-<span class="sig-name descname"><span class="pre">port</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#superduperdb.base.config.MongoDB.port" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
 <dt class="sig sig-object py" id="superduperdb.base.config.Retry">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">superduperdb.base.config.</span></span><span class="sig-name descname"><span class="pre">Retry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop_after_attempt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_max</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_min</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">4.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_multiplier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/base/config.html#Retry"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.base.config.Retry" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#superduperdb.base.jsonable.JSONable" title="superduperdb.base.jsonable.JSONable"><code class="xref py py-class docutils literal notranslate"><span class="pre">JSONable</span></code></a></p>
@@ -1097,43 +709,6 @@ mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</
 <dl class="py attribute">
 <dt class="sig sig-object py" id="superduperdb.base.config.Retry.wait_multiplier">
 <span class="sig-name descname"><span class="pre">wait_multiplier</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#superduperdb.base.config.Retry.wait_multiplier" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="superduperdb.base.config.SelfHosted">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">superduperdb.base.config.</span></span><span class="sig-name descname"><span class="pre">SelfHosted</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selfhosted</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/base/config.html#SelfHosted"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.base.config.SelfHosted" title="Permalink to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#superduperdb.base.jsonable.JSONable" title="superduperdb.base.jsonable.JSONable"><code class="xref py py-class docutils literal notranslate"><span class="pre">JSONable</span></code></a></p>
-<p>A placeholder for the case in which search is self-hosted by data-backend</p>
-<p>For example: MongoDB atlas vector-search, Elastic search etc..</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>selfhosted</strong> – Whether self-hosted is being used</p>
-</dd>
-</dl>
-<p>Create a new model by parsing and validating input data from keyword arguments.</p>
-<p>Raises [<cite>ValidationError</cite>][pydantic_core.ValidationError] if the input data cannot be
-validated to form a valid model.</p>
-<p><cite>__init__</cite> uses <cite>__pydantic_self__</cite> instead of the more common <cite>self</cite> for the first arg to
-allow <cite>self</cite> as a field name.</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="superduperdb.base.config.SelfHosted.model_config">
-<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'extra':</span> <span class="pre">'forbid',</span> <span class="pre">'ignored_types':</span> <span class="pre">(&lt;class</span> <span class="pre">'functools.cached_property'&gt;,)}</span></em><a class="headerlink" href="#superduperdb.base.config.SelfHosted.model_config" title="Permalink to this definition">#</a></dt>
-<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="superduperdb.base.config.SelfHosted.model_fields">
-<span class="sig-name descname"><span class="pre">model_fields</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'selfhosted':</span> <span class="pre">FieldInfo(annotation=bool,</span> <span class="pre">required=False,</span> <span class="pre">default=True)}</span></em><a class="headerlink" href="#superduperdb.base.config.SelfHosted.model_fields" title="Permalink to this definition">#</a></dt>
-<dd><p>Metadata about the fields defined on the model,
-mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</p>
-<p>This replaces <cite>Model.__fields__</cite> from Pydantic V1.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="superduperdb.base.config.SelfHosted.selfhosted">
-<span class="sig-name descname"><span class="pre">selfhosted</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#superduperdb.base.config.SelfHosted.selfhosted" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -1193,102 +768,14 @@ mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</
 
 </dd></dl>
 
-<dl class="py class">
-<dt class="sig sig-object py" id="superduperdb.base.config.VectorSearch">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">superduperdb.base.config.</span></span><span class="sig-name descname"><span class="pre">VectorSearch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">host</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'localhost'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">19530</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#superduperdb.base.config.LanceDB" title="superduperdb.base.config.LanceDB"><span class="pre">LanceDB</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#superduperdb.base.config.InMemory" title="superduperdb.base.config.InMemory"><span class="pre">InMemory</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#superduperdb.base.config.SelfHosted" title="superduperdb.base.config.SelfHosted"><span class="pre">SelfHosted</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backfill_batch_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">username</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/base/config.html#VectorSearch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.base.config.VectorSearch" title="Permalink to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#superduperdb.base.jsonable.JSONable" title="superduperdb.base.jsonable.JSONable"><code class="xref py py-class docutils literal notranslate"><span class="pre">JSONable</span></code></a></p>
-<p>Configure the full vector search connection information</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>host</strong> – The host for the connection</p></li>
-<li><p><strong>password</strong> – The password for the connection</p></li>
-<li><p><strong>port</strong> – The port for the connection</p></li>
-<li><p><strong>type</strong> – The type of vector search</p></li>
-<li><p><strong>backfill_batch_size</strong> – The batch size for backfilling</p></li>
-<li><p><strong>username</strong> – The username for the connection</p></li>
-</ul>
-</dd>
-</dl>
-<p>Create a new model by parsing and validating input data from keyword arguments.</p>
-<p>Raises [<cite>ValidationError</cite>][pydantic_core.ValidationError] if the input data cannot be
-validated to form a valid model.</p>
-<p><cite>__init__</cite> uses <cite>__pydantic_self__</cite> instead of the more common <cite>self</cite> for the first arg to
-allow <cite>self</cite> as a field name.</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="superduperdb.base.config.VectorSearch.backfill_batch_size">
-<span class="sig-name descname"><span class="pre">backfill_batch_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#superduperdb.base.config.VectorSearch.backfill_batch_size" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="superduperdb.base.config.VectorSearch.host">
-<span class="sig-name descname"><span class="pre">host</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#superduperdb.base.config.VectorSearch.host" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="superduperdb.base.config.VectorSearch.model_config">
-<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'extra':</span> <span class="pre">'forbid',</span> <span class="pre">'ignored_types':</span> <span class="pre">(&lt;class</span> <span class="pre">'functools.cached_property'&gt;,)}</span></em><a class="headerlink" href="#superduperdb.base.config.VectorSearch.model_config" title="Permalink to this definition">#</a></dt>
-<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="superduperdb.base.config.VectorSearch.model_fields">
-<span class="sig-name descname"><span class="pre">model_fields</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'backfill_batch_size':</span> <span class="pre">FieldInfo(annotation=int,</span> <span class="pre">required=False,</span> <span class="pre">default=100),</span> <span class="pre">'host':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=False,</span> <span class="pre">default='localhost'),</span> <span class="pre">'password':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=False,</span> <span class="pre">default='',</span> <span class="pre">repr=False),</span> <span class="pre">'port':</span> <span class="pre">FieldInfo(annotation=int,</span> <span class="pre">required=False,</span> <span class="pre">default=19530),</span> <span class="pre">'type':</span> <span class="pre">FieldInfo(annotation=Union[LanceDB,</span> <span class="pre">InMemory,</span> <span class="pre">SelfHosted],</span> <span class="pre">required=False,</span> <span class="pre">default_factory=InMemory),</span> <span class="pre">'username':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=False,</span> <span class="pre">default='',</span> <span class="pre">repr=False)}</span></em><a class="headerlink" href="#superduperdb.base.config.VectorSearch.model_fields" title="Permalink to this definition">#</a></dt>
-<dd><p>Metadata about the fields defined on the model,
-mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</p>
-<p>This replaces <cite>Model.__fields__</cite> from Pydantic V1.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="superduperdb.base.config.VectorSearch.password">
-<span class="sig-name descname"><span class="pre">password</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#superduperdb.base.config.VectorSearch.password" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="superduperdb.base.config.VectorSearch.port">
-<span class="sig-name descname"><span class="pre">port</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#superduperdb.base.config.VectorSearch.port" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="superduperdb.base.config.VectorSearch.type">
-<span class="sig-name descname"><span class="pre">type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#superduperdb.base.config.LanceDB" title="superduperdb.base.config.LanceDB"><span class="pre">LanceDB</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#superduperdb.base.config.InMemory" title="superduperdb.base.config.InMemory"><span class="pre">InMemory</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#superduperdb.base.config.SelfHosted" title="superduperdb.base.config.SelfHosted"><span class="pre">SelfHosted</span></a></em><a class="headerlink" href="#superduperdb.base.config.VectorSearch.type" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="superduperdb.base.config.VectorSearch.username">
-<span class="sig-name descname"><span class="pre">username</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#superduperdb.base.config.VectorSearch.username" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
 </section>
 <section id="module-superduperdb.base.config_dicts">
 <span id="superduperdb-base-config-dicts-module"></span><h2>superduperdb.base.config_dicts module<a class="headerlink" href="#module-superduperdb.base.config_dicts" title="Permalink to this heading">#</a></h2>
 <p>Operations on dictionaries used to fill and combine config files
 and environment variables</p>
 <dl class="py function">
-<dt class="sig sig-object py" id="superduperdb.base.config_dicts.combine">
-<span class="sig-prename descclassname"><span class="pre">superduperdb.base.config_dicts.</span></span><span class="sig-name descname"><span class="pre">combine</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dicts</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span></span></span><a class="reference internal" href="../_modules/superduperdb/base/config_dicts.html#combine"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.base.config_dicts.combine" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="superduperdb.base.config_dicts.environ_dict">
-<span class="sig-prename descclassname"><span class="pre">superduperdb.base.config_dicts.</span></span><span class="sig-name descname"><span class="pre">environ_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">environ</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span></span></span><a class="reference internal" href="../_modules/superduperdb/base/config_dicts.html#environ_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.base.config_dicts.environ_dict" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="superduperdb.base.config_dicts.environ_to_config_dict">
-<span class="sig-prename descclassname"><span class="pre">superduperdb.base.config_dicts.</span></span><span class="sig-name descname"><span class="pre">environ_to_config_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prefix:</span> <span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent:</span> <span class="pre">~typing.Dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">environ:</span> <span class="pre">~typing.Dict</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">err:</span> <span class="pre">~typing.TextIO</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">&lt;_io.TextIOWrapper</span> <span class="pre">name='&lt;stderr&gt;'</span> <span class="pre">mode='w'</span> <span class="pre">encoding='utf-8'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fail:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/base/config_dicts.html#environ_to_config_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.base.config_dicts.environ_to_config_dict" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="superduperdb.base.config_dicts.read_all">
-<span class="sig-prename descclassname"><span class="pre">superduperdb.base.config_dicts.</span></span><span class="sig-name descname"><span class="pre">read_all</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">files</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fail</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/superduperdb/base/config_dicts.html#read_all"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.base.config_dicts.read_all" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="superduperdb.base.config_dicts.split_address">
-<span class="sig-prename descclassname"><span class="pre">superduperdb.base.config_dicts.</span></span><span class="sig-name descname"><span class="pre">split_address</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/superduperdb/base/config_dicts.html#split_address"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.base.config_dicts.split_address" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="superduperdb.base.config_dicts.config_dicts">
+<span class="sig-prename descclassname"><span class="pre">superduperdb.base.config_dicts.</span></span><span class="sig-name descname"><span class="pre">config_dicts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">files</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">environ</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">object</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/superduperdb/base/config_dicts.html#config_dicts"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.base.config_dicts.config_dicts" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 </section>
@@ -1380,7 +867,7 @@ allow <cite>self</cite> as a field name.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="superduperdb.base.jsonable.JSONable.SUBCLASSES">
-<span class="sig-name descname"><span class="pre">SUBCLASSES</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Type</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{&lt;class</span> <span class="pre">'superduperdb.base.config.IpPort'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'superduperdb.base.config.Downloads'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'superduperdb.base.config.VectorSearch'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'superduperdb.base.config.Config'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'superduperdb.base.config.Retry'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'superduperdb.base.config.Apis'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'superduperdb.base.config.HasPort'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'superduperdb.base.config.Api'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'superduperdb.base.config.Logging'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'superduperdb.base.config.DbComponent'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'superduperdb.base.config.MongoDB'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'superduperdb.base.config.LanceDB'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'superduperdb.base.config.InMemory'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'superduperdb.base.config.DbComponents'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'superduperdb.base.config.Server'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'superduperdb.base.config.SelfHosted'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'superduperdb.base.config.Dask'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'superduperdb.base.config.HostPort'&gt;}</span></em><a class="headerlink" href="#superduperdb.base.jsonable.JSONable.SUBCLASSES" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">SUBCLASSES</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Type</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{&lt;class</span> <span class="pre">'superduperdb.base.config.Logging'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'superduperdb.base.config.Downloads'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'superduperdb.base.config.Cluster'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'superduperdb.base.config.Apis'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'superduperdb.base.config.Retry'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'superduperdb.base.config.Server'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'superduperdb.base.config.Config'&gt;}</span></em><a class="headerlink" href="#superduperdb.base.jsonable.JSONable.SUBCLASSES" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -1481,17 +968,22 @@ mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</
 <li><a class="reference internal" href="#">superduperdb.base package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
 <li><a class="reference internal" href="#module-superduperdb.base.config">superduperdb.base.config module</a><ul>
-<li><a class="reference internal" href="#superduperdb.base.config.Api"><code class="docutils literal notranslate"><span class="pre">Api</span></code></a><ul>
-<li><a class="reference internal" href="#superduperdb.base.config.Api.api_key"><code class="docutils literal notranslate"><span class="pre">Api.api_key</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.base.config.Api.model_config"><code class="docutils literal notranslate"><span class="pre">Api.model_config</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.base.config.Api.model_fields"><code class="docutils literal notranslate"><span class="pre">Api.model_fields</span></code></a></li>
-</ul>
-</li>
 <li><a class="reference internal" href="#superduperdb.base.config.Apis"><code class="docutils literal notranslate"><span class="pre">Apis</span></code></a><ul>
 <li><a class="reference internal" href="#superduperdb.base.config.Apis.model_config"><code class="docutils literal notranslate"><span class="pre">Apis.model_config</span></code></a></li>
 <li><a class="reference internal" href="#superduperdb.base.config.Apis.model_fields"><code class="docutils literal notranslate"><span class="pre">Apis.model_fields</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.base.config.Apis.providers"><code class="docutils literal notranslate"><span class="pre">Apis.providers</span></code></a></li>
 <li><a class="reference internal" href="#superduperdb.base.config.Apis.retry"><code class="docutils literal notranslate"><span class="pre">Apis.retry</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#superduperdb.base.config.Cluster"><code class="docutils literal notranslate"><span class="pre">Cluster</span></code></a><ul>
+<li><a class="reference internal" href="#superduperdb.base.config.Cluster.backfill_batch_size"><code class="docutils literal notranslate"><span class="pre">Cluster.backfill_batch_size</span></code></a></li>
+<li><a class="reference internal" href="#superduperdb.base.config.Cluster.cdc"><code class="docutils literal notranslate"><span class="pre">Cluster.cdc</span></code></a></li>
+<li><a class="reference internal" href="#superduperdb.base.config.Cluster.dask_scheduler"><code class="docutils literal notranslate"><span class="pre">Cluster.dask_scheduler</span></code></a></li>
+<li><a class="reference internal" href="#superduperdb.base.config.Cluster.deserializers"><code class="docutils literal notranslate"><span class="pre">Cluster.deserializers</span></code></a></li>
+<li><a class="reference internal" href="#superduperdb.base.config.Cluster.distributed"><code class="docutils literal notranslate"><span class="pre">Cluster.distributed</span></code></a></li>
+<li><a class="reference internal" href="#superduperdb.base.config.Cluster.local"><code class="docutils literal notranslate"><span class="pre">Cluster.local</span></code></a></li>
+<li><a class="reference internal" href="#superduperdb.base.config.Cluster.model_config"><code class="docutils literal notranslate"><span class="pre">Cluster.model_config</span></code></a></li>
+<li><a class="reference internal" href="#superduperdb.base.config.Cluster.model_fields"><code class="docutils literal notranslate"><span class="pre">Cluster.model_fields</span></code></a></li>
+<li><a class="reference internal" href="#superduperdb.base.config.Cluster.serializers"><code class="docutils literal notranslate"><span class="pre">Cluster.serializers</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#superduperdb.base.config.Config"><code class="docutils literal notranslate"><span class="pre">Config</span></code></a><ul>
@@ -1500,42 +992,16 @@ mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</
 </ul>
 </li>
 <li><a class="reference internal" href="#superduperdb.base.config.Config.apis"><code class="docutils literal notranslate"><span class="pre">Config.apis</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.base.config.Config.cdc"><code class="docutils literal notranslate"><span class="pre">Config.cdc</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.base.config.Config.dask"><code class="docutils literal notranslate"><span class="pre">Config.dask</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.base.config.Config.db_components"><code class="docutils literal notranslate"><span class="pre">Config.db_components</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.base.config.Config.distributed"><code class="docutils literal notranslate"><span class="pre">Config.distributed</span></code></a></li>
+<li><a class="reference internal" href="#superduperdb.base.config.Config.artifact_store"><code class="docutils literal notranslate"><span class="pre">Config.artifact_store</span></code></a></li>
+<li><a class="reference internal" href="#superduperdb.base.config.Config.cluster"><code class="docutils literal notranslate"><span class="pre">Config.cluster</span></code></a></li>
+<li><a class="reference internal" href="#superduperdb.base.config.Config.data_backend"><code class="docutils literal notranslate"><span class="pre">Config.data_backend</span></code></a></li>
 <li><a class="reference internal" href="#superduperdb.base.config.Config.downloads"><code class="docutils literal notranslate"><span class="pre">Config.downloads</span></code></a></li>
 <li><a class="reference internal" href="#superduperdb.base.config.Config.logging"><code class="docutils literal notranslate"><span class="pre">Config.logging</span></code></a></li>
+<li><a class="reference internal" href="#superduperdb.base.config.Config.metadata_store"><code class="docutils literal notranslate"><span class="pre">Config.metadata_store</span></code></a></li>
 <li><a class="reference internal" href="#superduperdb.base.config.Config.model_config"><code class="docutils literal notranslate"><span class="pre">Config.model_config</span></code></a></li>
 <li><a class="reference internal" href="#superduperdb.base.config.Config.model_fields"><code class="docutils literal notranslate"><span class="pre">Config.model_fields</span></code></a></li>
 <li><a class="reference internal" href="#superduperdb.base.config.Config.server"><code class="docutils literal notranslate"><span class="pre">Config.server</span></code></a></li>
 <li><a class="reference internal" href="#superduperdb.base.config.Config.vector_search"><code class="docutils literal notranslate"><span class="pre">Config.vector_search</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#superduperdb.base.config.Dask"><code class="docutils literal notranslate"><span class="pre">Dask</span></code></a><ul>
-<li><a class="reference internal" href="#superduperdb.base.config.Dask.deserializers"><code class="docutils literal notranslate"><span class="pre">Dask.deserializers</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.base.config.Dask.local"><code class="docutils literal notranslate"><span class="pre">Dask.local</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.base.config.Dask.model_config"><code class="docutils literal notranslate"><span class="pre">Dask.model_config</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.base.config.Dask.model_fields"><code class="docutils literal notranslate"><span class="pre">Dask.model_fields</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.base.config.Dask.port"><code class="docutils literal notranslate"><span class="pre">Dask.port</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.base.config.Dask.serializers"><code class="docutils literal notranslate"><span class="pre">Dask.serializers</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#superduperdb.base.config.DbComponent"><code class="docutils literal notranslate"><span class="pre">DbComponent</span></code></a><ul>
-<li><a class="reference internal" href="#superduperdb.base.config.DbComponent.cls"><code class="docutils literal notranslate"><span class="pre">DbComponent.cls</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.base.config.DbComponent.connection"><code class="docutils literal notranslate"><span class="pre">DbComponent.connection</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.base.config.DbComponent.kwargs"><code class="docutils literal notranslate"><span class="pre">DbComponent.kwargs</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.base.config.DbComponent.model_config"><code class="docutils literal notranslate"><span class="pre">DbComponent.model_config</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.base.config.DbComponent.model_fields"><code class="docutils literal notranslate"><span class="pre">DbComponent.model_fields</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.base.config.DbComponent.name"><code class="docutils literal notranslate"><span class="pre">DbComponent.name</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#superduperdb.base.config.DbComponents"><code class="docutils literal notranslate"><span class="pre">DbComponents</span></code></a><ul>
-<li><a class="reference internal" href="#superduperdb.base.config.DbComponents.artifact"><code class="docutils literal notranslate"><span class="pre">DbComponents.artifact</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.base.config.DbComponents.data_backend"><code class="docutils literal notranslate"><span class="pre">DbComponents.data_backend</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.base.config.DbComponents.metadata"><code class="docutils literal notranslate"><span class="pre">DbComponents.metadata</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.base.config.DbComponents.model_config"><code class="docutils literal notranslate"><span class="pre">DbComponents.model_config</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.base.config.DbComponents.model_fields"><code class="docutils literal notranslate"><span class="pre">DbComponents.model_fields</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#superduperdb.base.config.Downloads"><code class="docutils literal notranslate"><span class="pre">Downloads</span></code></a><ul>
@@ -1543,41 +1009,6 @@ mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</
 <li><a class="reference internal" href="#superduperdb.base.config.Downloads.model_config"><code class="docutils literal notranslate"><span class="pre">Downloads.model_config</span></code></a></li>
 <li><a class="reference internal" href="#superduperdb.base.config.Downloads.model_fields"><code class="docutils literal notranslate"><span class="pre">Downloads.model_fields</span></code></a></li>
 <li><a class="reference internal" href="#superduperdb.base.config.Downloads.root"><code class="docutils literal notranslate"><span class="pre">Downloads.root</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#superduperdb.base.config.HasPort"><code class="docutils literal notranslate"><span class="pre">HasPort</span></code></a><ul>
-<li><a class="reference internal" href="#superduperdb.base.config.HasPort.model_config"><code class="docutils literal notranslate"><span class="pre">HasPort.model_config</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.base.config.HasPort.model_fields"><code class="docutils literal notranslate"><span class="pre">HasPort.model_fields</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.base.config.HasPort.password"><code class="docutils literal notranslate"><span class="pre">HasPort.password</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.base.config.HasPort.port"><code class="docutils literal notranslate"><span class="pre">HasPort.port</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.base.config.HasPort.username"><code class="docutils literal notranslate"><span class="pre">HasPort.username</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#superduperdb.base.config.HostPort"><code class="docutils literal notranslate"><span class="pre">HostPort</span></code></a><ul>
-<li><a class="reference internal" href="#superduperdb.base.config.HostPort.host"><code class="docutils literal notranslate"><span class="pre">HostPort.host</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.base.config.HostPort.model_config"><code class="docutils literal notranslate"><span class="pre">HostPort.model_config</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.base.config.HostPort.model_fields"><code class="docutils literal notranslate"><span class="pre">HostPort.model_fields</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#superduperdb.base.config.InMemory"><code class="docutils literal notranslate"><span class="pre">InMemory</span></code></a><ul>
-<li><a class="reference internal" href="#superduperdb.base.config.InMemory.backfill_batch_size"><code class="docutils literal notranslate"><span class="pre">InMemory.backfill_batch_size</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.base.config.InMemory.inmemory"><code class="docutils literal notranslate"><span class="pre">InMemory.inmemory</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.base.config.InMemory.model_config"><code class="docutils literal notranslate"><span class="pre">InMemory.model_config</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.base.config.InMemory.model_fields"><code class="docutils literal notranslate"><span class="pre">InMemory.model_fields</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#superduperdb.base.config.IpPort"><code class="docutils literal notranslate"><span class="pre">IpPort</span></code></a><ul>
-<li><a class="reference internal" href="#superduperdb.base.config.IpPort.ip"><code class="docutils literal notranslate"><span class="pre">IpPort.ip</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.base.config.IpPort.model_config"><code class="docutils literal notranslate"><span class="pre">IpPort.model_config</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.base.config.IpPort.model_fields"><code class="docutils literal notranslate"><span class="pre">IpPort.model_fields</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#superduperdb.base.config.LanceDB"><code class="docutils literal notranslate"><span class="pre">LanceDB</span></code></a><ul>
-<li><a class="reference internal" href="#superduperdb.base.config.LanceDB.backfill_batch_size"><code class="docutils literal notranslate"><span class="pre">LanceDB.backfill_batch_size</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.base.config.LanceDB.lancedb"><code class="docutils literal notranslate"><span class="pre">LanceDB.lancedb</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.base.config.LanceDB.model_config"><code class="docutils literal notranslate"><span class="pre">LanceDB.model_config</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.base.config.LanceDB.model_fields"><code class="docutils literal notranslate"><span class="pre">LanceDB.model_fields</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.base.config.LanceDB.uri"><code class="docutils literal notranslate"><span class="pre">LanceDB.uri</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#superduperdb.base.config.LogLevel"><code class="docutils literal notranslate"><span class="pre">LogLevel</span></code></a><ul>
@@ -1601,13 +1032,6 @@ mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</
 <li><a class="reference internal" href="#superduperdb.base.config.Logging.type"><code class="docutils literal notranslate"><span class="pre">Logging.type</span></code></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#superduperdb.base.config.MongoDB"><code class="docutils literal notranslate"><span class="pre">MongoDB</span></code></a><ul>
-<li><a class="reference internal" href="#superduperdb.base.config.MongoDB.host"><code class="docutils literal notranslate"><span class="pre">MongoDB.host</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.base.config.MongoDB.model_config"><code class="docutils literal notranslate"><span class="pre">MongoDB.model_config</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.base.config.MongoDB.model_fields"><code class="docutils literal notranslate"><span class="pre">MongoDB.model_fields</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.base.config.MongoDB.port"><code class="docutils literal notranslate"><span class="pre">MongoDB.port</span></code></a></li>
-</ul>
-</li>
 <li><a class="reference internal" href="#superduperdb.base.config.Retry"><code class="docutils literal notranslate"><span class="pre">Retry</span></code></a><ul>
 <li><a class="reference internal" href="#superduperdb.base.config.Retry.model_config"><code class="docutils literal notranslate"><span class="pre">Retry.model_config</span></code></a></li>
 <li><a class="reference internal" href="#superduperdb.base.config.Retry.model_fields"><code class="docutils literal notranslate"><span class="pre">Retry.model_fields</span></code></a></li>
@@ -1615,12 +1039,6 @@ mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</
 <li><a class="reference internal" href="#superduperdb.base.config.Retry.wait_max"><code class="docutils literal notranslate"><span class="pre">Retry.wait_max</span></code></a></li>
 <li><a class="reference internal" href="#superduperdb.base.config.Retry.wait_min"><code class="docutils literal notranslate"><span class="pre">Retry.wait_min</span></code></a></li>
 <li><a class="reference internal" href="#superduperdb.base.config.Retry.wait_multiplier"><code class="docutils literal notranslate"><span class="pre">Retry.wait_multiplier</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#superduperdb.base.config.SelfHosted"><code class="docutils literal notranslate"><span class="pre">SelfHosted</span></code></a><ul>
-<li><a class="reference internal" href="#superduperdb.base.config.SelfHosted.model_config"><code class="docutils literal notranslate"><span class="pre">SelfHosted.model_config</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.base.config.SelfHosted.model_fields"><code class="docutils literal notranslate"><span class="pre">SelfHosted.model_fields</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.base.config.SelfHosted.selfhosted"><code class="docutils literal notranslate"><span class="pre">SelfHosted.selfhosted</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#superduperdb.base.config.Server"><code class="docutils literal notranslate"><span class="pre">Server</span></code></a><ul>
@@ -1632,25 +1050,10 @@ mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</
 <li><a class="reference internal" href="#superduperdb.base.config.Server.uri"><code class="docutils literal notranslate"><span class="pre">Server.uri</span></code></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#superduperdb.base.config.VectorSearch"><code class="docutils literal notranslate"><span class="pre">VectorSearch</span></code></a><ul>
-<li><a class="reference internal" href="#superduperdb.base.config.VectorSearch.backfill_batch_size"><code class="docutils literal notranslate"><span class="pre">VectorSearch.backfill_batch_size</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.base.config.VectorSearch.host"><code class="docutils literal notranslate"><span class="pre">VectorSearch.host</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.base.config.VectorSearch.model_config"><code class="docutils literal notranslate"><span class="pre">VectorSearch.model_config</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.base.config.VectorSearch.model_fields"><code class="docutils literal notranslate"><span class="pre">VectorSearch.model_fields</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.base.config.VectorSearch.password"><code class="docutils literal notranslate"><span class="pre">VectorSearch.password</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.base.config.VectorSearch.port"><code class="docutils literal notranslate"><span class="pre">VectorSearch.port</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.base.config.VectorSearch.type"><code class="docutils literal notranslate"><span class="pre">VectorSearch.type</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.base.config.VectorSearch.username"><code class="docutils literal notranslate"><span class="pre">VectorSearch.username</span></code></a></li>
-</ul>
-</li>
 </ul>
 </li>
 <li><a class="reference internal" href="#module-superduperdb.base.config_dicts">superduperdb.base.config_dicts module</a><ul>
-<li><a class="reference internal" href="#superduperdb.base.config_dicts.combine"><code class="docutils literal notranslate"><span class="pre">combine()</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.base.config_dicts.environ_dict"><code class="docutils literal notranslate"><span class="pre">environ_dict()</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.base.config_dicts.environ_to_config_dict"><code class="docutils literal notranslate"><span class="pre">environ_to_config_dict()</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.base.config_dicts.read_all"><code class="docutils literal notranslate"><span class="pre">read_all()</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.base.config_dicts.split_address"><code class="docutils literal notranslate"><span class="pre">split_address()</span></code></a></li>
+<li><a class="reference internal" href="#superduperdb.base.config_dicts.config_dicts"><code class="docutils literal notranslate"><span class="pre">config_dicts()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#module-superduperdb.base.configs">superduperdb.base.configs module</a><ul>
