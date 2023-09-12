@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="superduperdb.ext package" href="superduperdb.ext.html" /><link rel="prev" title="superduperdb.db.ibis package" href="superduperdb.db.ibis.html" />
 
-    <!-- Generated with Sphinx 7.1.2 and Furo 2023.08.19 -->
+    <!-- Generated with Sphinx 7.1.2 and Furo 2023.09.10 -->
         <title>superduperdb.db.mongodb package - Python documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=135e06be" />
@@ -186,7 +186,10 @@
 <li class="toctree-l4"><a class="reference internal" href="superduperdb.ext.vector.html">superduperdb.ext.vector package</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="superduperdb.misc.html">superduperdb.misc package</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="superduperdb.misc.html">superduperdb.misc package</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of superduperdb.misc package</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="superduperdb.misc.runnable.html">superduperdb.misc.runnable package</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="superduperdb.server.html">superduperdb.server package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="superduperdb.vector_search.html">superduperdb.vector_search package</a></li>
 </ul>
@@ -1467,6 +1470,8 @@ a <cite>vector_index</cite> listener.</p>
 </p></li>
 <li><p><strong>refresh</strong> – If true, refresh the underlying collection</p></li>
 <li><p><strong>encoders</strong> – A dictionary/ lookup of encoders to use for encoding</p></li>
+<li><p><strong>**kwargs</strong> – <p>Named query arguments to <code class="docutils literal notranslate"><span class="pre">pymongo.Collection.insert_many</span></code></p>
+</p></li>
 </ul>
 </dd>
 </dl>
@@ -1723,7 +1728,7 @@ the fold specified</p>
 <dt class="sig sig-object py" id="superduperdb.db.mongodb.query.Featurize.is_trivial">
 <span class="sig-name descname"><span class="pre">is_trivial</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/superduperdb/db/mongodb/query.html#Featurize.is_trivial"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.db.mongodb.query.Featurize.is_trivial" title="Permalink to this definition">#</a></dt>
 <dd><p>Determines when a select statement is “just” select everything.</p>
-<p>For example, in SQL: “FROM my_table SELECT <a href="#id47"><span class="problematic" id="id48">*</span></a>”
+<p>For example, in SQL: “FROM my_table SELECT <a href="#id49"><span class="problematic" id="id50">*</span></a>”
 For example, in MongoDB: “collection.find()”</p>
 </dd></dl>
 
@@ -1810,18 +1815,19 @@ of each column/ document.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="superduperdb.db.mongodb.query.FeaturizeOne.features">
 <span class="sig-name descname"><span class="pre">features</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#superduperdb.db.mongodb.query.FeaturizeOne.features" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
+<dd><p>The features to extract</p>
+</dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="superduperdb.db.mongodb.query.FeaturizeOne.parent_find_one">
 <span class="sig-name descname"><span class="pre">parent_find_one</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Any</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#superduperdb.db.mongodb.query.FeaturizeOne.parent_find_one" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
+<dd><p>The parent query to use for the like query (if applicable)</p>
+</dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="superduperdb.db.mongodb.query.FeaturizeOne.type_id">
 <span class="sig-name descname"><span class="pre">type_id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'mongodb.FeaturizeOne'</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'mongodb.FeaturizeOne'</span></em><a class="headerlink" href="#superduperdb.db.mongodb.query.FeaturizeOne.type_id" title="Permalink to this definition">#</a></dt>
-<dd><p>Uniquely identifies serialized elements of this class</p>
-</dd></dl>
+<dd></dd></dl>
 
 </dd></dl>
 
@@ -2269,7 +2275,7 @@ was inserted</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="superduperdb.db.mongodb.query.PreLike">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">superduperdb.db.mongodb.query.</span></span><span class="sig-name descname"><span class="pre">PreLike</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="superduperdb.container.html#superduperdb.container.document.Document" title="superduperdb.container.document.Document"><span class="pre">Document</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">vector_index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">collection</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#superduperdb.db.mongodb.query.Collection" title="superduperdb.db.mongodb.query.Collection"><span class="pre">Collection</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'mongodb.PreLike'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'mongodb.PreLike'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/db/mongodb/query.html#PreLike"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.db.mongodb.query.PreLike" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">superduperdb.db.mongodb.query.</span></span><span class="sig-name descname"><span class="pre">PreLike</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">collection</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#superduperdb.db.mongodb.query.Collection" title="superduperdb.db.mongodb.query.Collection"><span class="pre">Collection</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="superduperdb.container.html#superduperdb.container.document.Document" title="superduperdb.container.document.Document"><span class="pre">Document</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">vector_index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'mongodb.PreLike'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'mongodb.PreLike'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/db/mongodb/query.html#PreLike"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.db.mongodb.query.PreLike" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="superduperdb.db.base.html#superduperdb.db.base.query.Like" title="superduperdb.db.base.query.Like"><code class="xref py py-class docutils literal notranslate"><span class="pre">Like</span></code></a></p>
 <p>A query that returns documents like another document</p>
 <dl class="py method">
@@ -2281,13 +2287,13 @@ was inserted</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="superduperdb.db.mongodb.query.PreLike.collection">
 <span class="sig-name descname"><span class="pre">collection</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#superduperdb.db.mongodb.query.Collection" title="superduperdb.db.mongodb.query.Collection"><span class="pre">Collection</span></a></em><a class="headerlink" href="#superduperdb.db.mongodb.query.PreLike.collection" title="Permalink to this definition">#</a></dt>
-<dd><p>The name of the vector index to use</p>
+<dd><p>The collection to perform the query on</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="superduperdb.db.mongodb.query.PreLike.find">
 <span class="sig-name descname"><span class="pre">find</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#superduperdb.db.mongodb.query.Find" title="superduperdb.db.mongodb.query.Find"><span class="pre">Find</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#superduperdb.db.mongodb.query.Aggregate" title="superduperdb.db.mongodb.query.Aggregate"><span class="pre">Aggregate</span></a></span></span><a class="reference internal" href="../_modules/superduperdb/db/mongodb/query.html#PreLike.find"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.db.mongodb.query.PreLike.find" title="Permalink to this definition">#</a></dt>
-<dd><p>Find documents like this one filtered using <a href="#id49"><span class="problematic" id="id50">*</span></a>args and <a href="#id51"><span class="problematic" id="id52">**</span></a>kwargs on
+<dd><p>Find documents like this one filtered using <a href="#id51"><span class="problematic" id="id52">*</span></a>args and <a href="#id53"><span class="problematic" id="id54">**</span></a>kwargs on
 the basis of <code class="docutils literal notranslate"><span class="pre">self.vector_index</span></code></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -2324,7 +2330,7 @@ the basis of <code class="docutils literal notranslate"><span class="pre">self.v
 <dl class="py attribute">
 <dt class="sig sig-object py" id="superduperdb.db.mongodb.query.PreLike.r">
 <span class="sig-name descname"><span class="pre">r</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="superduperdb.container.html#superduperdb.container.document.Document" title="superduperdb.container.document.Document"><span class="pre">Document</span></a></em><a class="headerlink" href="#superduperdb.db.mongodb.query.PreLike.r" title="Permalink to this definition">#</a></dt>
-<dd><p>The collection to perform the query on</p>
+<dd><p>The document to match</p>
 </dd></dl>
 
 <dl class="py property">
@@ -2341,7 +2347,7 @@ the basis of <code class="docutils literal notranslate"><span class="pre">self.v
 <dl class="py attribute">
 <dt class="sig sig-object py" id="superduperdb.db.mongodb.query.PreLike.vector_index">
 <span class="sig-name descname"><span class="pre">vector_index</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#superduperdb.db.mongodb.query.PreLike.vector_index" title="Permalink to this definition">#</a></dt>
-<dd><p>The document to match</p>
+<dd><p>The name of the vector index to use</p>
 </dd></dl>
 
 </dd></dl>

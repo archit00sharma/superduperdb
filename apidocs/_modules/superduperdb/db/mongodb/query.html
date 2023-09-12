@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../../../genindex.html" /><link rel="search" title="Search" href="../../../../search.html" />
 
-    <!-- Generated with Sphinx 7.1.2 and Furo 2023.08.19 -->
+    <!-- Generated with Sphinx 7.1.2 and Furo 2023.09.10 -->
         <title>superduperdb.db.mongodb.query - Python documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo.css?v=135e06be" />
@@ -185,7 +185,10 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../source/superduperdb.ext.vector.html">superduperdb.ext.vector package</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../source/superduperdb.misc.html">superduperdb.misc package</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../../source/superduperdb.misc.html">superduperdb.misc package</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of superduperdb.misc package</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../source/superduperdb.misc.runnable.html">superduperdb.misc.runnable package</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../source/superduperdb.server.html">superduperdb.server package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../source/superduperdb.vector_search.html">superduperdb.vector_search package</a></li>
 </ul>
@@ -315,6 +318,7 @@
 <span class="sd">        :param *args: Positional query arguments to ``pymongo.Collection.insert_many``</span>
 <span class="sd">        :param refresh: If true, refresh the underlying collection</span>
 <span class="sd">        :param encoders: A dictionary/ lookup of encoders to use for encoding</span>
+<span class="sd">        :param **kwargs: Named query arguments to ``pymongo.Collection.insert_many``</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">InsertMany</span><span class="p">(</span>
             <span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span>
@@ -436,6 +440,7 @@
 
     <span class="c1">#: The collection to perform the query on</span>
     <span class="n">collection</span><span class="p">:</span> <span class="n">Collection</span>
+
     <span class="c1">#: Filter results by this dictionary</span>
     <span class="nb">filter</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Dict</span>
 
@@ -479,13 +484,13 @@
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;A query that returns documents like another document&quot;&quot;&quot;</span>
 
     <span class="c1">#: The collection to perform the query on</span>
-    <span class="n">r</span><span class="p">:</span> <span class="n">Document</span>
+    <span class="n">collection</span><span class="p">:</span> <span class="n">Collection</span>
 
     <span class="c1">#: The document to match</span>
-    <span class="n">vector_index</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">r</span><span class="p">:</span> <span class="n">Document</span>
 
     <span class="c1">#: The name of the vector index to use</span>
-    <span class="n">collection</span><span class="p">:</span> <span class="n">Collection</span>
+    <span class="n">vector_index</span><span class="p">:</span> <span class="nb">str</span>
 
     <span class="c1">#: The number of documents to return</span>
     <span class="n">n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span>
@@ -828,10 +833,12 @@
 <span class="k">class</span> <span class="nc">FeaturizeOne</span><span class="p">(</span><span class="n">SelectOne</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;A query to feature just one document&quot;&quot;&quot;</span>
 
+    <span class="c1">#: The features to extract</span>
     <span class="n">features</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span>
+
+    <span class="c1">#: The parent query to use for the like query (if applicable)</span>
     <span class="n">parent_find_one</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span>
 
-    <span class="c1">#: Uniquely identifies serialized elements of this class</span>
     <span class="n">type_id</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Literal</span><span class="p">[</span><span class="s1">&#39;mongodb.FeaturizeOne&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;mongodb.FeaturizeOne&#39;</span>
 
 <div class="viewcode-block" id="FeaturizeOne.__call__"><a class="viewcode-back" href="../../../../source/superduperdb.db.mongodb.html#superduperdb.db.mongodb.query.FeaturizeOne.__call__">[docs]</a>    <span class="nd">@override</span>
