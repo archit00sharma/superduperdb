@@ -180,6 +180,8 @@
 </ul>
 </li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="superduperdb.ext.html">superduperdb.ext package</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of superduperdb.ext package</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="superduperdb.ext.anthropic.html">superduperdb.ext.anthropic package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="superduperdb.ext.cohere.html">superduperdb.ext.cohere package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="superduperdb.ext.numpy.html">superduperdb.ext.numpy package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="superduperdb.ext.openai.html">superduperdb.ext.openai package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="superduperdb.ext.pillow.html">superduperdb.ext.pillow package</a></li>
@@ -772,6 +774,18 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="superduperdb.ext.html">superduperdb.ext package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="superduperdb.ext.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="superduperdb.ext.anthropic.html">superduperdb.ext.anthropic package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="superduperdb.ext.anthropic.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="superduperdb.ext.anthropic.html#superduperdb-ext-anthropic-model-module">superduperdb.ext.anthropic.model module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="superduperdb.ext.anthropic.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="superduperdb.ext.cohere.html">superduperdb.ext.cohere package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="superduperdb.ext.cohere.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="superduperdb.ext.cohere.html#superduperdb-ext-cohere-model-module">superduperdb.ext.cohere.model module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="superduperdb.ext.cohere.html#module-contents">Module contents</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="superduperdb.ext.numpy.html">superduperdb.ext.numpy package</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="superduperdb.ext.numpy.html#submodules">Submodules</a></li>
 <li class="toctree-l4"><a class="reference internal" href="superduperdb.ext.numpy.html#module-superduperdb.ext.numpy.array">superduperdb.ext.numpy.array module</a></li>
@@ -820,6 +834,8 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="superduperdb.ext.html#submodules">Submodules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="superduperdb.ext.html#module-superduperdb.ext.utils">superduperdb.ext.utils module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="superduperdb.ext.html#superduperdb.ext.utils.format_prompt"><code class="docutils literal notranslate"><span class="pre">format_prompt()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="superduperdb.ext.html#superduperdb.ext.utils.get_key"><code class="docutils literal notranslate"><span class="pre">get_key()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="superduperdb.ext.html#superduperdb.ext.utils.str_shape"><code class="docutils literal notranslate"><span class="pre">str_shape()</span></code></a></li>
 </ul>
 </li>
@@ -831,6 +847,7 @@
 <li class="toctree-l3"><a class="reference internal" href="superduperdb.misc.runnable.html">superduperdb.misc.runnable package</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="superduperdb.misc.runnable.html#submodules">Submodules</a></li>
 <li class="toctree-l4"><a class="reference internal" href="superduperdb.misc.runnable.html#module-superduperdb.misc.runnable.collection">superduperdb.misc.runnable.collection module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="superduperdb.misc.runnable.html#module-superduperdb.misc.runnable.queue_chunker">superduperdb.misc.runnable.queue_chunker module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="superduperdb.misc.runnable.html#module-superduperdb.misc.runnable.runnable">superduperdb.misc.runnable.runnable module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="superduperdb.misc.runnable.html#module-superduperdb.misc.runnable.thread">superduperdb.misc.runnable.thread module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="superduperdb.misc.runnable.html#module-superduperdb.misc.runnable">Module contents</a></li>
@@ -1132,7 +1149,7 @@ allow <cite>self</cite> as a field name.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="superduperdb.JSONable.SUBCLASSES">
-<span class="sig-name descname"><span class="pre">SUBCLASSES</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Type</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{&lt;class</span> <span class="pre">'superduperdb.base.config.Server'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'superduperdb.base.config.Downloads'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'superduperdb.base.config.Config'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'superduperdb.base.config.Retry'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'superduperdb.base.config.Apis'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'superduperdb.base.config.Cluster'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'superduperdb.base.config.Logging'&gt;}</span></em><a class="headerlink" href="#superduperdb.JSONable.SUBCLASSES" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">SUBCLASSES</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Type</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{&lt;class</span> <span class="pre">'superduperdb.base.config.Cluster'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'superduperdb.base.config.Config'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'superduperdb.base.config.Downloads'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'superduperdb.base.config.Server'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'superduperdb.base.config.Apis'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'superduperdb.base.config.Retry'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'superduperdb.base.config.Logging'&gt;}</span></em><a class="headerlink" href="#superduperdb.JSONable.SUBCLASSES" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">

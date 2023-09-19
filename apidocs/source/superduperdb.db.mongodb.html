@@ -180,6 +180,8 @@
 </ul>
 </li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="superduperdb.ext.html">superduperdb.ext package</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of superduperdb.ext package</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="superduperdb.ext.anthropic.html">superduperdb.ext.anthropic package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="superduperdb.ext.cohere.html">superduperdb.ext.cohere package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="superduperdb.ext.numpy.html">superduperdb.ext.numpy package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="superduperdb.ext.openai.html">superduperdb.ext.openai package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="superduperdb.ext.pillow.html">superduperdb.ext.pillow package</a></li>
@@ -271,6 +273,7 @@
 <li class="toctree-l4"><a class="reference internal" href="superduperdb.db.mongodb.cdc.html#superduperdb.db.mongodb.cdc.base.Packet.collate"><code class="docutils literal notranslate"><span class="pre">Packet.collate()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="superduperdb.db.mongodb.cdc.html#superduperdb.db.mongodb.cdc.base.Packet.event_type"><code class="docutils literal notranslate"><span class="pre">Packet.event_type</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="superduperdb.db.mongodb.cdc.html#superduperdb.db.mongodb.cdc.base.Packet.ids"><code class="docutils literal notranslate"><span class="pre">Packet.ids</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="superduperdb.db.mongodb.cdc.html#superduperdb.db.mongodb.cdc.base.Packet.is_delete"><code class="docutils literal notranslate"><span class="pre">Packet.is_delete</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="superduperdb.db.mongodb.cdc.html#superduperdb.db.mongodb.cdc.base.Packet.query"><code class="docutils literal notranslate"><span class="pre">Packet.query</span></code></a></li>
 </ul>
 </li>
@@ -332,18 +335,12 @@
 <li class="toctree-l2"><a class="reference internal" href="superduperdb.db.mongodb.cdc.html#module-superduperdb.db.mongodb.cdc.handler">superduperdb.db.mongodb.cdc.handler module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="superduperdb.db.mongodb.cdc.html#superduperdb.db.mongodb.cdc.handler.CDCHandler"><code class="docutils literal notranslate"><span class="pre">CDCHandler</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="superduperdb.db.mongodb.cdc.html#superduperdb.db.mongodb.cdc.handler.CDCHandler.__init__"><code class="docutils literal notranslate"><span class="pre">CDCHandler.__init__()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="superduperdb.db.mongodb.cdc.html#superduperdb.db.mongodb.cdc.handler.CDCHandler.create_vector_listener_task"><code class="docutils literal notranslate"><span class="pre">CDCHandler.create_vector_listener_task()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="superduperdb.db.mongodb.cdc.html#superduperdb.db.mongodb.cdc.handler.CDCHandler.get_batch_from_queue"><code class="docutils literal notranslate"><span class="pre">CDCHandler.get_batch_from_queue()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="superduperdb.db.mongodb.cdc.html#superduperdb.db.mongodb.cdc.handler.CDCHandler.on_create"><code class="docutils literal notranslate"><span class="pre">CDCHandler.on_create()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="superduperdb.db.mongodb.cdc.html#superduperdb.db.mongodb.cdc.handler.CDCHandler.on_delete"><code class="docutils literal notranslate"><span class="pre">CDCHandler.on_delete()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="superduperdb.db.mongodb.cdc.html#superduperdb.db.mongodb.cdc.handler.CDCHandler.on_update"><code class="docutils literal notranslate"><span class="pre">CDCHandler.on_update()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="superduperdb.db.mongodb.cdc.html#superduperdb.db.mongodb.cdc.handler.CDCHandler.run"><code class="docutils literal notranslate"><span class="pre">CDCHandler.run()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="superduperdb.db.mongodb.cdc.html#superduperdb.db.mongodb.cdc.handler.CDCHandler.submit_task_workflow"><code class="docutils literal notranslate"><span class="pre">CDCHandler.submit_task_workflow()</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="superduperdb.db.mongodb.cdc.html#superduperdb.db.mongodb.cdc.handler._submit_task_workflow"><code class="docutils literal notranslate"><span class="pre">_submit_task_workflow()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="superduperdb.db.mongodb.cdc.html#module-superduperdb.db.mongodb.cdc.task_queue">superduperdb.db.mongodb.cdc.task_queue module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="superduperdb.db.mongodb.cdc.html#module-superduperdb.db.mongodb.cdc.vector_task_factory">superduperdb.db.mongodb.cdc.vector_task_factory module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="superduperdb.db.mongodb.cdc.html#superduperdb.db.mongodb.cdc.vector_task_factory.copy_vectors"><code class="docutils literal notranslate"><span class="pre">copy_vectors()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="superduperdb.db.mongodb.cdc.html#superduperdb.db.mongodb.cdc.vector_task_factory.delete_vectors"><code class="docutils literal notranslate"><span class="pre">delete_vectors()</span></code></a></li>
