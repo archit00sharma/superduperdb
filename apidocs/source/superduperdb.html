@@ -185,6 +185,7 @@
 <li class="toctree-l4"><a class="reference internal" href="superduperdb.ext.numpy.html">superduperdb.ext.numpy package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="superduperdb.ext.openai.html">superduperdb.ext.openai package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="superduperdb.ext.pillow.html">superduperdb.ext.pillow package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="superduperdb.ext.sentence_transformer.html">superduperdb.ext.sentence_transformer package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="superduperdb.ext.sklearn.html">superduperdb.ext.sklearn package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="superduperdb.ext.torch.html">superduperdb.ext.torch package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="superduperdb.ext.transformers.html">superduperdb.ext.transformers package</a></li>
@@ -804,6 +805,12 @@
 <li class="toctree-l4"><a class="reference internal" href="superduperdb.ext.pillow.html#module-superduperdb.ext.pillow">Module contents</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="superduperdb.ext.sentence_transformer.html">superduperdb.ext.sentence_transformer package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="superduperdb.ext.sentence_transformer.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="superduperdb.ext.sentence_transformer.html#module-superduperdb.ext.sentence_transformer.model">superduperdb.ext.sentence_transformer.model module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="superduperdb.ext.sentence_transformer.html#module-superduperdb.ext.sentence_transformer">Module contents</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="superduperdb.ext.sklearn.html">superduperdb.ext.sklearn package</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="superduperdb.ext.sklearn.html#submodules">Submodules</a></li>
 <li class="toctree-l4"><a class="reference internal" href="superduperdb.ext.sklearn.html#module-superduperdb.ext.sklearn.model">superduperdb.ext.sklearn.model module</a></li>
@@ -1149,7 +1156,7 @@ allow <cite>self</cite> as a field name.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="superduperdb.JSONable.SUBCLASSES">
-<span class="sig-name descname"><span class="pre">SUBCLASSES</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Type</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{&lt;class</span> <span class="pre">'superduperdb.base.config.Cluster'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'superduperdb.base.config.Config'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'superduperdb.base.config.Downloads'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'superduperdb.base.config.Server'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'superduperdb.base.config.Apis'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'superduperdb.base.config.Retry'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'superduperdb.base.config.Logging'&gt;}</span></em><a class="headerlink" href="#superduperdb.JSONable.SUBCLASSES" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">SUBCLASSES</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Type</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{&lt;class</span> <span class="pre">'superduperdb.base.config.Server'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'superduperdb.base.config.Logging'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'superduperdb.base.config.Config'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'superduperdb.base.config.Cluster'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'superduperdb.base.config.Downloads'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'superduperdb.base.config.Retry'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'superduperdb.base.config.Apis'&gt;}</span></em><a class="headerlink" href="#superduperdb.JSONable.SUBCLASSES" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -1185,8 +1192,15 @@ mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</
 
 <dl class="py function">
 <dt class="sig sig-object py" id="superduperdb.superduper">
-<span class="sig-prename descclassname"><span class="pre">superduperdb.</span></span><span class="sig-name descname"><span class="pre">superduper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="headerlink" href="#superduperdb.superduper" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
+<span class="sig-prename descclassname"><span class="pre">superduperdb.</span></span><span class="sig-name descname"><span class="pre">superduper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="reference internal" href="../_modules/superduperdb/misc/superduper.html#superduper"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.superduper" title="Permalink to this definition">#</a></dt>
+<dd><p>Attempts to automatically wrap an item in a superduperdb container by
+using duck typing to recognize it.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>item</strong> – A database or model</p>
+</dd>
+</dl>
+</dd></dl>
 
 </section>
 </section>

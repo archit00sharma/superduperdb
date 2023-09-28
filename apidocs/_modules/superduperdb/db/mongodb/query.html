@@ -184,6 +184,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../source/superduperdb.ext.numpy.html">superduperdb.ext.numpy package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../source/superduperdb.ext.openai.html">superduperdb.ext.openai package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../source/superduperdb.ext.pillow.html">superduperdb.ext.pillow package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../source/superduperdb.ext.sentence_transformer.html">superduperdb.ext.sentence_transformer package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../source/superduperdb.ext.sklearn.html">superduperdb.ext.sklearn package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../source/superduperdb.ext.torch.html">superduperdb.ext.torch package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../source/superduperdb.ext.transformers.html">superduperdb.ext.transformers package</a></li>
@@ -260,9 +261,11 @@
 
 <div class="viewcode-block" id="Collection"><a class="viewcode-back" href="../../../../source/superduperdb.db.mongodb.html#superduperdb.db.mongodb.query.Collection">[docs]</a><span class="nd">@dc</span><span class="o">.</span><span class="n">dataclass</span>
 <span class="k">class</span> <span class="nc">Collection</span><span class="p">(</span><span class="n">Serializable</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Collection wrapper&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Collection wrapper</span>
 
-    <span class="c1">#: The name of this Collection</span>
+<span class="sd">    :param name: The name of this Collection</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
 
     <span class="nd">@property</span>
@@ -441,27 +444,23 @@
 
 <div class="viewcode-block" id="ReplaceOne"><a class="viewcode-back" href="../../../../source/superduperdb.db.mongodb.html#superduperdb.db.mongodb.query.ReplaceOne">[docs]</a><span class="nd">@dc</span><span class="o">.</span><span class="n">dataclass</span>
 <span class="k">class</span> <span class="nc">ReplaceOne</span><span class="p">(</span><span class="n">Update</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;A query that replaces one record in a collection&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A query that replaces one record in a collection</span>
 
-    <span class="c1">#: The collection to perform the query on</span>
+<span class="sd">    :param collection: The collection to perform the query on</span>
+<span class="sd">    :param filter: Filter results by this dictionary</span>
+<span class="sd">    :param update: The update to apply</span>
+<span class="sd">    :param args: Positional query arguments to ``pymongo.Collection.replace_one``</span>
+<span class="sd">    :param kwargs: Named query arguments to ``pymongo.Collection.replace_one``</span>
+<span class="sd">    :param refresh: If true, refresh the model outputs</span>
+<span class="sd">    :param verbose: If true, print more logging</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">collection</span><span class="p">:</span> <span class="n">Collection</span>
-
-    <span class="c1">#: Filter results by this dictionary</span>
     <span class="nb">filter</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Dict</span>
-
-    <span class="c1">#: The update to apply</span>
     <span class="n">update</span><span class="p">:</span> <span class="n">Document</span>
-
-    <span class="c1">#: Positional query arguments to ``pymongo.Collection.replace_one``</span>
     <span class="n">args</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Sequence</span> <span class="o">=</span> <span class="n">dc</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
-
-    <span class="c1">#: Named query arguments to ``pymongo.Collection.replace_one``</span>
     <span class="n">kwargs</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Dict</span> <span class="o">=</span> <span class="n">dc</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">dict</span><span class="p">)</span>
-
-    <span class="c1">#: If true, refresh the model outputs</span>
     <span class="n">refresh</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
-
-    <span class="c1">#: If true, print more logging</span>
     <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
 
     <span class="n">type_id</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Literal</span><span class="p">[</span><span class="s1">&#39;mongodb.ReplaceOne&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;mongodb.ReplaceOne&#39;</span>
@@ -486,18 +485,17 @@
 
 <div class="viewcode-block" id="PreLike"><a class="viewcode-back" href="../../../../source/superduperdb.db.mongodb.html#superduperdb.db.mongodb.query.PreLike">[docs]</a><span class="nd">@dc</span><span class="o">.</span><span class="n">dataclass</span>
 <span class="k">class</span> <span class="nc">PreLike</span><span class="p">(</span><span class="n">Like</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;A query that returns documents like another document&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A query that returns documents like another document</span>
 
-    <span class="c1">#: The collection to perform the query on</span>
+<span class="sd">    :param collection: The collection to perform the query on</span>
+<span class="sd">    :param r: The document to match</span>
+<span class="sd">    :param vector_index: The name of the vector index to use</span>
+<span class="sd">    :param n: The number of documents to return</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">collection</span><span class="p">:</span> <span class="n">Collection</span>
-
-    <span class="c1">#: The document to match</span>
     <span class="n">r</span><span class="p">:</span> <span class="n">Document</span>
-
-    <span class="c1">#: The name of the vector index to use</span>
     <span class="n">vector_index</span><span class="p">:</span> <span class="nb">str</span>
-
-    <span class="c1">#: The number of documents to return</span>
     <span class="n">n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span>
 
     <span class="n">type_id</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Literal</span><span class="p">[</span><span class="s1">&#39;mongodb.PreLike&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;mongodb.PreLike&#39;</span>
@@ -568,20 +566,19 @@
 
 <div class="viewcode-block" id="Find"><a class="viewcode-back" href="../../../../source/superduperdb.db.mongodb.html#superduperdb.db.mongodb.query.Find">[docs]</a><span class="nd">@dc</span><span class="o">.</span><span class="n">dataclass</span>
 <span class="k">class</span> <span class="nc">Find</span><span class="p">(</span><span class="n">Select</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;A query to find documents&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A query to find documents</span>
+
+<span class="sd">    :param collection: The collection to perform the query on</span>
+<span class="sd">    :param like_parent: The parent query to use for the like query (if applicable)</span>
+<span class="sd">    :param args: Positional query arguments to ``pymongo.Collection.find``</span>
+<span class="sd">    :param kwargs: Named query arguments to ``pymongo.Collection.find``</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">id_field</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">ClassVar</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;_id&#39;</span>
 
-    <span class="c1">#: The collection to perform the query on</span>
     <span class="n">collection</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="n">Collection</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
-
-    <span class="c1">#: The parent query to use for the like query (if applicable)</span>
     <span class="n">like_parent</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="n">PreLike</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
-
-    <span class="c1">#: Positional query arguments to ``pymongo.Collection.find``</span>
     <span class="n">args</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Sequence</span> <span class="o">=</span> <span class="n">dc</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
-
-    <span class="c1">#: Named query arguments to ``pymongo.Collection.find``</span>
     <span class="n">kwargs</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Dict</span> <span class="o">=</span> <span class="n">dc</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">dict</span><span class="p">)</span>
 
     <span class="n">type_id</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Literal</span><span class="p">[</span><span class="s1">&#39;mongodb.Find&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;mongodb.Find&#39;</span>
@@ -811,21 +808,18 @@
 <span class="k">class</span> <span class="nc">CountDocuments</span><span class="p">(</span><span class="n">Select</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A query to count documents</span>
+
+<span class="sd">    :param collection: The collection to perform the query on</span>
+<span class="sd">    :param like_parent: The parent query to use for the like query (if applicable)</span>
+<span class="sd">    :param args: Positional query arguments to ``pymongo.Collection.count_documents``</span>
+<span class="sd">    :param kwargs: Named query arguments to ``pymongo.Collection.count_documents``</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="c1">#: The collection to perform the query on</span>
     <span class="n">collection</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="n">Collection</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
-
-    <span class="c1">#: The parent query to use for the like query (if applicable)</span>
     <span class="n">like_parent</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="n">PreLike</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
-
-    <span class="c1">#: Positional query arguments to ``pymongo.Collection.count_documents``</span>
     <span class="n">args</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Sequence</span> <span class="o">=</span> <span class="n">dc</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
-
-    <span class="c1">#: Named query arguments to ``pymongo.Collection.count_documents``</span>
     <span class="n">kwargs</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Dict</span> <span class="o">=</span> <span class="n">dc</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">dict</span><span class="p">)</span>
 
-    <span class="c1">#: Uniquely identifies serialized elements of this class</span>
     <span class="n">type_id</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Literal</span><span class="p">[</span><span class="s1">&#39;mongodb.CountDocuments&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;mongodb.CountDocuments&#39;</span>
 
 <div class="viewcode-block" id="CountDocuments.__call__"><a class="viewcode-back" href="../../../../source/superduperdb.db.mongodb.html#superduperdb.db.mongodb.query.CountDocuments.__call__">[docs]</a>    <span class="nd">@override</span>
@@ -836,12 +830,13 @@
 
 <div class="viewcode-block" id="FeaturizeOne"><a class="viewcode-back" href="../../../../source/superduperdb.db.mongodb.html#superduperdb.db.mongodb.query.FeaturizeOne">[docs]</a><span class="nd">@dc</span><span class="o">.</span><span class="n">dataclass</span>
 <span class="k">class</span> <span class="nc">FeaturizeOne</span><span class="p">(</span><span class="n">SelectOne</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;A query to feature just one document&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A query to feature just one document</span>
 
-    <span class="c1">#: The features to extract</span>
+<span class="sd">    :param features: The features to extract</span>
+<span class="sd">    :param parent_find_one: The parent query to use for the like query (if applicable)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">features</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span>
-
-    <span class="c1">#: The parent query to use for the like query (if applicable)</span>
     <span class="n">parent_find_one</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span>
 
     <span class="n">type_id</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Literal</span><span class="p">[</span><span class="s1">&#39;mongodb.FeaturizeOne&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;mongodb.FeaturizeOne&#39;</span>
@@ -855,21 +850,20 @@
 
 <div class="viewcode-block" id="FindOne"><a class="viewcode-back" href="../../../../source/superduperdb.db.mongodb.html#superduperdb.db.mongodb.query.FindOne">[docs]</a><span class="nd">@dc</span><span class="o">.</span><span class="n">dataclass</span>
 <span class="k">class</span> <span class="nc">FindOne</span><span class="p">(</span><span class="n">SelectOne</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;A query to find one document.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A query to find one document.</span>
+
+<span class="sd">    :param collection: The collection to perform the query on</span>
+<span class="sd">    :param like_parent: The parent query to use for the like query (if applicable)</span>
+<span class="sd">    :param args: Positional query arguments to ``pymongo.Collection.find_one``</span>
+<span class="sd">    :param kwargs: Named query arguments to ``pymongo.Collection.find_one``</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="c1"># TODO add this to a base class (should be created)</span>
     <span class="n">id_field</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">ClassVar</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;_id&#39;</span>
 
-    <span class="c1">#: The collection to perform the query on</span>
     <span class="n">collection</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="n">Collection</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
-
-    <span class="c1">#: The parent query to use for the like query (if applicable)</span>
     <span class="n">like_parent</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="n">PreLike</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
-
-    <span class="c1">#: Positional query arguments to ``pymongo.Collection.find_one``</span>
     <span class="n">args</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Sequence</span> <span class="o">=</span> <span class="n">dc</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
-
-    <span class="c1">#: Named query arguments to ``pymongo.Collection.find_one``</span>
     <span class="n">kwargs</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Dict</span> <span class="o">=</span> <span class="n">dc</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">dict</span><span class="p">)</span>
 
     <span class="n">type_id</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Literal</span><span class="p">[</span><span class="s1">&#39;mongodb.FindOne&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;mongodb.FindOne&#39;</span>
@@ -894,18 +888,17 @@
 
 <div class="viewcode-block" id="Aggregate"><a class="viewcode-back" href="../../../../source/superduperdb.db.mongodb.html#superduperdb.db.mongodb.query.Aggregate">[docs]</a><span class="nd">@dc</span><span class="o">.</span><span class="n">dataclass</span>
 <span class="k">class</span> <span class="nc">Aggregate</span><span class="p">(</span><span class="n">Select</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;An aggregate query&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;An aggregate query</span>
 
-    <span class="c1">#: The collection to perform the query on</span>
+<span class="sd">    :param collection: The collection to perform the query on</span>
+<span class="sd">    :param args: Positional query arguments to ``pymongo.Collection.aggregate``</span>
+<span class="sd">    :param kwargs: Named query arguments to ``pymongo.Collection.aggregate``</span>
+<span class="sd">    :param vector_index: The name of the vector index to use</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">collection</span><span class="p">:</span> <span class="n">Collection</span>
-
-    <span class="c1">#: Positional query arguments to ``pymongo.Collection.aggregate``</span>
     <span class="n">args</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Sequence</span> <span class="o">=</span> <span class="n">dc</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
-
-    <span class="c1">#: Named query arguments to ``pymongo.Collection.aggregate``</span>
     <span class="n">kwargs</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Dict</span> <span class="o">=</span> <span class="n">dc</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">dict</span><span class="p">)</span>
-
-    <span class="c1">#: The name of the vector index to use</span>
     <span class="n">vector_index</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 
     <span class="n">type_id</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Literal</span><span class="p">[</span><span class="s1">&#39;mongodb.Aggregate&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;mongodb.Aggregate&#39;</span>
@@ -957,15 +950,15 @@
 
 <div class="viewcode-block" id="DeleteOne"><a class="viewcode-back" href="../../../../source/superduperdb.db.mongodb.html#superduperdb.db.mongodb.query.DeleteOne">[docs]</a><span class="nd">@dc</span><span class="o">.</span><span class="n">dataclass</span>
 <span class="k">class</span> <span class="nc">DeleteOne</span><span class="p">(</span><span class="n">Delete</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;A query to delete a single document&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A query to delete a single document</span>
 
-    <span class="c1">#: The collection to perform the query on</span>
+<span class="sd">    :param collection: The collection to perform the query on</span>
+<span class="sd">    :param args: Positional query arguments to ``pymongo.Collection.delete_one``</span>
+<span class="sd">    :param kwargs: Named query arguments to ``pymongo.Collection.delete_one``</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">collection</span><span class="p">:</span> <span class="n">Collection</span>
-
-    <span class="c1">#: Positional query arguments to ``pymongo.Collection.delete_one``</span>
     <span class="n">args</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Sequence</span> <span class="o">=</span> <span class="n">dc</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
-
-    <span class="c1">#: Named query arguments to ``pymongo.Collection.delete_one``</span>
     <span class="n">kwargs</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Dict</span> <span class="o">=</span> <span class="n">dc</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">dict</span><span class="p">)</span>
 
     <span class="n">type_id</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Literal</span><span class="p">[</span><span class="s1">&#39;mongodb.DeleteOne&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;mongodb.DeleteOne&#39;</span>
@@ -977,15 +970,15 @@
 
 <div class="viewcode-block" id="DeleteMany"><a class="viewcode-back" href="../../../../source/superduperdb.db.mongodb.html#superduperdb.db.mongodb.query.DeleteMany">[docs]</a><span class="nd">@dc</span><span class="o">.</span><span class="n">dataclass</span>
 <span class="k">class</span> <span class="nc">DeleteMany</span><span class="p">(</span><span class="n">Delete</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;A query to delete many documents&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A query to delete many documents</span>
 
-    <span class="c1">#: The collection to perform the query on</span>
+<span class="sd">    :param collection: The collection to perform the query on</span>
+<span class="sd">    :param args: Positional query arguments to ``pymongo.Collection.delete_many``</span>
+<span class="sd">    :param kwargs: Named query arguments to ``pymongo.Collection.delete_many``</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">collection</span><span class="p">:</span> <span class="n">Collection</span>
-
-    <span class="c1">#: Positional query arguments to ``pymongo.Collection.delete_many``</span>
     <span class="n">args</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Sequence</span> <span class="o">=</span> <span class="n">dc</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
-
-    <span class="c1">#: Named query arguments to ``pymongo.Collection.delete_many``</span>
     <span class="n">kwargs</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Dict</span> <span class="o">=</span> <span class="n">dc</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">dict</span><span class="p">)</span>
 
     <span class="n">type_id</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Literal</span><span class="p">[</span><span class="s1">&#39;mongodb.DeleteMany&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;mongodb.DeleteMany&#39;</span>
@@ -997,30 +990,25 @@
 
 <div class="viewcode-block" id="UpdateOne"><a class="viewcode-back" href="../../../../source/superduperdb.db.mongodb.html#superduperdb.db.mongodb.query.UpdateOne">[docs]</a><span class="nd">@dc</span><span class="o">.</span><span class="n">dataclass</span>
 <span class="k">class</span> <span class="nc">UpdateOne</span><span class="p">(</span><span class="n">Update</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;A query that updates one document&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A query that updates one document</span>
 
-    <span class="c1">#: The collection to perform the query on</span>
+<span class="sd">    :param collection: The collection to perform the query on</span>
+<span class="sd">    :param update: The update to apply</span>
+<span class="sd">    :param filter: Filter results by this dictionary</span>
+<span class="sd">    :param refresh: If true, refresh the underlying collection</span>
+<span class="sd">    :param verbose: If true, print more logging</span>
+<span class="sd">    :param args: Positional query arguments to ``pymongo.Collection.update_one``</span>
+<span class="sd">    :param kwargs: Named query arguments to ``pymongo.Collection.update_one``</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">collection</span><span class="p">:</span> <span class="n">Collection</span>
-
-    <span class="c1">#: The update to apply</span>
     <span class="n">update</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Any</span>
-
-    <span class="c1">#: Filter results by this dictionary</span>
     <span class="nb">filter</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Dict</span>
-
-    <span class="c1">#: If true, refresh the underlying collection</span>
     <span class="n">refresh</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
-
-    <span class="c1">#: If true, print more logging</span>
     <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
-
-    <span class="c1">#: Positional query arguments to ``pymongo.Collection.update_one``</span>
     <span class="n">args</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Sequence</span> <span class="o">=</span> <span class="n">dc</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
-
-    <span class="c1">#: Named query arguments to ``pymongo.Collection.update_one``</span>
     <span class="n">kwargs</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Dict</span> <span class="o">=</span> <span class="n">dc</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">dict</span><span class="p">)</span>
 
-    <span class="c1">#: Uniquely identifies serialized elements of this class</span>
     <span class="n">type_id</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Literal</span><span class="p">[</span><span class="s1">&#39;mongodb.UpdateOne&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;mongodb.UpdateOne&#39;</span>
 
 <div class="viewcode-block" id="UpdateOne.__call__"><a class="viewcode-back" href="../../../../source/superduperdb.db.mongodb.html#superduperdb.db.mongodb.query.UpdateOne.__call__">[docs]</a>    <span class="nd">@override</span>
@@ -1040,28 +1028,24 @@
 
 <div class="viewcode-block" id="UpdateMany"><a class="viewcode-back" href="../../../../source/superduperdb.db.mongodb.html#superduperdb.db.mongodb.query.UpdateMany">[docs]</a><span class="nd">@dc</span><span class="o">.</span><span class="n">dataclass</span>
 <span class="k">class</span> <span class="nc">UpdateMany</span><span class="p">(</span><span class="n">Update</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;A query that updates one document&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A query that updates one document</span>
 
-    <span class="c1">#: The collection to perform the query on</span>
+<span class="sd">    :param collection: The collection to perform the query on</span>
+<span class="sd">    :param filter: Filter results by this dictionary</span>
+<span class="sd">    :param refresh: If true, refresh the underlying collection</span>
+<span class="sd">    :param verbose: If true, print more logging</span>
+<span class="sd">    :param args: Positional query arguments</span>
+<span class="sd">    :param kwargs: Named query arguments</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">collection</span><span class="p">:</span> <span class="n">Collection</span>
-
-    <span class="c1">#: Filter results by this dictionary</span>
     <span class="nb">filter</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Dict</span>
     <span class="n">update</span><span class="p">:</span> <span class="n">Document</span>
-
-    <span class="c1">#: If true, refresh the underlying collection</span>
     <span class="n">refresh</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
-
-    <span class="c1">#: If true, print more logging</span>
     <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
-
-    <span class="c1">#: Positional query arguments</span>
     <span class="n">args</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Sequence</span> <span class="o">=</span> <span class="n">dc</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
-
-    <span class="c1">#: Named query arguments</span>
     <span class="n">kwargs</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Dict</span> <span class="o">=</span> <span class="n">dc</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">dict</span><span class="p">)</span>
 
-    <span class="c1">#: Uniquely identifies serialized elements of this class</span>
     <span class="n">type_id</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Literal</span><span class="p">[</span><span class="s1">&#39;mongodb.UpdateMany&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;mongodb.UpdateMany&#39;</span>
 
 <div class="viewcode-block" id="UpdateMany.__call__"><a class="viewcode-back" href="../../../../source/superduperdb.db.mongodb.html#superduperdb.db.mongodb.query.UpdateMany.__call__">[docs]</a>    <span class="nd">@override</span>
@@ -1096,27 +1080,23 @@
 
 <div class="viewcode-block" id="InsertMany"><a class="viewcode-back" href="../../../../source/superduperdb.db.mongodb.html#superduperdb.db.mongodb.query.InsertMany">[docs]</a><span class="nd">@dc</span><span class="o">.</span><span class="n">dataclass</span>
 <span class="k">class</span> <span class="nc">InsertMany</span><span class="p">(</span><span class="n">Insert</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;A query that inserts many documents&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A query that inserts many documents</span>
 
-    <span class="c1">#: The collection to perform the query on</span>
+<span class="sd">    :param collection: The collection to perform the query on</span>
+<span class="sd">    :param documents: The documents to insert</span>
+<span class="sd">    :param refresh: If true, refresh the underlying collection</span>
+<span class="sd">    :param verbose: If true, print more logging</span>
+<span class="sd">    :param args: Positional query arguments to ``pymongo.Collection.insert_many``</span>
+<span class="sd">    :param kwargs: Named query arguments to ``pymongo.Collection.insert_many``</span>
+<span class="sd">    :param encoders: Encoders to use</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">collection</span><span class="p">:</span> <span class="n">Collection</span>
-
-    <span class="c1">#: The documents to insert</span>
     <span class="n">documents</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">Document</span><span class="p">]</span> <span class="o">=</span> <span class="n">dc</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
-
-    <span class="c1">#: If true, refresh the underlying collection</span>
     <span class="n">refresh</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
-
-    <span class="c1">#: If true, print more logging</span>
     <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
-
-    <span class="c1">#: Positional query arguments to ``pymongo.Collection.insert_many``</span>
     <span class="n">args</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Sequence</span> <span class="o">=</span> <span class="n">dc</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
-
-    <span class="c1">#: Named query arguments to ``pymongo.Collection.insert_many``</span>
     <span class="n">kwargs</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Dict</span> <span class="o">=</span> <span class="n">dc</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">dict</span><span class="p">)</span>
-
-    <span class="c1">#: Encoders to use</span>
     <span class="n">encoders</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Sequence</span> <span class="o">=</span> <span class="n">dc</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
 
     <span class="n">type_id</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Literal</span><span class="p">[</span><span class="s1">&#39;mongodb.InsertMany&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;mongodb.InsertMany&#39;</span>
@@ -1168,21 +1148,19 @@
 
 <div class="viewcode-block" id="PostLike"><a class="viewcode-back" href="../../../../source/superduperdb.db.mongodb.html#superduperdb.db.mongodb.query.PostLike">[docs]</a><span class="nd">@dc</span><span class="o">.</span><span class="n">dataclass</span>
 <span class="k">class</span> <span class="nc">PostLike</span><span class="p">(</span><span class="n">Select</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Find documents like this one&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Find documents like this one</span>
 
-    <span class="c1">#: The parent query to use for the like query (if applicable)</span>
+<span class="sd">    :param find_parent: The parent query to use for the like query (if applicable)</span>
+<span class="sd">    :param r: The document to match</span>
+<span class="sd">    :param vector_index: The name of the vector index to use</span>
+<span class="sd">    :param n: The number of documents to return</span>
+<span class="sd">    :param max_ids: The maximum number of ids to use for the like query</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">find_parent</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="n">Find</span><span class="p">]</span>
-
-    <span class="c1">#: The document to match</span>
     <span class="n">r</span><span class="p">:</span> <span class="n">Document</span>
-
-    <span class="c1">#: The name of the vector index to use</span>
     <span class="n">vector_index</span><span class="p">:</span> <span class="nb">str</span>
-
-    <span class="c1">#: The number of documents to return</span>
     <span class="n">n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span>
-
-    <span class="c1">#: The maximum number of ids to use for the like query</span>
     <span class="n">max_ids</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1000</span>
 
     <span class="n">type_id</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Literal</span><span class="p">[</span><span class="s1">&#39;mongodb.PostLike&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;mongodb.PostLike&#39;</span>
@@ -1210,12 +1188,13 @@
 
 <div class="viewcode-block" id="Featurize"><a class="viewcode-back" href="../../../../source/superduperdb.db.mongodb.html#superduperdb.db.mongodb.query.Featurize">[docs]</a><span class="nd">@dc</span><span class="o">.</span><span class="n">dataclass</span>
 <span class="k">class</span> <span class="nc">Featurize</span><span class="p">(</span><span class="n">Select</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;A feature-extraction query&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A feature-extraction query</span>
 
-    <span class="c1">#: The features to extract</span>
+<span class="sd">    :param features: The features to extract</span>
+<span class="sd">    :param parent: The parent query to use for the like query (if applicable)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">features</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span>
-
-    <span class="c1">#: The parent query to use for the like query (if applicable)</span>
     <span class="n">parent</span><span class="p">:</span> <span class="n">Find</span>
 
     <span class="n">type_id</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Literal</span><span class="p">[</span><span class="s1">&#39;mongodb.Featurize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;mongodb.Featurize&#39;</span>
@@ -1287,12 +1266,13 @@
 
 <div class="viewcode-block" id="Limit"><a class="viewcode-back" href="../../../../source/superduperdb.db.mongodb.html#superduperdb.db.mongodb.query.Limit">[docs]</a><span class="nd">@dc</span><span class="o">.</span><span class="n">dataclass</span>
 <span class="k">class</span> <span class="nc">Limit</span><span class="p">(</span><span class="n">Select</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;A query that limits the number of returned documents&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A query that limits the number of returned documents</span>
 
-    <span class="c1">#: The number of documents to return</span>
+<span class="sd">    :param n: The number of documents to return</span>
+<span class="sd">    :param parent: The parent query to use for the like query (if applicable)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">n</span><span class="p">:</span> <span class="nb">int</span>
-
-    <span class="c1">#: The parent query to use for the like query (if applicable)</span>
     <span class="n">parent</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="n">Featurize</span><span class="p">,</span> <span class="n">Find</span><span class="p">,</span> <span class="n">PreLike</span><span class="p">,</span> <span class="n">PostLike</span><span class="p">]</span>
 
     <span class="n">type_id</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Literal</span><span class="p">[</span><span class="s1">&#39;mongodb.Limit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;mongodb.Limit&#39;</span>
@@ -1304,15 +1284,15 @@
 
 <div class="viewcode-block" id="ChangeStream"><a class="viewcode-back" href="../../../../source/superduperdb.db.mongodb.html#superduperdb.db.mongodb.query.ChangeStream">[docs]</a><span class="nd">@dc</span><span class="o">.</span><span class="n">dataclass</span>
 <span class="k">class</span> <span class="nc">ChangeStream</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Request a stream of changes from a db&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Request a stream of changes from a db</span>
 
-    <span class="c1">#: The collection to perform the query on</span>
+<span class="sd">    :param collection: The collection to perform the query on</span>
+<span class="sd">    :param args: Positional query arguments to ``pymongo.Collection.watch``</span>
+<span class="sd">    :param kwargs: Named query arguments to ``pymongo.Collection.watch``</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">collection</span><span class="p">:</span> <span class="n">Collection</span>
-
-    <span class="c1">#: Positional query arguments to ``pymongo.Collection.watch``</span>
     <span class="n">args</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Sequence</span> <span class="o">=</span> <span class="n">dc</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
-
-    <span class="c1">#: Named query arguments to ``pymongo.Collection.watch``</span>
     <span class="n">kwargs</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Dict</span> <span class="o">=</span> <span class="n">dc</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">dict</span><span class="p">)</span>
 
 <div class="viewcode-block" id="ChangeStream.__call__"><a class="viewcode-back" href="../../../../source/superduperdb.db.mongodb.html#superduperdb.db.mongodb.query.ChangeStream.__call__">[docs]</a>    <span class="nd">@override</span>

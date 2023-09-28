@@ -185,6 +185,7 @@
 <li class="toctree-l4"><a class="reference internal" href="superduperdb.ext.numpy.html">superduperdb.ext.numpy package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="superduperdb.ext.openai.html">superduperdb.ext.openai package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="superduperdb.ext.pillow.html">superduperdb.ext.pillow package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="superduperdb.ext.sentence_transformer.html">superduperdb.ext.sentence_transformer package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="superduperdb.ext.sklearn.html">superduperdb.ext.sklearn package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="superduperdb.ext.torch.html">superduperdb.ext.torch package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="superduperdb.ext.transformers.html">superduperdb.ext.transformers package</a></li>
@@ -394,6 +395,17 @@ Not to be confused with <code class="docutils literal notranslate"><span class="
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A cursor that wraps a cursor and returns <code class="docutils literal notranslate"><span class="pre">Document</span></code> wrapping
 a dict including <code class="docutils literal notranslate"><span class="pre">Encodable</span></code> objects.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>raw_cursor</strong> – the cursor to wrap</p></li>
+<li><p><strong>id_field</strong> – the field to use as the document id</p></li>
+<li><p><strong>encoders</strong> – a dict of encoders to use to decode the documents</p></li>
+<li><p><strong>features</strong> – a dict of features to add to the documents</p></li>
+<li><p><strong>scores</strong> – a dict of scores to add to the documents</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="superduperdb.db.base.cursor.SuperDuperCursor.add_features">
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">add_features</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">features</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/db/base/cursor.html#SuperDuperCursor.add_features"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.db.base.cursor.SuperDuperCursor.add_features" title="Permalink to this definition">#</a></dt>
@@ -422,20 +434,17 @@ a dict including <code class="docutils literal notranslate"><span class="pre">En
 <dl class="py attribute">
 <dt class="sig sig-object py" id="superduperdb.db.base.cursor.SuperDuperCursor.encoders">
 <span class="sig-name descname"><span class="pre">encoders</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="superduperdb.container.html#superduperdb.container.encoder.Encoder" title="superduperdb.container.encoder.Encoder"><span class="pre">Encoder</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#superduperdb.db.base.cursor.SuperDuperCursor.encoders" title="Permalink to this definition">#</a></dt>
-<dd><p>a dict of encoders to use to decode the documents</p>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="superduperdb.db.base.cursor.SuperDuperCursor.features">
 <span class="sig-name descname"><span class="pre">features</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#superduperdb.db.base.cursor.SuperDuperCursor.features" title="Permalink to this definition">#</a></dt>
-<dd><p>a dict of features to add to the documents</p>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="superduperdb.db.base.cursor.SuperDuperCursor.id_field">
 <span class="sig-name descname"><span class="pre">id_field</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#superduperdb.db.base.cursor.SuperDuperCursor.id_field" title="Permalink to this definition">#</a></dt>
-<dd><p>the field to use as the document id</p>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="superduperdb.db.base.cursor.SuperDuperCursor.limit">
@@ -451,14 +460,12 @@ a dict including <code class="docutils literal notranslate"><span class="pre">En
 <dl class="py attribute">
 <dt class="sig sig-object py" id="superduperdb.db.base.cursor.SuperDuperCursor.raw_cursor">
 <span class="sig-name descname"><span class="pre">raw_cursor</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Any</span></em><a class="headerlink" href="#superduperdb.db.base.cursor.SuperDuperCursor.raw_cursor" title="Permalink to this definition">#</a></dt>
-<dd><p>the cursor to wrap</p>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="superduperdb.db.base.cursor.SuperDuperCursor.scores">
 <span class="sig-name descname"><span class="pre">scores</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#superduperdb.db.base.cursor.SuperDuperCursor.scores" title="Permalink to this definition">#</a></dt>
-<dd><p>a dict of scores to add to the documents</p>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="superduperdb.db.base.cursor.SuperDuperCursor.wrap_document">

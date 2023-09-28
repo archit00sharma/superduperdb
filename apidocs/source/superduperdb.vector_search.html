@@ -185,6 +185,7 @@
 <li class="toctree-l4"><a class="reference internal" href="superduperdb.ext.numpy.html">superduperdb.ext.numpy package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="superduperdb.ext.openai.html">superduperdb.ext.openai package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="superduperdb.ext.pillow.html">superduperdb.ext.pillow package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="superduperdb.ext.sentence_transformer.html">superduperdb.ext.sentence_transformer package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="superduperdb.ext.sklearn.html">superduperdb.ext.sklearn package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="superduperdb.ext.torch.html">superduperdb.ext.torch package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="superduperdb.ext.transformers.html">superduperdb.ext.transformers package</a></li>
@@ -637,6 +638,15 @@ last_value: the last value assigned or None</p>
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">superduperdb.vector_search.lancedb_client.</span></span><span class="sig-name descname"><span class="pre">LanceTable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LanceDBConnection</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">table</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LanceTable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">measure</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'cosine'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/vector_search/lancedb_client.html#LanceTable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.vector_search.lancedb_client.LanceTable" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A <code class="docutils literal notranslate"><span class="pre">LanceTable</span></code> within a <code class="docutils literal notranslate"><span class="pre">LanceDBClient</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>client</strong> – <code class="docutils literal notranslate"><span class="pre">LanceDBClient</span></code> instance.</p></li>
+<li><p><strong>table</strong> – <code class="docutils literal notranslate"><span class="pre">LanceTable</span></code> instance.</p></li>
+<li><p><strong>measure</strong> – Distance measure for vector search. Defaults to ‘cosine’.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="superduperdb.vector_search.lancedb_client.LanceTable.add">
 <span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#superduperdb.vector_search.base.VectorCollectionItem" title="superduperdb.vector_search.base.VectorCollectionItem"><span class="pre">VectorCollectionItem</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upsert</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/superduperdb/vector_search/lancedb_client.html#LanceTable.add"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.vector_search.lancedb_client.LanceTable.add" title="Permalink to this definition">#</a></dt>
@@ -654,8 +664,7 @@ last_value: the last value assigned or None</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="superduperdb.vector_search.lancedb_client.LanceTable.client">
 <span class="sig-name descname"><span class="pre">client</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">LanceDBConnection</span></em><a class="headerlink" href="#superduperdb.vector_search.lancedb_client.LanceTable.client" title="Permalink to this definition">#</a></dt>
-<dd><p><code class="docutils literal notranslate"><span class="pre">LanceDBClient</span></code> instance.</p>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="superduperdb.vector_search.lancedb_client.LanceTable.delete_from_ids">
@@ -716,8 +725,7 @@ last_value: the last value assigned or None</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="superduperdb.vector_search.lancedb_client.LanceTable.measure">
 <span class="sig-name descname"><span class="pre">measure</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'cosine'</span></em><a class="headerlink" href="#superduperdb.vector_search.lancedb_client.LanceTable.measure" title="Permalink to this definition">#</a></dt>
-<dd><p>Distance measure for vector search. Defaults to ‘cosine’.</p>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="superduperdb.vector_search.lancedb_client.LanceTable.size">
@@ -728,8 +736,7 @@ last_value: the last value assigned or None</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="superduperdb.vector_search.lancedb_client.LanceTable.table">
 <span class="sig-name descname"><span class="pre">table</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">LanceTable</span></em><a class="headerlink" href="#superduperdb.vector_search.lancedb_client.LanceTable.table" title="Permalink to this definition">#</a></dt>
-<dd><p><code class="docutils literal notranslate"><span class="pre">LanceTable</span></code> instance.</p>
-</dd></dl>
+<dd></dd></dl>
 
 </dd></dl>
 
