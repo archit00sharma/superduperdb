@@ -429,24 +429,20 @@ field within a vector database.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="superduperdb.vector_search.base.VectorDatabase">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">superduperdb.vector_search.base.</span></span><span class="sig-name descname"><span class="pre">VectorDatabase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/vector_search/base.html#VectorDatabase"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.vector_search.base.VectorDatabase" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">superduperdb.vector_search.base.</span></span><span class="sig-name descname"><span class="pre">VectorDatabase</span></span><a class="reference internal" href="../_modules/superduperdb/vector_search/base.html#VectorDatabase"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.vector_search.base.VectorDatabase" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
-<p>A manager for vector indexes within a vector database.
-A vector database that manages indexed vector collections.</p>
+<p>A vector database that manages vector collections.</p>
 <p>Concrete implementations of this class are responsible for lifecycle management of
 vector collections within a specific vector database.</p>
-<p>Clients of this class retrieve vector collections by their identifier for subsequent
-operations.</p>
+<p>Implementations of this abstract base class retrieve vector collections by their
+identifier for subsequent operations.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="superduperdb.vector_search.base.VectorDatabase.get_table">
 <em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#superduperdb.vector_search.base.VectorCollectionConfig" title="superduperdb.vector_search.base.VectorCollectionConfig"><span class="pre">VectorCollectionConfig</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#superduperdb.vector_search.base.VectorCollection" title="superduperdb.vector_search.base.VectorCollection"><span class="pre">VectorCollection</span></a></span></span><a class="reference internal" href="../_modules/superduperdb/vector_search/base.html#VectorDatabase.get_table"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.vector_search.base.VectorDatabase.get_table" title="Permalink to this definition">#</a></dt>
 <dd><p>Get a vector collection by its identifier.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>config</strong> – configuration for the vector database</p></li>
-<li><p><strong>create</strong> – create the table if it does not exist</p></li>
-</ul>
+<dd class="field-odd"><p><strong>config</strong> – configuration for the vector database</p>
 </dd>
 </dl>
 </dd></dl>
@@ -567,10 +563,7 @@ last_value: the last value assigned or None</p>
 <dd><p>Get a vector collection by its identifier.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>config</strong> – configuration for the vector database</p></li>
-<li><p><strong>create</strong> – create the table if it does not exist</p></li>
-</ul>
+<dd class="field-odd"><p><strong>config</strong> – configuration for the vector database</p>
 </dd>
 </dl>
 </dd></dl>
@@ -578,237 +571,124 @@ last_value: the last value assigned or None</p>
 </dd></dl>
 
 </section>
-<section id="module-superduperdb.vector_search.lancedb_client">
-<span id="superduperdb-vector-search-lancedb-client-module"></span><h2>superduperdb.vector_search.lancedb_client module<a class="headerlink" href="#module-superduperdb.vector_search.lancedb_client" title="Permalink to this heading">#</a></h2>
+<section id="module-superduperdb.vector_search.lance">
+<span id="superduperdb-vector-search-lance-module"></span><h2>superduperdb.vector_search.lance module<a class="headerlink" href="#module-superduperdb.vector_search.lance" title="Permalink to this heading">#</a></h2>
 <dl class="py class">
-<dt class="sig sig-object py" id="superduperdb.vector_search.lancedb_client.LanceDBClient">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">superduperdb.vector_search.lancedb_client.</span></span><span class="sig-name descname"><span class="pre">LanceDBClient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/vector_search/lancedb_client.html#LanceDBClient"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.vector_search.lancedb_client.LanceDBClient" title="Permalink to this definition">#</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Initialize the <code class="docutils literal notranslate"><span class="pre">LanceDBClient</span></code>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>config</strong> – Configuration object for vector search.</p>
-</dd>
-</dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="superduperdb.vector_search.lancedb_client.LanceDBClient.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/superduperdb/vector_search/lancedb_client.html#LanceDBClient.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.vector_search.lancedb_client.LanceDBClient.__init__" title="Permalink to this definition">#</a></dt>
-<dd><p>Initialize the <code class="docutils literal notranslate"><span class="pre">LanceDBClient</span></code>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>config</strong> – Configuration object for vector search.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="superduperdb.vector_search.lancedb_client.LanceDBClient.create_table">
-<span class="sig-name descname"><span class="pre">create_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">schema</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">measure</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'cosine'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#superduperdb.vector_search.lancedb_client.LanceTable" title="superduperdb.vector_search.lancedb_client.LanceTable"><span class="pre">LanceTable</span></a></span></span><a class="reference internal" href="../_modules/superduperdb/vector_search/lancedb_client.html#LanceDBClient.create_table"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.vector_search.lancedb_client.LanceDBClient.create_table" title="Permalink to this definition">#</a></dt>
-<dd><p>Create a <code class="docutils literal notranslate"><span class="pre">LanceTable</span></code>.</p>
+<dt class="sig sig-object py" id="superduperdb.vector_search.lance.LanceVectorCollection">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">superduperdb.vector_search.lance.</span></span><span class="sig-name descname"><span class="pre">LanceVectorCollection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dimensions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">measure</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'cosine'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/vector_search/lance.html#LanceVectorCollection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.vector_search.lance.LanceVectorCollection" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#superduperdb.vector_search.base.VectorCollection" title="superduperdb.vector_search.base.VectorCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">VectorCollection</span></code></a></p>
+<p>A class for managing a lance dataset.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>table_name</strong> – Name of the table.</p></li>
-<li><p><strong>data</strong> – Data to initialize the table with. Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
-<li><p><strong>schema</strong> – Schema of the table. Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
-<li><p><strong>measure</strong> – Distance measure for vector search. Defaults to ‘cosine’.</p></li>
+<li><p><strong>uri</strong> – URI of the Lance dataset</p></li>
+<li><p><strong>dimensions</strong> – dimension of the vector embeddings in the Lance dataset</p></li>
+<li><p><strong>measure</strong> – measure which defines strategy to use for vector search.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="superduperdb.vector_search.lance.LanceVectorCollection.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dimensions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">measure</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'cosine'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/superduperdb/vector_search/lance.html#LanceVectorCollection.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.vector_search.lance.LanceVectorCollection.__init__" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>uri</strong> – URI of the Lance dataset</p></li>
+<li><p><strong>dimensions</strong> – dimension of the vector embeddings in the Lance dataset</p></li>
+<li><p><strong>measure</strong> – measure which defines strategy to use for vector search.</p></li>
 </ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="superduperdb.vector_search.lancedb_client.LanceDBClient.get_table">
-<span class="sig-name descname"><span class="pre">get_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">measure</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'cosine'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#superduperdb.vector_search.lancedb_client.LanceTable" title="superduperdb.vector_search.lancedb_client.LanceTable"><span class="pre">LanceTable</span></a></span></span><a class="reference internal" href="../_modules/superduperdb/vector_search/lancedb_client.html#LanceDBClient.get_table"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.vector_search.lancedb_client.LanceDBClient.get_table" title="Permalink to this definition">#</a></dt>
-<dd><p>Get a LanceTable from the <code class="docutils literal notranslate"><span class="pre">LanceDBClient</span></code>.</p>
+<dt class="sig sig-object py" id="superduperdb.vector_search.lance.LanceVectorCollection.add">
+<span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#superduperdb.vector_search.base.VectorCollectionItem" title="superduperdb.vector_search.base.VectorCollectionItem"><span class="pre">VectorCollectionItem</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upsert</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/superduperdb/vector_search/lance.html#LanceVectorCollection.add"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.vector_search.lance.LanceVectorCollection.add" title="Permalink to this definition">#</a></dt>
+<dd><p>Add vectors to existing Lance dataset or create a new one if it doesn’t exist.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>table_name</strong> – Name of the table.</p></li>
-<li><p><strong>measure</strong> – Distance measure for vector search. Defaults to ‘cosine’.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="superduperdb.vector_search.lancedb_client.LanceTable">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">superduperdb.vector_search.lancedb_client.</span></span><span class="sig-name descname"><span class="pre">LanceTable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LanceDBConnection</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">table</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LanceTable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">measure</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'cosine'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/vector_search/lancedb_client.html#LanceTable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.vector_search.lancedb_client.LanceTable" title="Permalink to this definition">#</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>A <code class="docutils literal notranslate"><span class="pre">LanceTable</span></code> within a <code class="docutils literal notranslate"><span class="pre">LanceDBClient</span></code>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>client</strong> – <code class="docutils literal notranslate"><span class="pre">LanceDBClient</span></code> instance.</p></li>
-<li><p><strong>table</strong> – <code class="docutils literal notranslate"><span class="pre">LanceTable</span></code> instance.</p></li>
-<li><p><strong>measure</strong> – Distance measure for vector search. Defaults to ‘cosine’.</p></li>
-</ul>
-</dd>
-</dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="superduperdb.vector_search.lancedb_client.LanceTable.add">
-<span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#superduperdb.vector_search.base.VectorCollectionItem" title="superduperdb.vector_search.base.VectorCollectionItem"><span class="pre">VectorCollectionItem</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upsert</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/superduperdb/vector_search/lancedb_client.html#LanceTable.add"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.vector_search.lancedb_client.LanceTable.add" title="Permalink to this definition">#</a></dt>
-<dd><p>Add vectors to the <code class="docutils literal notranslate"><span class="pre">LanceTable</span></code>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>data</strong> – t.Sequence of <code class="docutils literal notranslate"><span class="pre">VectorCollectionItem</span></code> objects.</p></li>
-<li><p><strong>upsert</strong> – Whether to perform an upsert operation. Defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="superduperdb.vector_search.lancedb_client.LanceTable.client">
-<span class="sig-name descname"><span class="pre">client</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">LanceDBConnection</span></em><a class="headerlink" href="#superduperdb.vector_search.lancedb_client.LanceTable.client" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="superduperdb.vector_search.lancedb_client.LanceTable.delete_from_ids">
-<span class="sig-name descname"><span class="pre">delete_from_ids</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ids</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/superduperdb/vector_search/lancedb_client.html#LanceTable.delete_from_ids"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.vector_search.lancedb_client.LanceTable.delete_from_ids" title="Permalink to this definition">#</a></dt>
-<dd><p>Delete vectors from the <code class="docutils literal notranslate"><span class="pre">LanceTable</span></code>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>ids</strong> – t.Sequence of identifiers.</p>
+<dd class="field-odd"><p><strong>data</strong> – t.Sequence of <code class="docutils literal notranslate"><span class="pre">VectorCollectionItem</span></code> objects.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="superduperdb.vector_search.lancedb_client.LanceTable.find_nearest_from_array">
-<span class="sig-name descname"><span class="pre">find_nearest_from_array</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">array</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">measure</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">within_ids</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">()</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#superduperdb.vector_search.base.VectorCollectionResult" title="superduperdb.vector_search.base.VectorCollectionResult"><span class="pre">VectorCollectionResult</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/superduperdb/vector_search/lancedb_client.html#LanceTable.find_nearest_from_array"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.vector_search.lancedb_client.LanceTable.find_nearest_from_array" title="Permalink to this definition">#</a></dt>
-<dd><p>Find nearest vectors to the given array.</p>
+<dt class="sig sig-object py" id="superduperdb.vector_search.lance.LanceVectorCollection.delete_from_ids">
+<span class="sig-name descname"><span class="pre">delete_from_ids</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ids</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/superduperdb/vector_search/lance.html#LanceVectorCollection.delete_from_ids"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.vector_search.lance.LanceVectorCollection.delete_from_ids" title="Permalink to this definition">#</a></dt>
+<dd><p>Delete vectors from the lance dataset.
+:param ids: t.Sequence of identifiers.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="superduperdb.vector_search.lance.LanceVectorCollection.find_nearest_from_array">
+<span class="sig-name descname"><span class="pre">find_nearest_from_array</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">array</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_SupportsArray</span><span class="p"><span class="pre">[</span></span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">_NestedSequence</span><span class="p"><span class="pre">[</span></span><span class="pre">_SupportsArray</span><span class="p"><span class="pre">[</span></span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">complex</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">_NestedSequence</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">complex</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytes</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">within_ids</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">measure</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#superduperdb.vector_search.base.VectorCollectionResult" title="superduperdb.vector_search.base.VectorCollectionResult"><span class="pre">VectorCollectionResult</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/superduperdb/vector_search/lance.html#LanceVectorCollection.find_nearest_from_array"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.vector_search.lance.LanceVectorCollection.find_nearest_from_array" title="Permalink to this definition">#</a></dt>
+<dd><p>Find items that are nearest to the given vector.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>array</strong> – Array representing the vector.</p></li>
-<li><p><strong>limit</strong> – Maximum number of nearest vectors to return. Defaults to 100.</p></li>
-<li><p><strong>measure</strong> – Distance measure for vector search. Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
-<li><p><strong>within_ids</strong> – <code class="docutils literal notranslate"><span class="pre">t.List</span></code> of identifiers to search within. Defaults to ().</p></li>
+<li><p><strong>array</strong> – array representing the vector</p></li>
+<li><p><strong>within_ids</strong> – identifiers to search within</p></li>
+<li><p><strong>limit</strong> – maximum number of nearest items to return</p></li>
+<li><p><strong>offset</strong> – offset of the first item to return</p></li>
 </ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="superduperdb.vector_search.lancedb_client.LanceTable.find_nearest_from_id">
-<span class="sig-name descname"><span class="pre">find_nearest_from_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">identifier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">measure</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#superduperdb.vector_search.base.VectorCollectionResult" title="superduperdb.vector_search.base.VectorCollectionResult"><span class="pre">VectorCollectionResult</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/superduperdb/vector_search/lancedb_client.html#LanceTable.find_nearest_from_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.vector_search.lancedb_client.LanceTable.find_nearest_from_id" title="Permalink to this definition">#</a></dt>
-<dd><p>Find nearest vectors to the vector with the given identifier.</p>
+<dt class="sig sig-object py" id="superduperdb.vector_search.lance.LanceVectorCollection.find_nearest_from_id">
+<span class="sig-name descname"><span class="pre">find_nearest_from_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">identifier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">within_ids</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#superduperdb.vector_search.base.VectorCollectionResult" title="superduperdb.vector_search.base.VectorCollectionResult"><span class="pre">VectorCollectionResult</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/superduperdb/vector_search/lance.html#LanceVectorCollection.find_nearest_from_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.vector_search.lance.LanceVectorCollection.find_nearest_from_id" title="Permalink to this definition">#</a></dt>
+<dd><p>Find items that are nearest to the item with the given identifier.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">lance</span></code> file format has been specifically designed for fast
+random access. The logic to take advantage of this is implemented
+by the <code class="docutils literal notranslate"><span class="pre">.take</span></code> method.</p>
+<p>See <a class="reference external" href="https://blog.lancedb.com/benchmarking-random-access-in-lance-ed690757a826">https://blog.lancedb.com/benchmarking-random-access-in-lance-ed690757a826</a>
+for further details.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>identifier</strong> – Identifier of the vector.</p></li>
-<li><p><strong>limit</strong> – Maximum number of nearest vectors to return. Defaults to 100.</p></li>
-<li><p><strong>measure</strong> – Distance measure for vector search. Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>identifier</strong> – identifier of the item</p></li>
+<li><p><strong>within_ids</strong> – identifiers to search within</p></li>
+<li><p><strong>limit</strong> – maximum number of nearest items to return</p></li>
+<li><p><strong>offset</strong> – offset of the first item to return</p></li>
 </ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="superduperdb.vector_search.lancedb_client.LanceTable.get">
-<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">identifier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/superduperdb/vector_search/lancedb_client.html#LanceTable.get"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.vector_search.lancedb_client.LanceTable.get" title="Permalink to this definition">#</a></dt>
-<dd><p>Get a vector from the <code class="docutils literal notranslate"><span class="pre">LanceTable</span></code>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>identifier</strong> – Identifier of the vector.</p></li>
-<li><p><strong>limit</strong> – Maximum number of vectors to return. Defaults to 1.</p></li>
-</ul>
-</dd>
-</dl>
+<dt class="sig sig-object py" id="superduperdb.vector_search.lance.LanceVectorCollection.size">
+<span class="sig-name descname"><span class="pre">size</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../_modules/superduperdb/vector_search/lance.html#LanceVectorCollection.size"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.vector_search.lance.LanceVectorCollection.size" title="Permalink to this definition">#</a></dt>
+<dd><p>Get the number of rows in lance dataset.</p>
 </dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="superduperdb.vector_search.lancedb_client.LanceTable.measure">
-<span class="sig-name descname"><span class="pre">measure</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'cosine'</span></em><a class="headerlink" href="#superduperdb.vector_search.lancedb_client.LanceTable.measure" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="superduperdb.vector_search.lancedb_client.LanceTable.size">
-<span class="sig-name descname"><span class="pre">size</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../_modules/superduperdb/vector_search/lancedb_client.html#LanceTable.size"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.vector_search.lancedb_client.LanceTable.size" title="Permalink to this definition">#</a></dt>
-<dd><p>Get the number of rows in <code class="docutils literal notranslate"><span class="pre">LanceTable</span></code>.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="superduperdb.vector_search.lancedb_client.LanceTable.table">
-<span class="sig-name descname"><span class="pre">table</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">LanceTable</span></em><a class="headerlink" href="#superduperdb.vector_search.lancedb_client.LanceTable.table" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="superduperdb.vector_search.lancedb_client.LanceVectorIndex">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">superduperdb.vector_search.lancedb_client.</span></span><span class="sig-name descname"><span class="pre">LanceVectorIndex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">measure</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'cosine'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#superduperdb.vector_search.lancedb_client.LanceDBClient" title="superduperdb.vector_search.lancedb_client.LanceDBClient"><span class="pre">LanceDBClient</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/vector_search/lancedb_client.html#LanceVectorIndex"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.vector_search.lancedb_client.LanceVectorIndex" title="Permalink to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#superduperdb.vector_search.base.BaseVectorIndex" title="superduperdb.vector_search.base.BaseVectorIndex"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseVectorIndex</span></code></a></p>
-<p>Initialize the <code class="docutils literal notranslate"><span class="pre">LanceVectorIndex</span></code>.</p>
+<dt class="sig sig-object py" id="superduperdb.vector_search.lance.LanceVectorDatabase">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">superduperdb.vector_search.lance.</span></span><span class="sig-name descname"><span class="pre">LanceVectorDatabase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/superduperdb/vector_search/lance.html#LanceVectorDatabase"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.vector_search.lance.LanceVectorDatabase" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#superduperdb.vector_search.base.VectorDatabase" title="superduperdb.vector_search.base.VectorDatabase"><code class="xref py py-class docutils literal notranslate"><span class="pre">VectorDatabase</span></code></a></p>
+<p>A class for managing multiple Lance datasets.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>uri</strong> – URI of the LanceDB database.</p></li>
-<li><p><strong>measure</strong> – Distance measure for vector search. Defaults to ‘cosine’.</p></li>
-<li><p><strong>client</strong> – <code class="docutils literal notranslate"><span class="pre">LanceDBClient</span></code> instance. Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
-</ul>
+<dd class="field-odd"><p><strong>root_dir</strong> – root directory that contains all Lance datasets</p>
 </dd>
 </dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="superduperdb.vector_search.lancedb_client.LanceVectorIndex.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">measure</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'cosine'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#superduperdb.vector_search.lancedb_client.LanceDBClient" title="superduperdb.vector_search.lancedb_client.LanceDBClient"><span class="pre">LanceDBClient</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/superduperdb/vector_search/lancedb_client.html#LanceVectorIndex.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.vector_search.lancedb_client.LanceVectorIndex.__init__" title="Permalink to this definition">#</a></dt>
-<dd><p>Initialize the <code class="docutils literal notranslate"><span class="pre">LanceVectorIndex</span></code>.</p>
-<dl class="field-list simple">
+<dt class="sig sig-object py" id="superduperdb.vector_search.lance.LanceVectorDatabase.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/superduperdb/vector_search/lance.html#LanceVectorDatabase.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.vector_search.lance.LanceVectorDatabase.__init__" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>uri</strong> – URI of the LanceDB database.</p></li>
-<li><p><strong>measure</strong> – Distance measure for vector search. Defaults to ‘cosine’.</p></li>
-<li><p><strong>client</strong> – <code class="docutils literal notranslate"><span class="pre">LanceDBClient</span></code> instance. Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
-</ul>
+<dd class="field-odd"><p><strong>root_dir</strong> – root directory that contains all Lance datasets</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="superduperdb.vector_search.lancedb_client.LanceVectorIndex._create_schema">
-<span class="sig-name descname"><span class="pre">_create_schema</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dimensions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Schema</span></span></span><a class="reference internal" href="../_modules/superduperdb/vector_search/lancedb_client.html#LanceVectorIndex._create_schema"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.vector_search.lancedb_client.LanceVectorIndex._create_schema" title="Permalink to this definition">#</a></dt>
-<dd><p>Create the schema for the <code class="docutils literal notranslate"><span class="pre">LanceTable</span></code>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>dimensions</strong> – Number of <code class="docutils literal notranslate"><span class="pre">dimensions</span></code> of the vectors.</p>
-</dd>
-</dl>
+<dt class="sig sig-object py" id="superduperdb.vector_search.lance.LanceVectorDatabase.get_table">
+<span class="sig-name descname"><span class="pre">get_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#superduperdb.vector_search.base.VectorCollectionConfig" title="superduperdb.vector_search.base.VectorCollectionConfig"><span class="pre">VectorCollectionConfig</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">create</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#superduperdb.vector_search.base.VectorCollection" title="superduperdb.vector_search.base.VectorCollection"><span class="pre">VectorCollection</span></a></span></span><a class="reference internal" href="../_modules/superduperdb/vector_search/lance.html#LanceVectorDatabase.get_table"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.vector_search.lance.LanceVectorDatabase.get_table" title="Permalink to this definition">#</a></dt>
+<dd><p>Retrieve a managed Lance dataset according to the given config.</p>
 </dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="superduperdb.vector_search.lancedb_client.LanceVectorIndex.create_table">
-<span class="sig-name descname"><span class="pre">create_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#superduperdb.vector_search.base.VectorCollectionConfig" title="superduperdb.vector_search.base.VectorCollectionConfig"><span class="pre">VectorCollectionConfig</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#superduperdb.vector_search.lancedb_client.LanceTable" title="superduperdb.vector_search.lancedb_client.LanceTable"><span class="pre">LanceTable</span></a></span></span><a class="reference internal" href="../_modules/superduperdb/vector_search/lancedb_client.html#LanceVectorIndex.create_table"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.vector_search.lancedb_client.LanceVectorIndex.create_table" title="Permalink to this definition">#</a></dt>
-<dd><p>Create the <code class="docutils literal notranslate"><span class="pre">LanceTable</span></code> based on the <code class="docutils literal notranslate"><span class="pre">VectorCollectionConfig</span></code>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>config</strong> – Configuration object for vector collection.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="superduperdb.vector_search.lancedb_client.LanceVectorIndex.get_table">
-<span class="sig-name descname"><span class="pre">get_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#superduperdb.vector_search.base.VectorCollectionConfig" title="superduperdb.vector_search.base.VectorCollectionConfig"><span class="pre">VectorCollectionConfig</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">create</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#superduperdb.vector_search.lancedb_client.LanceTable" title="superduperdb.vector_search.lancedb_client.LanceTable"><span class="pre">LanceTable</span></a></span></span><a class="reference internal" href="../_modules/superduperdb/vector_search/lancedb_client.html#LanceVectorIndex.get_table"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#superduperdb.vector_search.lancedb_client.LanceVectorIndex.get_table" title="Permalink to this definition">#</a></dt>
-<dd><p>Get the <code class="docutils literal notranslate"><span class="pre">LanceTable</span></code> based on the <code class="docutils literal notranslate"><span class="pre">VectorCollectionConfig</span></code>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>identifier</strong> – Identifier of the vector table.</p></li>
-<li><p><strong>create</strong> – create the table if it does not exist. Defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="superduperdb.vector_search.lancedb_client.LanceVectorIndex.name">
-<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'lancedb'</span></em><a class="headerlink" href="#superduperdb.vector_search.lancedb_client.LanceVectorIndex.name" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
 
 </dd></dl>
 
@@ -980,31 +860,19 @@ last_value: the last value assigned or None</p>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#module-superduperdb.vector_search.lancedb_client">superduperdb.vector_search.lancedb_client module</a><ul>
-<li><a class="reference internal" href="#superduperdb.vector_search.lancedb_client.LanceDBClient"><code class="docutils literal notranslate"><span class="pre">LanceDBClient</span></code></a><ul>
-<li><a class="reference internal" href="#superduperdb.vector_search.lancedb_client.LanceDBClient.__init__"><code class="docutils literal notranslate"><span class="pre">LanceDBClient.__init__()</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.vector_search.lancedb_client.LanceDBClient.create_table"><code class="docutils literal notranslate"><span class="pre">LanceDBClient.create_table()</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.vector_search.lancedb_client.LanceDBClient.get_table"><code class="docutils literal notranslate"><span class="pre">LanceDBClient.get_table()</span></code></a></li>
+<li><a class="reference internal" href="#module-superduperdb.vector_search.lance">superduperdb.vector_search.lance module</a><ul>
+<li><a class="reference internal" href="#superduperdb.vector_search.lance.LanceVectorCollection"><code class="docutils literal notranslate"><span class="pre">LanceVectorCollection</span></code></a><ul>
+<li><a class="reference internal" href="#superduperdb.vector_search.lance.LanceVectorCollection.__init__"><code class="docutils literal notranslate"><span class="pre">LanceVectorCollection.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#superduperdb.vector_search.lance.LanceVectorCollection.add"><code class="docutils literal notranslate"><span class="pre">LanceVectorCollection.add()</span></code></a></li>
+<li><a class="reference internal" href="#superduperdb.vector_search.lance.LanceVectorCollection.delete_from_ids"><code class="docutils literal notranslate"><span class="pre">LanceVectorCollection.delete_from_ids()</span></code></a></li>
+<li><a class="reference internal" href="#superduperdb.vector_search.lance.LanceVectorCollection.find_nearest_from_array"><code class="docutils literal notranslate"><span class="pre">LanceVectorCollection.find_nearest_from_array()</span></code></a></li>
+<li><a class="reference internal" href="#superduperdb.vector_search.lance.LanceVectorCollection.find_nearest_from_id"><code class="docutils literal notranslate"><span class="pre">LanceVectorCollection.find_nearest_from_id()</span></code></a></li>
+<li><a class="reference internal" href="#superduperdb.vector_search.lance.LanceVectorCollection.size"><code class="docutils literal notranslate"><span class="pre">LanceVectorCollection.size()</span></code></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#superduperdb.vector_search.lancedb_client.LanceTable"><code class="docutils literal notranslate"><span class="pre">LanceTable</span></code></a><ul>
-<li><a class="reference internal" href="#superduperdb.vector_search.lancedb_client.LanceTable.add"><code class="docutils literal notranslate"><span class="pre">LanceTable.add()</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.vector_search.lancedb_client.LanceTable.client"><code class="docutils literal notranslate"><span class="pre">LanceTable.client</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.vector_search.lancedb_client.LanceTable.delete_from_ids"><code class="docutils literal notranslate"><span class="pre">LanceTable.delete_from_ids()</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.vector_search.lancedb_client.LanceTable.find_nearest_from_array"><code class="docutils literal notranslate"><span class="pre">LanceTable.find_nearest_from_array()</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.vector_search.lancedb_client.LanceTable.find_nearest_from_id"><code class="docutils literal notranslate"><span class="pre">LanceTable.find_nearest_from_id()</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.vector_search.lancedb_client.LanceTable.get"><code class="docutils literal notranslate"><span class="pre">LanceTable.get()</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.vector_search.lancedb_client.LanceTable.measure"><code class="docutils literal notranslate"><span class="pre">LanceTable.measure</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.vector_search.lancedb_client.LanceTable.size"><code class="docutils literal notranslate"><span class="pre">LanceTable.size()</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.vector_search.lancedb_client.LanceTable.table"><code class="docutils literal notranslate"><span class="pre">LanceTable.table</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#superduperdb.vector_search.lancedb_client.LanceVectorIndex"><code class="docutils literal notranslate"><span class="pre">LanceVectorIndex</span></code></a><ul>
-<li><a class="reference internal" href="#superduperdb.vector_search.lancedb_client.LanceVectorIndex.__init__"><code class="docutils literal notranslate"><span class="pre">LanceVectorIndex.__init__()</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.vector_search.lancedb_client.LanceVectorIndex._create_schema"><code class="docutils literal notranslate"><span class="pre">LanceVectorIndex._create_schema()</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.vector_search.lancedb_client.LanceVectorIndex.create_table"><code class="docutils literal notranslate"><span class="pre">LanceVectorIndex.create_table()</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.vector_search.lancedb_client.LanceVectorIndex.get_table"><code class="docutils literal notranslate"><span class="pre">LanceVectorIndex.get_table()</span></code></a></li>
-<li><a class="reference internal" href="#superduperdb.vector_search.lancedb_client.LanceVectorIndex.name"><code class="docutils literal notranslate"><span class="pre">LanceVectorIndex.name</span></code></a></li>
+<li><a class="reference internal" href="#superduperdb.vector_search.lance.LanceVectorDatabase"><code class="docutils literal notranslate"><span class="pre">LanceVectorDatabase</span></code></a><ul>
+<li><a class="reference internal" href="#superduperdb.vector_search.lance.LanceVectorDatabase.__init__"><code class="docutils literal notranslate"><span class="pre">LanceVectorDatabase.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#superduperdb.vector_search.lance.LanceVectorDatabase.get_table"><code class="docutils literal notranslate"><span class="pre">LanceVectorDatabase.get_table()</span></code></a></li>
 </ul>
 </li>
 </ul>
