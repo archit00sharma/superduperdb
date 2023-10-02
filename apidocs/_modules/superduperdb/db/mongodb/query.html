@@ -787,9 +787,11 @@
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="p">,</span> <span class="n">Collection</span><span class="p">):</span>
             <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">collection</span><span class="p">,</span> <span class="s2">&quot;Please set a valid collection name&quot;</span>
             <span class="n">cursor</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">db</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">collection</span><span class="o">.</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="n">scores</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="p">,</span> <span class="n">Like</span><span class="p">):</span>
             <span class="n">intermediate</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="p">(</span><span class="n">db</span><span class="p">)</span>
             <span class="n">ids</span> <span class="o">=</span> <span class="p">[</span><span class="n">ObjectId</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="s1">&#39;_id&#39;</span><span class="p">])</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">intermediate</span><span class="p">]</span>
+            <span class="n">scores</span> <span class="o">=</span> <span class="n">intermediate</span><span class="o">.</span><span class="n">scores</span>
             <span class="k">try</span><span class="p">:</span>
                 <span class="nb">filter</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
             <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
@@ -801,7 +803,9 @@
             <span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">NotImplementedError</span>
-        <span class="k">return</span> <span class="n">SuperDuperCursor</span><span class="p">(</span><span class="n">raw_cursor</span><span class="o">=</span><span class="n">cursor</span><span class="p">,</span> <span class="n">id_field</span><span class="o">=</span><span class="s1">&#39;_id&#39;</span><span class="p">,</span> <span class="n">encoders</span><span class="o">=</span><span class="n">db</span><span class="o">.</span><span class="n">encoders</span><span class="p">)</span></div></div>
+        <span class="k">return</span> <span class="n">SuperDuperCursor</span><span class="p">(</span>
+            <span class="n">raw_cursor</span><span class="o">=</span><span class="n">cursor</span><span class="p">,</span> <span class="n">id_field</span><span class="o">=</span><span class="s1">&#39;_id&#39;</span><span class="p">,</span> <span class="n">encoders</span><span class="o">=</span><span class="n">db</span><span class="o">.</span><span class="n">encoders</span><span class="p">,</span> <span class="n">scores</span><span class="o">=</span><span class="n">scores</span>
+        <span class="p">)</span></div></div>
 
 
 <div class="viewcode-block" id="CountDocuments"><a class="viewcode-back" href="../../../../source/superduperdb.db.mongodb.html#superduperdb.db.mongodb.query.CountDocuments">[docs]</a><span class="nd">@dc</span><span class="o">.</span><span class="n">dataclass</span>
@@ -1180,10 +1184,17 @@
             <span class="n">ids</span><span class="o">=</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">_id</span><span class="p">)</span> <span class="k">for</span> <span class="n">_id</span> <span class="ow">in</span> <span class="n">ids</span><span class="p">],</span>
         <span class="p">)</span>
         <span class="n">ids</span> <span class="o">=</span> <span class="p">[</span><span class="n">ObjectId</span><span class="p">(</span><span class="n">_id</span><span class="p">)</span> <span class="k">for</span> <span class="n">_id</span> <span class="ow">in</span> <span class="n">ids</span><span class="p">]</span>
-        <span class="k">return</span> <span class="n">Find</span><span class="p">(</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="n">Find</span><span class="p">(</span>
             <span class="n">collection</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">find_parent</span><span class="o">.</span><span class="n">collection</span><span class="p">,</span>
             <span class="n">args</span><span class="o">=</span><span class="p">[{</span><span class="s1">&#39;_id&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;$in&#39;</span><span class="p">:</span> <span class="n">ids</span><span class="p">}}],</span>
-        <span class="p">)(</span><span class="n">db</span><span class="p">)</span></div></div>
+        <span class="p">)(</span><span class="n">db</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">SuperDuperCursor</span><span class="p">(</span>
+            <span class="n">raw_cursor</span><span class="o">=</span><span class="n">out</span><span class="o">.</span><span class="n">raw_cursor</span><span class="p">,</span>
+            <span class="n">scores</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">ids</span><span class="p">,</span> <span class="n">scores</span><span class="p">)),</span>
+            <span class="n">encoders</span><span class="o">=</span><span class="n">out</span><span class="o">.</span><span class="n">encoders</span><span class="p">,</span>
+            <span class="n">features</span><span class="o">=</span><span class="n">out</span><span class="o">.</span><span class="n">features</span><span class="p">,</span>
+            <span class="n">id_field</span><span class="o">=</span><span class="n">out</span><span class="o">.</span><span class="n">id_field</span><span class="p">,</span>
+        <span class="p">)</span></div></div>
 
 
 <div class="viewcode-block" id="Featurize"><a class="viewcode-back" href="../../../../source/superduperdb.db.mongodb.html#superduperdb.db.mongodb.query.Featurize">[docs]</a><span class="nd">@dc</span><span class="o">.</span><span class="n">dataclass</span>
