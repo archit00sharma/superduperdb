@@ -12,6 +12,14 @@ superduperdb.ext.transformers.model module
    :undoc-members:
    :show-inheritance:
 
+superduperdb.ext.transformers.training module
+---------------------------------------------
+
+.. automodule:: superduperdb.ext.transformers.training
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Module contents
 ---------------
 
